@@ -1,0 +1,17 @@
+{
+  "name": "aspiresql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "fulltable": "node fullTable.js",
+    "asyncfulltable": "node asyncFullTable.js",
+    "studenttable": "node studentTable.js"
+  },
+  "author": "Dallas Lovell",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^7.8.0"
+  }
+}
