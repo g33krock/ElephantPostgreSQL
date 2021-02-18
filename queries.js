@@ -1,4 +1,4 @@
-const Pool = require('pg'.Pool)
+const Pool = require('pg').Pool;
 const pool = new Pool({
     user:"baermmev",
     password:"4YfDg5m_yNSRYUJB04EKKfwjUbMgjpew",
@@ -8,24 +8,20 @@ const pool = new Pool({
 })
 
 const getUsers = (request, response) => {
-    pool.connect()
-    .then(() => console.log("Successful connection... you are the best!"))
-    .then (() => pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
-      if (error) {
-        throw error
-      }
-      response.status(200).json(results.rows)
-    }))
-    .catch(e => console.log)
-    .finally(() => pool.end())
-  }
+	pool.query('SELECT * FROM teachers ORDER BY teacher_id ASC', (error, results) => {
+		if (error) {
+			throw error
+		}
+		response.status(200).json(results.rows)
+	})
+}
   
   const getUserById = (request, response) => {
     const id = parseInt(request.params.id)
     
     pool.connect()
     .then(() => console.log("Successful connection... you are the best!"))
-    .then(() => pool.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
+    .then(() => pool.query('SELECT * FROM teachers WHERE teacher_id = $1', [id], (error, results) => {
       if (error) {
         throw error
       }
@@ -52,13 +48,13 @@ const getUsers = (request, response) => {
   
   const updateUser = (request, response) => {
     const id = parseInt(request.params.id)
-    const { firstname, lastname, campus, role, id } = request.body
+    const { firstname, lastname, campus, role, teacher_id } = request.body;
   
     pool.connect()
     .then(() => console.log("Successful connection... you are the best!"))
     .then(() => pool.query(
       'UPDATE users SET firstname = $1, lastname = $2, campus = $3, role = $4 WHERE id = $5',
-      [firstname, lastname, campus, role, id],
+      [firstname, lastname, campus, role, teacher_id],
       (error, results) => {
         if (error) {
           throw error
