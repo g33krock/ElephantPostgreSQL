@@ -9,11 +9,31 @@
     <button onclick="getTeachers()">Ahoy!</button>
 		<script>
 			async function getTeachers(){
-				const res = await fetch('http://localhost:3000/users');
+				const res = await fetch('http://localhost:3001/users');
 				const data = await res.json();
 				data.forEach(teacher => {
-					document.body.append(teacher.firstname);
+					document.body.append(JSON.stringify(teacher));
 				})
+			}
+		</script>
+		<button onclick="postTeachers()">Yar!</button>
+		<script>
+			async function postTeachers(teacher_id, firstname, lastname, campus, role){
+				const newTeacher = {
+					teacher_id: 41,
+					firstname: "Parker",
+					lastname: "Lovell",
+					campus: "Ishikawa",
+					role: "Pre-Teenager"
+				};
+				fetch('http://localhost:3001/users', {
+					method: 'POST',
+					body: JSON.stringify(newTeacher),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
+				
 			}
 		</script>
 </body>
