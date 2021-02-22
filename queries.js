@@ -44,30 +44,25 @@ const getUsers = (request, response) => {
   const { firstname, lastname, campus, role, teacher_id } = request.body;
 
 
-  (() => console.log("Successful connection... you are the best!"))(() => pool.query(
-    'UPDATE teachers SET firstname = $1, lastname = $2, campus = $3, role = $4 WHERE id = $5',
-    [firstname, lastname, campus, role, teacher_id],
-    (error, results) => {
+  pool.query('UPDATE teachers SET firstname = $1, lastname = $2, campus = $3, role = $4 WHERE teacher_id = $5', [firstname, lastname, campus, role, teacher_id], (error, results) => {
       if (error) {
         throw error;
       }
-      response.status(200).send(`User modified with ID: ${id}`);
+      response.status(200).send(`User modified`);
     }
-  ))(e => console.log);
+  )
 }
   
   const deleteUser = (request, response) => {
     const id = parseInt(request.params.id)
   
     
-    (() => console.log("Successful connection... you are the best!"))
-    (() => pool.query('DELETE FROM teachers WHERE id = $1', [id], (error, results) => {
+    pool.query('DELETE FROM teachers WHERE teacher_id = $1', [id], (error, results) => {
       if (error) {
         throw error
       }
-      response.status(200).send(`User deleted with ID: ${id}`)
-    }))
-    (e => console.log)
+      response.status(200).send(`User deleted`)
+    })
     
   }
   
