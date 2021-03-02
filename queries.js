@@ -7,6 +7,15 @@ const pool = new Pool({
     database:"baermmev"
 })
 
+let getImages = (request, response) => {
+	pool.query('SELECT image FROM teachers ORDER BY teacher_id ASC', (error, results) => {
+		if (error) {
+			throw error
+		}
+		response.status(200).json(results.rows);
+	})
+}
+
 const getUsers = (request, response) => {
 	pool.query('SELECT * FROM teachers ORDER BY teacher_id ASC', (error, results) => {
 		if (error) {
@@ -67,6 +76,7 @@ const getUsers = (request, response) => {
   }
   
   module.exports = {
+    getImages,
     getUsers,
     getUserById,
     createUser,

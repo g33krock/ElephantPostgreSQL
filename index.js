@@ -12,7 +12,7 @@ app.use(
 );
 
 app.get('/', express.static('public'))
-
+app.get('/users/images', db.getImages)
 app.get('/users', db.getUsers)
 app.get('/users/:id', db.getUserById)
 app.post('/users', db.createUser)
