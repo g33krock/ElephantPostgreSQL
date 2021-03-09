@@ -11,6 +11,17 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+app.post((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+
 app.use(express.static("public"))
 app.get('/', express.static('public'))
 app.get('/users/images', db.getImages)

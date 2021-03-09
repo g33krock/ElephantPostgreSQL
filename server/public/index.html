@@ -32,13 +32,14 @@
 		</script>
 	<button onclick="postTeachers()">Add New!</button>
 		<script>
-			async function postTeachers(teacher_id, firstname, lastname, campus, role){
+			async function postTeachers(teacher_id, firstname, lastname, campus, role, image){
 				const newTeacher = {
-					teacher_id: 41,
-					firstname: "Parker",
-					lastname: "Lovell",
-					campus: "Ishikawa",
-					role: "Pre-Teenager"
+					teacher_id: 8,
+					firstname: "Tawna",
+					lastname: "Peters",
+					campus: "Tempe",
+					role: "Stealth Scribe",
+					image: "assets/images/Tempe Tawna.jpg"
 				};
 				await fetch('http://localhost:3001/users', {
 					method: 'POST',
@@ -74,7 +75,7 @@
 		<script>
 			async function deleteTeachers(teacher_id){
 				const deleteTeacher = {
-					teacher_id: 75,
+					teacher_id: 41,
 				};
 				await fetch('http://localhost:3001/users/' + deleteTeacher.teacher_id, {
 					method: 'DELETE',
