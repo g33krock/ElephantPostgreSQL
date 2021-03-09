@@ -11,6 +11,7 @@ app.use(
   })
 );
 
+app.use(express.static("public"))
 app.get('/', express.static('public'))
 app.get('/users/images', db.getImages)
 app.get('/users', db.getUsers)
