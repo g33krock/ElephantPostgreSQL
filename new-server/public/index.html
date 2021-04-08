@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <button onclick="getTeachers()">List All!</button>
+		<script>
+			async function getTeachers(){
+				const res = await fetch('http://localhost:3001/users');
+				const data = await res.json();
+				data.forEach(teacher => {
+					document.body.append(JSON.stringify(teacher));
+				})
+			}
+		</script>
+	<button onclick="getTeacher()">List One!</button>
+		<script>
+			async function getTeacher(teacher_id){
+				const getOneTeacher = {
+					teacher_id: 3,
+				};
+				const res = await fetch('http://localhost:3001/users/' + getOneTeacher.teacher_id);
+				const data = await res.json();
+				data.forEach(teacher => {
+					document.body.append(JSON.stringify(teacher));
+				})
+				
+			}
+		</script>
+	<button onclick="postTeachers()">Add New!</button>
+		<script>
+			async function postTeachers(teacher_id, firstname, lastname, campus, role, image){
+				const newTeacher = {
+					teacher_id: 8,
+					firstname: "Tawna",
+					lastname: "Peters",
+					campus: "Tempe",
+					role: "Stealth Scribe",
+					image: "assets/images/Tempe Tawna.jpg"
+				};
+				await fetch('http://localhost:3001/users', {
+					method: 'POST',
+					body: JSON.stringify(newTeacher),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
+				
+			}
+		</script>
+	<button onclick="putTeachers()">Update!</button>
+		<script>
+			async function putTeachers(teacher_id, firstname, lastname, campus, role){
+				const updateTeacher = {
+					teacher_id: 41,
+					firstname: "Parker",
+					lastname: "Lovell",
+					campus: "Ishikawa",
+					role: "Student"
+				};
+				await fetch('http://localhost:3001/users/' + updateTeacher.teacher_id, {
+					method: 'PUT',
+					body: JSON.stringify(updateTeacher),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
+				
+			}
+		</script>
+	<button onclick="deleteTeachers()">Delete!</button>
+		<script>
+			async function deleteTeachers(teacher_id){
+				const deleteTeacher = {
+					teacher_id: 41,
+				};
+				await fetch('http://localhost:3001/users/' + deleteTeacher.teacher_id, {
+					method: 'DELETE',
+					body: JSON.stringify(deleteTeacher),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
+				
+			}
+		</script>
+		<button onclick="getStudent()">List One Student!</button>
+		<script>
+			async function getStudent(student_id){
+				const getOneStudent = {
+					student_id: 3,
+				};
+				const res = await fetch('http://localhost:3001/students/' + getOneStudent.student_id);
+				const data = await res.json();
+				data.forEach(student => {
+					document.body.append(JSON.stringify(student));
+				})
+				
+			}
+		</script>
+		<button onclick="postStudents()">Add New Student!</button>
+		<script>
+			async function postStudents(firstname, lastname, grade, campus, parent1firstname, parent1lastname, parent1email, parent1phone, parent2firstname, parent2lastname, parent2email, parent2phone ){
+				const newStudent = { 
+					firstname: 'Oliver', 
+					lastname: 'Lovell', 
+					grade: 1, 
+					campus: 'Triple K', 
+					parent1firstname: 'Dallas',
+					parent1lastname: 'Lovell',
+					parent1email: 'dallas.lovell@gmail.com',
+					parent1phone: '480-823-1141',
+					parent2firstname: 'Sara',
+					parent2lastname: 'Lovell',
+					parent2email: 'sara_ehayden@yahoo.com',
+					parent2phone: '602-751-4553',
+					image 
+				};
+				await fetch('http://localhost:3001/students', {
+					method: 'POST',
+					body: JSON.stringify(newStudent),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
+				
+			}
+		</script>
+		<button onclick="deleteStudents()">Delete Student!</button>
+		<script>
+			async function deleteStudents(teacher_id){
+				const deleteStudent = {
+					student_id: 4,
+				};
+				await fetch('http://localhost:3001/students/' + deleteStudent.student_id, {
+					method: 'DELETE',
+					body: JSON.stringify(deleteStudent),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
+				
+			}
+		</script>
+		<button onclick="putStudentSchedule()">Update Schedule!</button>
+		<script>
+			async function putStudentSchedule(
+				student_id,
+				p0subject,
+				p0teacher,
+				p0link,
+				p0para,
+				p1subject,
+				p1teacher,
+				p1link,
+				p1para,
+				p2subject,
+				p2teacher,
+				p2link,
+				p2para,
+				p3subject,
+				p3teacher,
+				p3link,
+				p3para,
+				p4subject,
+				p4teacher,
+				p4link,
+				p4para,
+				p5subject,
+				p5teacher,
+				p5link,
+				p5para,
+				p6subject,
+				p6teacher,
+				p6link,
+				p6para,
+				p7subject,
+				p7teacher,
+				p7link,
+				p7para,
+				p8subject,
+				p8teacher,
+				p8link,
+				p8para,
+				p9subject,
+				p9teacher,
+				p9link,
+				p9para,
+				p10subject,
+				p10teacher,
+				p10link,
+				p10para,
+				image
+			){
+				const updateStudentSchedule = {
+					student_id: 3,
+					p0subject,
+					p0teacher,
+					p0link,
+					p0para,
+					p1subject,
+					p1teacher,
+					p1link,
+					p1para,
+					p2subject,
+					p2teacher,
+					p2link,
+					p2para,
+					p3subject,
+					p3teacher,
+					p3link,
+					p3para,
+					p4subject,
+					p4teacher,
+					p4link,
+					p4para,
+					p5subject,
+					p5teacher,
+					p5link,
+					p5para,
+					p6subject,
+					p6teacher,
+					p6link,
+					p6para,
+					p7subject,
+					p7teacher,
+					p7link,
+					p7para,
+					p8subject,
+					p8teacher,
+					p8link,
+					p8para,
+					p9subject,
+					p9teacher,
+					p9link,
+					p9para,
+					p10subject,
+					p10teacher,
+					p10link,
+					p10para,
+					image:'assets/images/Oliver.jpg'
+
+				};
+				await fetch('http://localhost:3001/students/' + updateStudentSchedule.student_id, {
+					method: 'PUT',
+					body: JSON.stringify(updateStudentSchedule),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
+				
+			}
+		</script>
+</body>
+</html>

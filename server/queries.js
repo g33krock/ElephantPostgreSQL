@@ -7,14 +7,7 @@ const pool = new Pool({
     database:"baermmev"
 })
 
-let getImages = (request, response) => {
-	pool.query('SELECT image FROM teachers ORDER BY teacher_id ASC', (error, results) => {
-		if (error) {
-			throw error
-		}
-		response.status(200).json(results.rows);
-	})
-}
+
 
 const getUsers = (request, response) => {
 	pool.query('SELECT * FROM teachers ORDER BY teacher_id ASC', (error, results) => {
@@ -76,7 +69,7 @@ const getUsers = (request, response) => {
   }
 
   const getStudents = (request, response) => {
-    pool.query('SELECT * FROM students ORDER BY student_id ASC', (error, results) => {
+    pool.query('SELECT * FROM students ORDER BY id ASC', (error, results) => {
       if (error) {
         throw error
       }
@@ -88,7 +81,16 @@ const getUsers = (request, response) => {
     const id = parseInt(request.params.id)
     
     console.log("Successful connection... you are the best!")
-    pool.query('SELECT * FROM students WHERE student_id = $1', [id], (error, results) => {
+    pool.query('SELECT * FROM students INNER JOIN periods ON class_id = student_id WHERE student_id = $1', [id], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+
+  const getStudentsSchedule = (request, response) => {
+    pool.query('SELECT class_id, period, subject, teacher, link, para, student_id, firstname, lastname FROM students INNER JOIN schedule ON class_id = student_id', (error, results) => {
       if (error) {
         throw error
       }
@@ -102,19 +104,12 @@ const getUsers = (request, response) => {
       lastname, 
       grade, 
       campus,
-      parent1firstname,
-      parent1lastname,
-      parent1email,
-      parent1phone,
-      parent2firstname,
-      parent2lastname,
-      parent2email,
-      parent2phone,
+      iep,
       image  
       
  } = request.body
   
-    pool.query('INSERT INTO students (firstname, lastname, grade, campus, parent1firstname, parent1lastname, parent1email, parent1phone, parent2firstname, parent2lastname, parent2email, parent2phone, image ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)', [firstname, lastname, grade, campus, parent1firstname, parent1lastname, parent1email, parent1phone, parent2firstname, parent2lastname, parent2email, parent2phone, image], (error, results) => {
+    pool.query('INSERT INTO students (firstname, lastname, grade, campus, iep, profile_image ) VALUES ($1, $2, $3, $4, $5, $6)', [firstname, lastname, grade, campus, iep, image], (error, results) => {
       if (error) {
         throw error
       }
@@ -125,7 +120,7 @@ const getUsers = (request, response) => {
     const id = parseInt(request.params.id)
   
     
-    pool.query('DELETE FROM students WHERE student_id = $1', [id], (error, results) => {
+    pool.query('DELETE FROM students WHERE id = $1', [id], (error, results) => {
       if (error) {
         throw error
       }
@@ -133,6 +128,48 @@ const getUsers = (request, response) => {
     })
     
   }
+
+  const getStudentsSchedules = (request, response) => {
+    pool.query('SELECT * FROM schedule ORDER BY id ASC', (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+
+  const getStudentScheduleById = (request, response) => {
+    const studentid = parseInt(request.params.id);
+    const periodid = parseInt(request.params.periodid);
+    
+    console.log("Successful connection... you are the best!")
+    pool.query('SELECT * FROM schedule WHERE id = $1 AND period =$2', [studentid, periodid], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+
+  function updateStudentSchedule(request, response) {
+    const studentid = parseInt(request.params.id);
+    const periodid = parseInt(request.params.periodid);
+    const {
+      subject,
+      teacher,
+      link,
+      para,
+    } = request.body;
+
+    pool.query('UPDATE schedule SET subject = $2,teacher = $3,link = $4,para = $5 WHERE student_id = $1 AND period =$6', [studentid, subject,teacher,link,para, periodid], (error, results) => {
+        if (error) {
+          throw error;
+        }
+        response.status(200).send(`User modified`);
+      }
+    )
+  }
+
   function updateP0StudentSchedule(request, response) {
     const id = parseInt(request.params.id);
     const {
@@ -174,17 +211,16 @@ const getUsers = (request, response) => {
   }
 
   function updateP2StudentSchedule(request, response) {
-    const id = parseInt(request.params.id);
     const {
       student_id,
-      p1subject,
-      p1teacher,
-      p1link,
-      p1para,
+      p2subject,
+      p2teacher,
+      p2link,
+      p2para,
   } = request.body;
   
   
-    pool.query('UPDATE students SET p1subject = $2,p1teacher = $3,p1link = $4,p1para = $5 WHERE student_id = $1', [student_id, p1subject,p1teacher,p1link,p1para], (error, results) => {
+    pool.query('UPDATE students SET p2subject = $2,p2teacher = $3,p2link = $4,p2para = $5 WHERE student_id = $1', [student_id, p2subject,p2teacher,p2link,p2para], (error, results) => {
         if (error) {
           throw error;
         }
@@ -356,7 +392,6 @@ const getUsers = (request, response) => {
 
   
   module.exports = {
-    getImages,
     getUsers,
     getUserById,
     createUser,
@@ -365,7 +400,10 @@ const getUsers = (request, response) => {
     getStudents,
     createStudent,
     deleteStudent,
-    updateP0StudentSchedule,
+    getStudentsSchedule,
+    getStudentsSchedules,
+    getStudentScheduleById, 
+    updateStudentSchedule,
     updateP1StudentSchedule,
     updateP2StudentSchedule,
     updateP3StudentSchedule,
