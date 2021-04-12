@@ -1,9 +1,9 @@
 import {BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne} from "typeorm";
-import {Schedule} from "./Schedule";
+import {Campuses} from "./Campuses";
 import {Roles} from "./Roles";
 
 @Entity()
-export class Teachers extends BaseEntity {
+export class School_Admins extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
@@ -20,16 +20,6 @@ export class Teachers extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	campus_id: number;
-
-	@Column({
-		nullable: true
-	})
-	role_id: number;
-
-	@Column({
-		nullable: true
-	})
 	image: string;
 
 	@Column({
@@ -40,13 +30,14 @@ export class Teachers extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	@OneToMany(() => Schedule, schedule => schedule.teachers)
-	schedule: Schedule[];
+	@OneToMany(() => Campuses, campuses => campuses.school_admins)
+	campuses: Campuses[];
+	
 
 	@Column({
 		nullable: true
 	})
-	@ManyToOne(() => Roles, roles => roles.teachers)
+	@ManyToOne(() => Roles, roles => roles.school_admins)
 	roles: Roles;
 
 }
