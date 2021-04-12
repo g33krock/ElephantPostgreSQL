@@ -10,27 +10,27 @@ export class Schedule extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column({
-		nullable: true
-	})
+	// @Column({
+	// 	nullable: true
+	// })
 	@ManyToOne(() => Students, students => students.schedule)
 	students: Students;
 
-	@Column({
-		nullable: true
-	})
+	// @Column({
+	// 	nullable: true
+	// })
 	@ManyToOne(() => Courses, courses => courses.schedule)
 	courses: Courses;
 
-	@Column({
-		nullable: true
-	})
+	// @Column({
+	// 	nullable: true
+	// })
 	@ManyToOne(() => Teachers, teachers => teachers.schedule)
 	teachers: Teachers;
 
-	@Column({
-		nullable: true
-	})
+	// @Column({
+	// 	nullable: true
+	// })
 	@ManyToOne(() => Campuses, campuses => campuses.schedule)
 	campuses: Campuses;
 

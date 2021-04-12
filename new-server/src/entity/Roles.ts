@@ -7,15 +7,15 @@ export class Roles extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-    @Column({
-		nullable: true
-	})
+    // @Column({
+	// 	nullable: true
+	// })
     @OneToMany(() => Teachers, teachers => teachers.roles)
 	teachers: Teachers[];
 
-    @Column({
-		nullable: true
-	})
+    // @Column({
+	// 	nullable: true
+	// })
     @OneToMany(() => School_Admins, school_admins => school_admins.roles)
 	school_admins: School_Admins[];
 

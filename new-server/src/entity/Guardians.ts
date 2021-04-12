@@ -37,9 +37,9 @@ export class Guardians extends BaseEntity {
 	})
 	additional_info: string;
 
-    @Column({
-		nullable: true
-	})
+    // @Column({
+	// 	nullable: true
+	// })
 	@ManyToMany(() => Students, students => students.guardians)
 	students: Students[];
 

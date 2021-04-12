@@ -7,15 +7,15 @@ export class Campuses extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-    @Column({
-		nullable: true
-	})
+    // @Column({
+	// 	nullable: true
+	// })
     @OneToMany(() => Schedule, schedule => schedule.campuses)
 	schedule: Schedule[];
 
-    @Column({
-		nullable: true
-	})
+    // @Column({
+	// 	nullable: true
+	// })
     @ManyToOne(() => School_Admins, school_admins => school_admins.campuses)
 	school_admins: School_Admins;
 

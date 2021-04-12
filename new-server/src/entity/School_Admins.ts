@@ -27,16 +27,16 @@ export class School_Admins extends BaseEntity {
 	})
 	email: string;
 
-	@Column({
-		nullable: true
-	})
+	// @Column({
+	// 	nullable: true
+	// })
 	@OneToMany(() => Campuses, campuses => campuses.school_admins)
 	campuses: Campuses[];
 	
 
-	@Column({
-		nullable: true
-	})
+	// @Column({
+	// 	nullable: true
+	// })
 	@ManyToOne(() => Roles, roles => roles.school_admins)
 	roles: Roles;
 

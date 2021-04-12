@@ -6,9 +6,9 @@ export class Courses extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-    @Column({
-		nullable: true
-	})
+    // @Column({
+	// 	nullable: true
+	// })
     @OneToMany(() => Schedule, schedule => schedule.courses)
 	schedule: Schedule[];
 

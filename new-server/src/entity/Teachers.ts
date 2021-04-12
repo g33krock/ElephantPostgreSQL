@@ -37,15 +37,15 @@ export class Teachers extends BaseEntity {
 	})
 	email: string;
 
-	@Column({
-		nullable: true
-	})
+	// @Column({
+	// 	nullable: true
+	// })
 	@OneToMany(() => Schedule, schedule => schedule.teachers)
 	schedule: Schedule[];
 
-	@Column({
-		nullable: true
-	})
+	// @Column({
+	// 	nullable: true
+	// })
 	@ManyToOne(() => Roles, roles => roles.teachers)
 	roles: Roles;
 

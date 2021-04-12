@@ -47,15 +47,15 @@ export class Students extends BaseEntity {
 	})
 	additional_information: string;
 
-	@Column({
-		nullable: true
-	})
+	// @Column({
+	// 	nullable: true
+	// })
 	@OneToMany(() => Schedule, schedule => schedule.students)
 	schedule: Schedule[];
 
-	@Column({
-		nullable: true
-	})
+	// @Column({
+	// 	nullable: true
+	// })
 	@ManyToMany(() => Guardians, guardians => guardians.students)
 	guardians: Guardians[];
 }
