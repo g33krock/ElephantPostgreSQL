@@ -1,6 +1,7 @@
 import {BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne} from "typeorm";
 import {Schedule} from "./Schedule";
 import {Roles} from "./Roles";
+import {Campuses} from "./Campuses";
 
 @Entity()
 export class Teachers extends BaseEntity {
@@ -16,16 +17,6 @@ export class Teachers extends BaseEntity {
 		nullable: true
 	})
 	lastName: string;
-
-	@Column({
-		nullable: true
-	})
-	campus_id: number;
-
-	@Column({
-		nullable: true
-	})
-	role_id: number;
 
 	@Column({
 		nullable: true
@@ -48,5 +39,8 @@ export class Teachers extends BaseEntity {
 	// })
 	@ManyToOne(() => Roles, roles => roles.teachers)
 	roles: Roles;
+
+	@ManyToOne(() => Campuses, campuses => campuses.teachers)
+	campuses: Campuses;
 
 }

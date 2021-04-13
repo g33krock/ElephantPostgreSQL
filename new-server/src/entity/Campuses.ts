@@ -1,6 +1,7 @@
 import {BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from "typeorm";
 import {Schedule} from "../entity/Schedule";
 import {School_Admins} from "../entity/School_Admins";
+import {Teachers} from "../entity/Teachers";
 
 @Entity()
 export class Campuses extends BaseEntity {
@@ -27,10 +28,13 @@ export class Campuses extends BaseEntity {
     @Column({
 		nullable: true
 	})
-	phone_number: number;
+	phone_number: string;
 
     @Column({
 		nullable: true
 	})
 	address: string;
+
+    @OneToMany(() => Teachers, teachers => teachers.campuses)
+	teachers: Teachers[];
 }
