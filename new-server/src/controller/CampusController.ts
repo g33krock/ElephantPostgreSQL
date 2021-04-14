@@ -1,28 +1,28 @@
 import {NextFunction, Request, Response} from "express";
-import {Schedule} from "../entity/Schedule";
+import {Campuses} from "../entity/Campuses";
 
-export class ScheduleController {
+export class CampusController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Schedule.find();
+		return Campuses.find();
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Schedule.findOne(request.params.id, { relations: ["teachers"] });
+		return Campuses.findOne(request.params.id, { relations: ["school_admin"] });
 	}
 
 
     async save(request: Request, response: Response, next: NextFunction) {
-        return Schedule.save(request.body);
+        return Campuses.save(request.body);
     }
 
     async remove(request: Request, response: Response, next: NextFunction) {
-        let studentToRemove = await Schedule.findOne(request.params.id);
-        await Schedule.remove(studentToRemove);
+        let studentToRemove = await Campuses.findOne(request.params.id);
+        await Campuses.remove(studentToRemove);
     }
 
     async update(request: Request, response: Response, next: NextFunction) {
-        const student = await Schedule.findOne(request.params.id);
+        const student = await Campuses.findOne(request.params.id);
         const data = request.body;
         Object.assign(student, data);
         return student.save();
