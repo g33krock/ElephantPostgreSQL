@@ -4,7 +4,7 @@ import {Students} from "../entity/Students";
 export class StudentController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Students.find();
+		return Students.find({ relations: ["schedule", "campuses"] });
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
