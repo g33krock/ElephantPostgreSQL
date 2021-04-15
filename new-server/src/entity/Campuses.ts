@@ -2,6 +2,7 @@ import {BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany
 import {Schedule} from "../entity/Schedule";
 import {School_Admins} from "../entity/School_Admins";
 import {Teachers} from "../entity/Teachers";
+import { Students } from "./Students";
 
 @Entity()
 export class Campuses extends BaseEntity {
@@ -37,4 +38,7 @@ export class Campuses extends BaseEntity {
 
     @OneToMany(() => Teachers, teachers => teachers.campuses)
 	teachers: Teachers[];
+
+    @OneToMany(() => Students, students => students.campuses)
+	students: Students[];
 }

@@ -1,6 +1,7 @@
-import {BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany} from "typeorm";
+import {BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne} from "typeorm";
 import {Schedule} from "../entity/Schedule";
 import {Guardians} from "../entity/Guardians";
+import { Campuses } from "./Campuses";
 
 @Entity()
 export class Students extends BaseEntity {
@@ -25,11 +26,6 @@ export class Students extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	campus: string;
-
-	@Column({
-		nullable: true
-	})
 	profile_image: string;
 
 	@Column({
@@ -47,15 +43,12 @@ export class Students extends BaseEntity {
 	})
 	additional_information: string;
 
-	// @Column({
-	// 	nullable: true
-	// })
 	@OneToMany(() => Schedule, schedule => schedule.students)
 	schedule: Schedule[];
 
-	// @Column({
-	// 	nullable: true
-	// })
-	@ManyToMany(() => Guardians, guardians => guardians.students)
+	@OneToMany(() => Guardians, guardians => guardians.students)
 	guardians: Guardians[];
+
+	@ManyToOne(() => Campuses, campuses => campuses.students)
+	campuses: Campuses;
 }

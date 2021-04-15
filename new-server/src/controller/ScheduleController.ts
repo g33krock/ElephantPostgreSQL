@@ -4,11 +4,11 @@ import {Schedule} from "../entity/Schedule";
 export class ScheduleController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Schedule.find();
+		return Schedule.find({ relations: ["students", "courses", "teachers", "campuses"]});
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Schedule.findOne(request.params.id, { relations: ["teachers"] });
+		return Schedule.findOne(request.params.id, { relations: ["teachers", "campuses", "courses", "students"] });
 	}
 
 

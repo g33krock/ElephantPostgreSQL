@@ -20,7 +20,7 @@ export class Guardians extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	phone: number;
+	phone: string;
 
 	@Column({
 		nullable: true
@@ -40,7 +40,7 @@ export class Guardians extends BaseEntity {
     // @Column({
 	// 	nullable: true
 	// })
-	@ManyToMany(() => Students, students => students.guardians)
-	students: Students[];
+	@ManyToOne(() => Students, students => students.guardians)
+	students: Students;
 
 }

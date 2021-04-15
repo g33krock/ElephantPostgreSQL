@@ -8,7 +8,7 @@ export class TeacherController {
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Teachers.findOne(request.params.id, { relations: ["campuses"] });
+		return Teachers.findOne(request.params.id, { relations: ["campuses", "roles"] });
 	}
 
 
