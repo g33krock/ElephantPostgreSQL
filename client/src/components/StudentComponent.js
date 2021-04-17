@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardImg } from "reactstrap";
+import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
 
 export default class Student extends Component {
   constructor(props) {
@@ -25,14 +25,19 @@ export default class Student extends Component {
     return (
       <section>
         <h1>Students</h1>
+        <span>{JSON.stringify(this.state.student)}</span>
         {this.state.students.map(student => 
             <div key={student.id} className="col-md-2 m-1">
                 <Card onClick={() => this.setStudent(student)}>
                     <CardImg src={`${student.profile_image}`} alt={student.firstName} />
+                    <CardImgOverlay>
+                      <CardTitle style={{color: 'white'}}>{student.firstName} {student.lastName} {student.schedule.map(sched => 
+                        <div key={sched.id} className="col-md-2 m-1"><p>{sched.period}</p></div>)}</CardTitle>
+                    </CardImgOverlay>
                 </Card>
             </div>
         )}
-        <span>{JSON.stringify(this.state.student)}</span>
+        
       </section>
     );
   }

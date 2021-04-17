@@ -3,7 +3,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Main from './components/MainComponent';
 import Header from './components/HeaderComponent';
 import './App.css';
-import Student from './components/StudentComponent';
 
 
 class App extends Component {
