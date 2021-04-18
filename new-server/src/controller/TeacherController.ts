@@ -1,31 +1,31 @@
-import {NextFunction, Request, Response} from "express";
-import {Teachers} from "../entity/Teachers";
+import { NextFunction, Request, Response } from "express";
+import { Teacher } from "../entity/Teacher";
 
 export class TeacherController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Teachers.find();
+		return Teacher.find();
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Teachers.findOne(request.params.id, { relations: ["campuses", "roles"] });
+		return Teacher.findOne(request.params.id, { relations: ["campus", "role"] });
 	}
 
 
-    async save(request: Request, response: Response, next: NextFunction) {
-        return Teachers.save(request.body);
-    }
+	async save(request: Request, response: Response, next: NextFunction) {
+		return Teacher.save(request.body);
+	}
 
-    async remove(request: Request, response: Response, next: NextFunction) {
-        let studentToRemove = await Teachers.findOne(request.params.id);
-        await Teachers.remove(studentToRemove);
-    }
+	async remove(request: Request, response: Response, next: NextFunction) {
+		let studentToRemove = await Teacher.findOne(request.params.id);
+		await Teacher.remove(studentToRemove);
+	}
 
-    async update(request: Request, response: Response, next: NextFunction) {
-        const student = await Teachers.findOne(request.params.id);
-        const data = request.body;
-        Object.assign(student, data);
-        return student.save();
-    }
+	async update(request: Request, response: Response, next: NextFunction) {
+		const student = await Teacher.findOne(request.params.id);
+		const data = request.body;
+		Object.assign(student, data);
+		return student.save();
+	}
 
 }

@@ -1,32 +1,32 @@
-import {NextFunction, Request, Response} from "express";
-import {Students} from "../entity/Students";
+import { NextFunction, Request, Response } from "express";
+import { Student } from "../entity/Student";
 
 export class StudentController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Students.find({ relations: ["schedule", "campuses"] });
+		return Student.find({ relations: ["schedules", "campuses"] });
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Students.findOne(request.params.id, { relations: ["schedule", "campuses"] });
+		return Student.findOne(request.params.id, { relations: ["schedules", "campuses"] });
 	}
 
 
-    async save(request: Request, response: Response, next: NextFunction) {
-        return Students.save(request.body);
-    }
+	async save(request: Request, response: Response, next: NextFunction) {
+		return Student.save(request.body);
+	}
 
-    async remove(request: Request, response: Response, next: NextFunction) {
-        let studentToRemove = await Students.findOne(request.params.id);
-        await Students.remove(studentToRemove);
-    }
+	async remove(request: Request, response: Response, next: NextFunction) {
+		let studentToRemove = await Student.findOne(request.params.id);
+		await Student.remove(studentToRemove);
+	}
 
-    async update(request: Request, response: Response, next: NextFunction) {
-        const student = await Students.findOne(request.params.id);
-        const data = request.body;
-        Object.assign(student, data);
-        return student.save();
-    }
-	
+	async update(request: Request, response: Response, next: NextFunction) {
+		const student = await Student.findOne(request.params.id);
+		const data = request.body;
+		Object.assign(student, data);
+		return student.save();
+	}
+
 
 }

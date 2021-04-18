@@ -1,31 +1,31 @@
-import {NextFunction, Request, Response} from "express";
-import {Campuses} from "../entity/Campuses";
+import { NextFunction, Request, Response } from "express";
+import { Campus } from "../entity/Campus";
 
 export class CampusController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Campuses.find();
+		return Campus.find();
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Campuses.findOne(request.params.id, { relations: ["school_admin"] });
+		return Campus.findOne(request.params.id, { relations: ["school_admin"] });
 	}
 
 
-    async save(request: Request, response: Response, next: NextFunction) {
-        return Campuses.save(request.body);
-    }
+	async save(request: Request, response: Response, next: NextFunction) {
+		return Campus.save(request.body);
+	}
 
-    async remove(request: Request, response: Response, next: NextFunction) {
-        let studentToRemove = await Campuses.findOne(request.params.id);
-        await Campuses.remove(studentToRemove);
-    }
+	async remove(request: Request, response: Response, next: NextFunction) {
+		let studentToRemove = await Campus.findOne(request.params.id);
+		await Campus.remove(studentToRemove);
+	}
 
-    async update(request: Request, response: Response, next: NextFunction) {
-        const student = await Campuses.findOne(request.params.id);
-        const data = request.body;
-        Object.assign(student, data);
-        return student.save();
-    }
+	async update(request: Request, response: Response, next: NextFunction) {
+		const student = await Campus.findOne(request.params.id);
+		const data = request.body;
+		Object.assign(student, data);
+		return student.save();
+	}
 
 }

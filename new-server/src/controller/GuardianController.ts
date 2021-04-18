@@ -1,31 +1,31 @@
-import {NextFunction, Request, Response} from "express";
-import {Guardians} from "../entity/Guardians";
+import { NextFunction, Request, Response } from "express";
+import { Guardian } from "../entity/Guardian";
 
 export class GuardianController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Guardians.find();
+		return Guardian.find();
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Guardians.findOne(request.params.id, { relations: ["students"] });
+		return Guardian.findOne(request.params.id, { relations: ["student"] });
 	}
 
 
-    async save(request: Request, response: Response, next: NextFunction) {
-        return Guardians.save(request.body);
-    }
+	async save(request: Request, response: Response, next: NextFunction) {
+		return Guardian.save(request.body);
+	}
 
-    async remove(request: Request, response: Response, next: NextFunction) {
-        let studentToRemove = await Guardians.findOne(request.params.id);
-        await Guardians.remove(studentToRemove);
-    }
+	async remove(request: Request, response: Response, next: NextFunction) {
+		let studentToRemove = await Guardian.findOne(request.params.id);
+		await Guardian.remove(studentToRemove);
+	}
 
-    async update(request: Request, response: Response, next: NextFunction) {
-        const student = await Guardians.findOne(request.params.id);
-        const data = request.body;
-        Object.assign(student, data);
-        return student.save();
-    }
+	async update(request: Request, response: Response, next: NextFunction) {
+		const student = await Guardian.findOne(request.params.id);
+		const data = request.body;
+		Object.assign(student, data);
+		return student.save();
+	}
 
 }

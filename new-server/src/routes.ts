@@ -1,11 +1,11 @@
-import {UserController} from "./controller/UserController";
-import {StudentController} from "./controller/StudentController";
-import {ScheduleController} from "./controller/ScheduleController";
-import {CampusController} from "./controller/CampusController";
-import {GuardianController} from "./controller/GuardianController";
-import {RoleController} from "./controller/RoleController";
-import {School_AdminController} from "./controller/School_AdminController";
-import {TeacherController} from "./controller/TeacherController";
+import { UserController } from "./controller/UserController";
+import { StudentController } from "./controller/StudentController";
+import { ScheduleController } from "./controller/ScheduleController";
+import { CampusController } from "./controller/CampusController";
+import { GuardianController } from "./controller/GuardianController";
+import { RoleController } from "./controller/RoleController";
+import { School_AdminController } from "./controller/School_AdminController";
+import { TeacherController } from "./controller/TeacherController";
 
 export const Routes = [{
 	method: "get",
@@ -28,7 +28,7 @@ export const Routes = [{
 	controller: UserController,
 	action: "remove"
 },
-// Students
+// Student
 {
 	method: "get",
 	route: "/students",
@@ -46,7 +46,7 @@ export const Routes = [{
 	route: "/students/:id",
 	controller: StudentController,
 	action: "update"
-},{
+}, {
 	method: "post",
 	route: "/students",
 	controller: StudentController,
@@ -61,48 +61,48 @@ export const Routes = [{
 // Schedule
 {
 	method: "get",
-	route: "/schedule",
+	route: "/schedules",
 	controller: ScheduleController,
 	action: "all"
-},{
+}, {
 	method: "get",
-	route: "/schedule/:id",
+	route: "/schedules/:id",
 	controller: ScheduleController,
 	action: "one"
-},{
+}, {
 	method: "put",
-	route: "/schedule/:id",
+	route: "/schedules/:id",
 	controller: ScheduleController,
 	action: "update"
-},{
+}, {
 	method: "post",
-	route: "/schedule",
+	route: "/schedules",
 	controller: ScheduleController,
 	action: "save"
 }, {
 	method: "delete",
-	route: "/schedule/:id",
+	route: "/schedules/:id",
 	controller: ScheduleController,
 	action: "remove"
 },
 
-// Campuses
+// Campus
 {
 	method: "get",
 	route: "/campuses",
 	controller: CampusController,
 	action: "all"
-},{
+}, {
 	method: "get",
 	route: "/campuses/:id",
 	controller: CampusController,
 	action: "one"
-},{
+}, {
 	method: "put",
 	route: "/campuses/:id",
 	controller: CampusController,
 	action: "update"
-},{
+}, {
 	method: "post",
 	route: "/campuses",
 	controller: CampusController,
@@ -114,23 +114,23 @@ export const Routes = [{
 	action: "remove"
 },
 
-// Guardians
+// Guardian
 {
 	method: "get",
 	route: "/guardians",
 	controller: GuardianController,
 	action: "all"
-},{
+}, {
 	method: "get",
 	route: "/guardians/:id",
 	controller: GuardianController,
 	action: "one"
-},{
+}, {
 	method: "put",
 	route: "/guardians/:id",
 	controller: GuardianController,
 	action: "update"
-},{
+}, {
 	method: "post",
 	route: "/guardians",
 	controller: GuardianController,
@@ -142,23 +142,23 @@ export const Routes = [{
 	action: "remove"
 },
 
-// Roles
+// Role
 {
 	method: "get",
 	route: "/roles",
 	controller: RoleController,
 	action: "all"
-},{
+}, {
 	method: "get",
 	route: "/roles/:id",
 	controller: RoleController,
 	action: "one"
-},{
+}, {
 	method: "put",
 	route: "/roles/:id",
 	controller: RoleController,
 	action: "update"
-},{
+}, {
 	method: "post",
 	route: "/roles",
 	controller: RoleController,
@@ -170,23 +170,23 @@ export const Routes = [{
 	action: "remove"
 },
 
-// School_Admins
+// School_Admin
 {
 	method: "get",
 	route: "/school_admins",
 	controller: School_AdminController,
 	action: "all"
-},{
+}, {
 	method: "get",
 	route: "/school_admins/:id",
 	controller: School_AdminController,
 	action: "one"
-},{
+}, {
 	method: "put",
 	route: "/school_admins/:id",
 	controller: School_AdminController,
 	action: "update"
-},{
+}, {
 	method: "post",
 	route: "/school_admins",
 	controller: School_AdminController,
@@ -198,23 +198,23 @@ export const Routes = [{
 	action: "remove"
 },
 
-// Teachers
+// Teacher
 {
 	method: "get",
 	route: "/teachers",
 	controller: TeacherController,
 	action: "all"
-},{
+}, {
 	method: "get",
 	route: "/teachers/:id",
 	controller: TeacherController,
 	action: "one"
-},{
+}, {
 	method: "put",
 	route: "/teachers/:id",
 	controller: TeacherController,
 	action: "update"
-},{
+}, {
 	method: "post",
 	route: "/teachers",
 	controller: TeacherController,

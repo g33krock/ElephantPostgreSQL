@@ -1,38 +1,25 @@
-import {BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
-import { Students } from "./Students";
-import { Teachers } from "./Teachers";
-import {Courses} from "./Courses";
-import {Campuses} from "./Campuses";
-import {School_Admins} from "./School_Admins";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Student } from "./Student";
+import { Teacher } from "./Teacher";
+import { Course } from "./Course";
+import { Campus } from "./Campus";
 
 @Entity()
 export class Schedule extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	// @Column({
-	// 	nullable: true
-	// })
-	@ManyToOne(() => Students, students => students.schedule)
-	students: Students;
+	@ManyToOne(() => Student, student => student.schedules)
+	student: Student;
 
-	// @Column({
-	// 	nullable: true
-	// })
-	@ManyToOne(() => Courses, courses => courses.schedule)
-	courses: Courses;
+	@ManyToOne(() => Course, course => course.schedule)
+	course: Course;
 
-	// @Column({
-	// 	nullable: true
-	// })
-	@ManyToOne(() => Teachers, teachers => teachers.schedule)
-	teachers: Teachers;
+	@ManyToOne(() => Teacher, teacher => teacher.schedule)
+	teacher: Teacher;
 
-	// @Column({
-	// 	nullable: true
-	// })
-	@ManyToOne(() => Campuses, campuses => campuses.schedule)
-	campuses: Campuses;
+	@ManyToOne(() => Campus, campus => campus.schedules)
+	campus: Campus;
 
 	@Column({
 		nullable: true
