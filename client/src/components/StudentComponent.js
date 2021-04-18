@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
+import Schedule from "./ScheduleComponent";
 
 export default class Student extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ export default class Student extends Component {
     return (
       <section>
         <h1>Students</h1>
+        
         <span>{JSON.stringify(this.state.student)}</span>
         {this.state.students.map(student => 
             <div key={student.id} className="col-md-2 m-1">
