@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
-import Schedule from "./ScheduleComponent";
+
 
 export default class Student extends Component {
   constructor(props) {
@@ -33,8 +33,8 @@ export default class Student extends Component {
                 <Card onClick={() => this.setStudent(student)}>
                     <CardImg src={`${student.profile_image}`} alt={student.firstName} />
                     <CardImgOverlay>
-                      <CardTitle style={{color: 'white'}}>{student.firstName} {student.lastName} {student.schedule.map(sched => 
-                        <div key={sched.id} className="col-md-2 m-1"><p>{sched.period}</p></div>)}</CardTitle>
+                      <CardTitle className='card-title' style={{color: 'white' }}>{student.firstName} {student.lastName} {student.schedules.map(sched => 
+                        <div key={sched.id} className="col-md-2 m-1"><div className='row'><p>{sched.period} {sched.link}</p></div></div>)}</CardTitle>
                     </CardImgOverlay>
                 </Card>
             </div>

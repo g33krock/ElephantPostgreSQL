@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
+import { Card, CardImg, CardImgOverlay, CardText, CardTitle } from "reactstrap";
 
 export default class Schedule extends Component {
   constructor(props) {
@@ -8,7 +8,7 @@ export default class Schedule extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/schedule") //Fetch Schedule Table from API
+    fetch("http://localhost:3001/schedules") //Fetch Schedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         this.setState({
@@ -24,16 +24,23 @@ export default class Schedule extends Component {
 
 
   render() {
-      let schedBox = this.state.schedule.sort((a, b) => (a.students.firstName > b.students.firstName) ? 1 : (a.students.firstName === b.students.firstName) ? ((a.period > b.period) ? 1 : -1) : -1).students.filter(function(stuId) {return stuId.id === this.state.student.id}).map(sched => {
+      let schedBox = this.state.schedule
+      .sort((a, b) => (a.student.firstName > b.student.firstName) ? 1 : (a.student.firstName === b.student.firstName) ? ((a.period > b.period) ? 1 : -1) : -1)
+      .filter(function(stuId) {return stuId.student.id === 1})
+      .map(sched => {
         return (
-            <div key={sched.students.firstName} className="col-md-2 m-1">
+            <div key={sched.student.firstName} className="col-md-2 m-1">
                 <Card onClick={() => this.setSchedule(sched)}>
-                <CardImg src={`${sched.teachers.image}`} alt={sched.teachers.firstName} />
+                <CardImg src={`${sched.teacher.image}`} alt={sched.teacher.firstName} />
                     <CardImgOverlay>
                       <CardTitle style={{color: 'white'}}>
-                          Period: {sched.period}<br/>Student:{sched.students.firstName} {sched.students.lastName} <br/>Teacher:{sched.teachers.firstName} {sched.teachers.lastName} <br/> Course Name:{sched.courses.name}<br/> Subject:{sched.courses.subject}
+                          Period: {sched.period}
                         </CardTitle>
                     </CardImgOverlay>
+                        <CardText style={{color: 'black'}}>
+                        Student:{sched.student.firstName} {sched.student.lastName} <br/>Teacher:{sched.teacher.firstName} {sched.teacher.lastName} <br/> Course Name:{sched.course.name}<br/> Subject:{sched.course.subject}
+                        </CardText>
+                    
                 </Card>
             </div>
         )

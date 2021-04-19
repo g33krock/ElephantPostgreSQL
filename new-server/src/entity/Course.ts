@@ -17,7 +17,7 @@ export class Course extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	subject: number;
+	subject: string;
 
 	@Column({
 		nullable: true

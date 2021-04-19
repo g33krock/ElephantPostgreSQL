@@ -95,3 +95,7 @@ h2 {
  .sheader {
    font-size: small;
  }
+
+ .card-title {
+  text-shadow:2px 2px 4px #000000
+ }
