@@ -4,7 +4,7 @@ import { Card, CardImg, CardImgOverlay, CardText, CardTitle } from "reactstrap";
 export default class Schedule extends Component {
   constructor(props) {
     super(props);
-    this.state = { schedule: [], sched: [] };
+    this.state = { schedule: [], sched: []};
   }
 
   componentDidMount() {
@@ -19,17 +19,18 @@ export default class Schedule extends Component {
 
   setSchedule(sched) {
     this.setState({sched: sched})
-    this.setState({student: sched.students})       //sets sched property to sched object.  This looks funny because they both are named sched
+    // this.setState({student: sched.students})       //sets sched property to sched object.  This looks funny because they both are named sched
   }
 
 
   render() {
-      let schedBox = this.state.schedule
+    const student = this.props.student;
+    const schedBox = this.state.schedule
+      .filter(schedule => schedule.student?.id === student.id)
       .sort((a, b) => (a.student.firstName > b.student.firstName) ? 1 : (a.student.firstName === b.student.firstName) ? ((a.period > b.period) ? 1 : -1) : -1)
-      .filter(function(stuId) {return stuId.student.id === 1})
       .map(sched => {
         return (
-            <div key={sched.student.firstName} className="col-md-2 m-1">
+            <div key={sched.id} className="col-md-2 m-1">
                 <Card onClick={() => this.setSchedule(sched)}>
                 <CardImg src={`${sched.teacher.image}`} alt={sched.teacher.firstName} />
                     <CardImgOverlay>
@@ -37,20 +38,22 @@ export default class Schedule extends Component {
                           Period: {sched.period}
                         </CardTitle>
                     </CardImgOverlay>
-                        <CardText style={{color: 'black'}}>
-                        Student:{sched.student.firstName} {sched.student.lastName} <br/>Teacher:{sched.teacher.firstName} {sched.teacher.lastName} <br/> Course Name:{sched.course.name}<br/> Subject:{sched.course.subject}
-                        </CardText>
-                    
+                    <CardText style={{color: 'black'}}>
+                      <p>Student:{sched.student.firstName} {sched.student.lastName}</p>
+                      <p>Teacher:{sched.teacher.firstName} {sched.teacher.lastName}</p>
+                      <p>Course Name:{sched.course.name}</p>
+                      <p>Subject:{sched.course.subject}</p>
+                    </CardText>
                 </Card>
             </div>
         )
-      }
-      );
+      });
+
       return (
-        <div className = "row">
-            {schedBox}
+        <div className = "col">
+            <p>{schedBox}</p>
         </div>
-    )   
+    )
   }
 
 }

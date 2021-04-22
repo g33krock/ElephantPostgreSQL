@@ -5,10 +5,8 @@ import * as bodyParser from "body-parser";
 import { Request, Response } from "express";
 import { Routes } from "./routes";
 
-
-const cors = require('cors')
-
-
+const cors = require('cors');
+const port = 3001;
 
 createConnection().then(async connection => {
 
@@ -30,21 +28,8 @@ createConnection().then(async connection => {
 		});
 	});
 
-	// setup express app here
-	// ...
+	app.listen(port);
 
-	// start express server
-	app.listen(3001);
-
-	// insert new users for test
-	// const teacher = new Teacher();
-	// teacher.firstName = "James";
-	// teacher.lastName = "Gear";
-	// teacher.campus = "Unicorn Town";
-	// teacher.role = "Captain McAwesome";
-	// teacher.image = 'assets/images/District Dallas.jpg';
-	// await teacher.save();
-
-	console.log("Express server has started on port 3001. Open http://localhost:3000/users to see results");
+	console.log(`Express server has started on port ${port}. Open http://localhost:${port}/users to see results`);
 
 }).catch(error => console.log(error));

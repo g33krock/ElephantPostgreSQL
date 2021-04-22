@@ -11,13 +11,12 @@ export class CampusController {
 		return Campus.findOne(request.params.id, { relations: ["school_admin"] });
 	}
 
-
 	async save(request: Request, response: Response, next: NextFunction) {
 		return Campus.save(request.body);
 	}
 
 	async remove(request: Request, response: Response, next: NextFunction) {
-		let studentToRemove = await Campus.findOne(request.params.id);
+		const studentToRemove = await Campus.findOne(request.params.id);
 		await Campus.remove(studentToRemove);
 	}
 
