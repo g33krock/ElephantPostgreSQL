@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
-import Schedule from "./ScheduleComponent";
+import { Card, CardTitle } from "reactstrap";
+import StudentSchedule from "./StudentScheduleComponent";
 
 
 export default class Student extends Component {
@@ -31,24 +31,14 @@ export default class Student extends Component {
     return (
       <section>
         <h1>Students</h1>
-        {this.state.student && <Schedule student={this.state.student}></Schedule>}
+        {this.state.student && <StudentSchedule student={this.state.student}></StudentSchedule>}
         <div className = "row">
           {this.state.students.map(student => 
             <div key={student.id} className="col-md-2 m-1">
               <Card onClick={() => this.setStudent(student)}>
-                <CardImg src={`${student.profile_image}`} alt={student.firstName} />
-                <CardImgOverlay>
-                  <CardTitle className='card-title' style={{color: 'white' }}>
-                    {student.firstName} {student.lastName} {
-                    student.schedules.map(sched => 
-                      <div key={sched.id} className="col-md-2 m-1">
-                        <div className="row">
-                          <p>{sched.period} {sched.link}</p>
-                        </div>
-                      </div>
-                    )}
+                  <CardTitle className='card-title' style={{color: 'black' }}>
+                    {student.firstName} {student.lastName} 
                   </CardTitle>
-                </CardImgOverlay>
               </Card>
             </div>
           )}
