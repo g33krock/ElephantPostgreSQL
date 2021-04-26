@@ -101,5 +101,11 @@ h2 {
  }
 
  #schedBox {
-   border: 2px solid #000000
+   border: 2px solid #000000;
  }
+
+ .schedule-container {
+  display: grid;
+  grid-template-columns: 15% 15% 15% 15% 15% 15%;
+  grid-row-gap: 0px;
+}

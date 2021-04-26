@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardImgOverlay, CardText, CardTitle } from "reactstrap";
+import { Card, CardImg, CardImgOverlay, CardText, CardTitle, Col, CardLink } from "reactstrap";
 
 export default class StudentSchedule extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ export default class StudentSchedule extends Component {
       .map(studentsched => {
         console.log(studentsched.course.link)
         return (
-            <div key={studentsched.id} className="col">
+            <Col key={studentsched.id}>
                 <Card onClick={() => this.setSchedule(studentsched)}>
                 <CardImg src={`${studentsched.teacher.image}`} alt={studentsched.teacher.firstName} />
                     <CardImgOverlay>
@@ -39,24 +39,26 @@ export default class StudentSchedule extends Component {
                           Period: {studentsched.period}
                         </CardTitle>
                     </CardImgOverlay>
-                    <CardText style={{color: 'black'}}>
+                    <CardText style={{color: 'black', fontSize: '10px'}} >
                       <p>Student:{studentsched.student.firstName} {studentsched.student.lastName}</p>
                       <p>Teacher:{studentsched.teacher.firstName} {studentsched.teacher.lastName}</p>
                       <p>Course Name:{studentsched.course.name}</p>
                       <p>Subject:{studentsched.course.subject}</p>
-                      <a href={studentsched.link}>Class Link:{studentsched.link}</a>
+                      <CardLink href={studentsched.teacher.link}>{studentsched.teacher.link}</CardLink>
                     </CardText>
                 </Card>
-            </div>
+            </Col>
         )
       });
 
       return (
-        <div className = "container" id="schedBox">
+        <div id="schedBox" >
+        
           StudentSchedule for {student.firstName} {student.lastName}
-          <div className = "row">
+          <div className = "schedule-container">
             {schedBox}
           </div>
+          
         </div>
     )
   }

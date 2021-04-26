@@ -28,6 +28,11 @@ export class Teacher extends BaseEntity {
 	})
 	email: string;
 
+	@Column({
+		nullable: true
+	})
+	link: string;
+
 	@OneToMany(() => Schedule, schedule => schedule.teacher)
 	schedule: Schedule[];
 

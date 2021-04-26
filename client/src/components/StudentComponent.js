@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Card, CardTitle } from "reactstrap";
 import StudentSchedule from "./StudentScheduleComponent";
+import {StudentCreator} from "./CreateStudent";
 
 
 export default class Student extends Component {
@@ -40,9 +41,11 @@ export default class Student extends Component {
                     {student.firstName} {student.lastName} 
                   </CardTitle>
               </Card>
+              
             </div>
           )}
         </div>
+        <button onClick={StudentCreator.createStudent}>Create Student</button>
       </section>
     );
   }
