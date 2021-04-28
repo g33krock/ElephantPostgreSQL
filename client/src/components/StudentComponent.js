@@ -27,6 +27,8 @@ export default class Student extends Component {
     // sets student property to student object.  This looks funny because they both are named student
     this.setState({student: student})
   }
+
+  
   
   render() {
     return (
@@ -45,6 +47,7 @@ export default class Student extends Component {
             </div>
           )}
         </div>
+        <StudentCreator></StudentCreator>
         <button onClick={StudentCreator.createStudent}>Create Student</button>
       </section>
     );
