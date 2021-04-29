@@ -28,10 +28,9 @@ export default class Teacher extends Component {
   }
   
   render() {
-      console.log(this.state.teachers)
     return (
       <section>
-        <h1>Teachers</h1>
+        <h1>Teachers {this.state.teacher?.firstName}</h1>
         {this.state.teacher && <TeacherSchedule teacher={this.state.teacher}></TeacherSchedule>}
         <div className = "row">
           {this.state.teachers.map(teacher => 

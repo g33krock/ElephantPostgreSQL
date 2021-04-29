@@ -224,5 +224,10 @@ export const Routes = [{
 	route: "/teachers/:id",
 	controller: TeacherController,
 	action: "remove"
+}, {
+	method: "get",
+	route: "/teachers/:id/schedules",
+	controller: TeacherController,
+	action: "loadTeacherSchedules"
 }
 ];

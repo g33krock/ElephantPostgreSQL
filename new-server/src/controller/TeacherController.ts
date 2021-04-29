@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { Schedule } from "../entity/Schedule";
 import { Teacher } from "../entity/Teacher";
 
 export class TeacherController {
@@ -26,6 +27,10 @@ export class TeacherController {
 		const data = request.body;
 		Object.assign(student, data);
 		return student.save();
+	}
+
+	async loadTeacherSchedules(request: Request, response:Response, next: NextFunction) {
+		return await (await Teacher.findOne(request.params.id, { relations: ["schedule", "schedule.student", "schedule.course"]})).schedule
 	}
 
 }

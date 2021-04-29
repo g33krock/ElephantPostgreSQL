@@ -7,10 +7,15 @@ export default class TeacherSchedule extends Component {
     this.state = { teacherschedule: [], teachersched: []};
   }
 
-  componentDidMount() {
-    fetch("http://localhost:3001/schedules") //Fetch TeacherSchedule Table from API
+  componentDidUpdate(prevProps) {
+    if (prevProps.teacher === this.props.teacher) {
+      return
+    }
+    console.log(this.props.teacher)
+    fetch(`http://localhost:3001/teachers/${this.props.teacher.id}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
+        console.log(data)
         this.setState({
           teacherschedule: data,                   //Create relationship between teacherschedule state array and JSON object
         });
@@ -26,8 +31,7 @@ export default class TeacherSchedule extends Component {
   render() {
     const teacher = this.props.teacher;
     const teacherSchedBox = this.state.teacherschedule
-      .filter(teacherschedule => teacherschedule.teacher?.id === teacher.id)
-      .sort((a, b) => (a.teacher.firstName > b.teacher.firstName) ? 1 : (a.teacher.firstName === b.teacher.firstName) ? ((a.period > b.period) ? 1 : -1) : -1)
+      .sort(function(a, b) {return a.period - b.period} )
       .map(teachersched => {
         return (
             <div key={teachersched.id} className="col">
@@ -40,7 +44,7 @@ export default class TeacherSchedule extends Component {
                     </CardImgOverlay>
                     <CardText style={{color: 'black'}}>
                       <p>Student:{teachersched.student.firstName} {teachersched.student.lastName}</p>
-                      <p>Teacher:{teachersched.teacher.firstName} {teachersched.teacher.lastName}</p>
+                      <p>Teacher:{this.props.teacher.firstName} {this.props.teacher.lastName}</p>
                       <p>Course Name:{teachersched.course.name}</p>
                       <p>Subject:{teachersched.course.subject}</p>
                     </CardText>

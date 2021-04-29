@@ -48,7 +48,6 @@ export default class Student extends Component {
           )}
         </div>
         <StudentCreator></StudentCreator>
-        <button onClick={StudentCreator.createStudent}>Create Student</button>
       </section>
     );
   }
