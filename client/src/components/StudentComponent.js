@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { Card, CardTitle } from "reactstrap";
 import StudentSchedule from "./StudentScheduleComponent";
 import {StudentCreator} from "./CreateStudent";
+import {DeleteStudent} from "./DeleteStudent";
 
 
 export default class Student extends Component {
   constructor(props) {
     super(props);
-    this.state = { students: [], student: null };
+    this.state = { students: [], student: null, id: null};
   }
 
   componentDidMount() {
@@ -25,14 +26,17 @@ export default class Student extends Component {
 
   setStudent(student) {
     // sets student property to student object.  This looks funny because they both are named student
-    this.setState({student: student})
+    this.setState({student: student});
+    console.log(student);
   }
-
-  
   
   render() {
+    const id = this.state.student?.id
     return (
       <section>
+        <h1>{id}</h1>
+        <StudentCreator></StudentCreator>
+        <DeleteStudent></DeleteStudent>
         <h1>Students</h1>
         {this.state.student && <StudentSchedule student={this.state.student}></StudentSchedule>}
         <div className = "row">
@@ -43,11 +47,9 @@ export default class Student extends Component {
                     {student.firstName} {student.lastName} 
                   </CardTitle>
               </Card>
-              
             </div>
           )}
         </div>
-        <StudentCreator></StudentCreator>
       </section>
     );
   }

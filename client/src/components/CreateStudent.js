@@ -41,8 +41,8 @@ export class StudentCreator extends Component {
   render() {
     return (
       <div>
-        <Button color="danger" onClick={() => this.setState({ modal: true })}>
-          Ahoy!
+        <Button color="primary" onClick={() => this.setState({ modal: true })}>
+          Add Student
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
