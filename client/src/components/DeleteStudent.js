@@ -1,20 +1,21 @@
-import { useState } from "react";
-import Student from "./StudentComponent";
+import { Component } from "react";
+
 
 
 
   
-  export function DeleteStudent() {
-    const [student, setStudent ] = useState(Student.student);
+  export class DeleteStudent extends Component {
+    componentDidUpdate(){
+    }
+    render(){
     return (
       <div>
-        <p>Student ID is: {student}</p>
-        <button onClick={() => setStudent(student)}>
-          Delete Student
-        </button>
+        <p>Student ID is: {this.props.student}</p>
       </div>
     );
-    }
+    };
+  }
+
     // const response = fetch(`http://localhost:3001/students/${id}`, {
     //   method: 'DELETE',
     // })

@@ -36,7 +36,7 @@ export default class Student extends Component {
       <section>
         <h1>{id}</h1>
         <StudentCreator></StudentCreator>
-        <DeleteStudent></DeleteStudent>
+        <DeleteStudent student={this.state.student?.id}></DeleteStudent>
         <h1>Students</h1>
         {this.state.student && <StudentSchedule student={this.state.student}></StudentSchedule>}
         <div className = "row">
