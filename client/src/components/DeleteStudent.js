@@ -10,15 +10,15 @@ import { Button, Modal, ModalBody, Form } from "reactstrap";
     render() {
       return (
         <div>
-          <Button color="danger" onClick={() => this.setState({ modal: true })}>
+          <Button outline color="danger" onClick={() => this.setState({ modal: true })}>
             Delete Student
           </Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle}>
             <ModalBody>
               <Form>
-                <h2>Are you sure you want to delete this student?</h2>
+                <h2>Are you sure you want to delete {this.props.studentFirstName} {this.props.studentLastName}?</h2>
                 <Button
-                  color="primary"
+                  outline color="primary"
                   onClick={() => {
                     this.deleteStudent();
                     this.setState({ modal: false });
@@ -27,7 +27,7 @@ import { Button, Modal, ModalBody, Form } from "reactstrap";
                   Submit
                 </Button>
                 <Button
-                  color="danger"
+                  outline color="danger"
                   onClick={() => this.setState({ modal: false })}
                 >
                   Cancel

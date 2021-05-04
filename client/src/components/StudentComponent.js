@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Card, CardTitle } from "reactstrap";
+import { Card, CardTitle, Row, Col, CardImg } from "reactstrap";
 import StudentSchedule from "./StudentScheduleComponent";
 import {StudentCreator} from "./CreateStudent";
 import {DeleteStudent} from "./DeleteStudent";
+import {StudentUpdater} from "./UpdateStudent";
 
 
 export default class Student extends Component {
@@ -31,14 +32,48 @@ export default class Student extends Component {
   }
   
   render() {
-    const id = this.state.student?.id
+    const first = this.state.student?.firstName;
+    const last = this.state.student?.lastName;
     return (
       <section>
-        <h1>{id}</h1>
-        <StudentCreator></StudentCreator>
-        <DeleteStudent studentId={this.state.student?.id}></DeleteStudent>
-        <h1>Students</h1>
-        {this.state.student && <StudentSchedule student={this.state.student}></StudentSchedule>}
+        <Row>
+          <Col md="4"></Col>
+          <Col md="1">
+            <StudentCreator></StudentCreator>
+          </Col>
+          <Col md="1">
+            <DeleteStudent 
+              studentId={this.state.student?.id}
+              studentFirstName={this.state.student?.firstName}
+              studentLastName={this.state.student?.lastName}>
+            </DeleteStudent>
+          </Col>
+          <Col md="1">
+            <StudentUpdater 
+              studentId={this.state.student?.id}
+              studentFirstName={this.state.student?.firstName}
+              studentLastName={this.state.student?.lastName}
+              studentGrade={this.state.student?.grade}
+              studentCampus={this.state.student?.campuses.id}
+              studentMedInfo={this.state.student?.medical_information}
+              studentAddInfo={this.state.student?.additional_information}
+              studentIEP={this.state.student?.iep}>
+            </StudentUpdater>
+          </Col>
+          <Col md="4"></Col>
+        </Row>
+        
+        <h1>Student: {first} {last}</h1>
+        <div className="row">
+          <div className="col-md-3">
+            <Card>
+              <CardImg src={`${this.state.student?.profile_image}`} alt={`${this.state.student?.firstName}`}></CardImg>
+            </Card>
+          </div>
+          <div className="col-md-9">
+            {this.state.student && <StudentSchedule student={this.state.student}></StudentSchedule>}
+          </div>
+        </div>
         <div className = "row">
           {this.state.students.map(student => 
             <div key={student.id} className="col-md-2 m-1">

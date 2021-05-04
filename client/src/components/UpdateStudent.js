@@ -9,7 +9,7 @@ import {
   ModalBody,
 } from "reactstrap";
 
-export class StudentCreator extends Component {
+export class StudentUpdater extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,20 +17,22 @@ export class StudentCreator extends Component {
     };
   }
 
-  async createStudent() {
+  async updateStudent() {
     let firstName = document.getElementById("studentFirstName").value;
     let lastName = document.getElementById("studentLastName").value;
     let grade = document.getElementById("studentGrade").value;
     let campuses = document.getElementById("studentCampus").value;
     let iep = document.getElementById("IEP").value;
-    const response = await fetch("http://localhost:3001/students", {
-      method: "POST",
+    let medical_information = document.getElementById("medInfo").value;
+    let additional_information = document.getElementById("addInfo").value;
+    const response = fetch("http://localhost:3001/students/"+this.props.studentId, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ firstName, lastName, campuses, grade, iep }),
+      body: JSON.stringify({ firstName, lastName, campuses, grade, iep, medical_information, additional_information }),
     });
-    const data = await response.text();
+    const data = response;
     console.log(data);
   }
 
@@ -41,8 +43,8 @@ export class StudentCreator extends Component {
   render() {
     return (
       <div>
-        <Button outline color="primary" onClick={() => this.setState({ modal: true })}>
-          Add Student
+        <Button outline color="success" onClick={() => this.setState({ modal: true })}>
+          Update Student
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
@@ -50,6 +52,7 @@ export class StudentCreator extends Component {
               <FormGroup>
                 <Label for="studentFirstName">Student First Name</Label>
                 <Input
+                  defaultValue={this.props.studentFirstName}
                   type="text"
                   name="studentFirstName"
                   id="studentFirstName"
@@ -58,6 +61,7 @@ export class StudentCreator extends Component {
               <FormGroup>
                 <Label for="studentLastName">Student Last Name</Label>
                 <Input
+                  defaultValue={this.props.studentLastName}
                   type="text"
                   name="studentLastName"
                   id="studentLastName"
@@ -65,7 +69,7 @@ export class StudentCreator extends Component {
               </FormGroup>
               <FormGroup>
                 <Label for="studentGrade">Grade Level</Label>
-                <Input type="select" name="studentGrade" id="studentGrade">
+                <Input type="select" name="studentGrade" id="studentGrade" defaultValue={this.props.studentGrade}>
                   <option>0</option>
                   <option>1</option>
                   <option>2</option>
@@ -83,12 +87,12 @@ export class StudentCreator extends Component {
               </FormGroup>
               <FormGroup check>
                 <Label check>
-                  <Input id="IEP" type="checkbox" /> IEP
+                  <Input id="IEP" type="checkbox" defaultValue={this.props.studentIEP}/> IEP
                 </Label>
               </FormGroup>
               <FormGroup>
                 <Label for="studentCampus">Student Campus</Label>
-                <Input type="select" name="studentCampus" id="studentCampus">
+                <Input type="select" name="studentCampus" id="studentCampus" defaultValue={this.props.studentCampus}>
                   <option value="1">Tempe</option>
                   <option value="2">Queen Creek</option>
                   <option value="3">Litchfield Park</option>
@@ -96,10 +100,28 @@ export class StudentCreator extends Component {
                   <option value="5">Tucson</option>
                 </Input>
               </FormGroup>
+              <FormGroup>
+                <Label for="medInfo">Medical Information</Label>
+                <Input
+                  defaultValue={this.props.studentMedInfo}
+                  type="text"
+                  name="medInfo"
+                  id="medInfo"
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="addInfo">Additional Information</Label>
+                <Input
+                  defaultValue={this.props.studentAddInfo}
+                  type="text"
+                  name="addInfo"
+                  id="addInfo"
+                />
+              </FormGroup>
               <Button
                 color="primary"
                 onClick={() => {
-                  this.createStudent();
+                  this.updateStudent();
                   this.setState({ modal: false })
                 }}
               >
