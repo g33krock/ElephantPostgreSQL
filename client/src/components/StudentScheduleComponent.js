@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardImgOverlay, CardText, CardTitle, Col, CardLink } from "reactstrap";
+import { Card, CardImg, CardImgOverlay, CardText, CardTitle, Col, CardLink, Row, Button } from "reactstrap";
+import { TrackerCreator } from "./CreateTracker";
 
 export default class StudentSchedule extends Component {
   constructor(props) {
@@ -45,6 +46,23 @@ export default class StudentSchedule extends Component {
                       <p>Course Name:{studentsched.course.name}</p>
                       <p>Subject:{studentsched.course.subject}</p>
                       <CardLink href={studentsched.teacher.link}>{studentsched.teacher.link}</CardLink>
+                      <Row>
+                        <Col sm="12" md={{ size: 3, offset: 3 }}>
+                          <TrackerCreator
+                          student={studentsched.student}
+                          teacher={studentsched.teacher}
+                          course={studentsched.course}
+                          period={studentsched.period}
+                          >
+                          </TrackerCreator>
+                        </Col>
+                        <Col>
+                          <Button outline color="success" size="sm">Update Class</Button>{' '}
+                        </Col>
+                        <Col>
+                          <Button outline color="danger" size="sm">Delete Class</Button>{' '}
+                        </Col>
+                      </Row>
                     </CardText>
                 </Card>
             </Col>

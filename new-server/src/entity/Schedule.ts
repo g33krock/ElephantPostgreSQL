@@ -1,8 +1,9 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 import { Student } from "./Student";
 import { Teacher } from "./Teacher";
 import { Course } from "./Course";
 import { Campus } from "./Campus";
+import { Tracker } from "./Tracker";
 
 @Entity()
 export class Schedule extends BaseEntity {
@@ -35,4 +36,7 @@ export class Schedule extends BaseEntity {
 		nullable: true
 	})
 	period: number;
+
+	@OneToMany(() => Tracker, tracker => tracker.schedules)
+	trackers: Tracker[];
 }

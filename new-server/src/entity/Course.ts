@@ -1,5 +1,6 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { Schedule } from "./Schedule";
+import { Tracker } from "./Tracker";
 
 @Entity()
 export class Course extends BaseEntity {
@@ -28,4 +29,7 @@ export class Course extends BaseEntity {
 		nullable: true
 	})
 	credit: string;
+
+	@OneToMany(() => Tracker, tracker => tracker.courses)
+	trackers: Tracker[];
 }

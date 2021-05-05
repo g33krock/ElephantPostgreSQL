@@ -2,6 +2,7 @@ import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOn
 import { Schedule } from "./Schedule";
 import { Guardian } from "./Guardian";
 import { Campus } from "./Campus";
+import { Tracker } from "./Tracker";
 
 @Entity()
 export class Student extends BaseEntity {
@@ -51,4 +52,7 @@ export class Student extends BaseEntity {
 
 	@ManyToOne(() => Campus, campus => campus.students)
 	campuses: Campus;
+
+	@OneToMany(() => Tracker, tracker => tracker.students)
+	trackers: Tracker[];
 }
