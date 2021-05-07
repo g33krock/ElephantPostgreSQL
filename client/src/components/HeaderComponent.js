@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
+import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron, Input, Col } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import { campusService } from '../services/campusService';
 
 class Header extends Component {
 
@@ -9,8 +10,18 @@ class Header extends Component {
 
         this.toggleNav = this.toggleNav.bind(this);
         this.state = {
-            isNavOpen: false
+            isNavOpen: false,
+            campuses: []
         };
+    }
+
+    componentDidMount() {
+        campusService.all().then((campuses) => {
+            this.setState({
+                campuses
+            })
+            console.log(this.state.campuses)
+        })
     }
 
     toggleNav() {
@@ -51,6 +62,11 @@ class Header extends Component {
                                 </NavItem>
                             </Nav>
                         </Collapse>
+                        <Col sm={3}>
+                            <Input type="select">
+                                {this.state.campuses.map((campus) => <option>{campus.name}</option>)}
+                            </Input>
+                        </Col>
                     </div>
                 </Navbar>
             </React.Fragment>

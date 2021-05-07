@@ -9,8 +9,9 @@ import {
   ModalBody,
   Row,
   Col,
-  Container
+  Container,
 } from "reactstrap";
+import { trackerService } from "../services/trackerService";
 
 export class TrackerCreator extends Component {
   constructor(props) {
@@ -21,47 +22,26 @@ export class TrackerCreator extends Component {
   }
 
   async createTracker() {
-    let students = this.props.student.id;
-    let teachers = this.props.teacher.id;
-    let courses = this.props.course.id;
-    let period = this.props.period;
-    let attendance = document.getElementById("attendance").value;
-    let lesson = document.getElementById("lesson").value;
-    let comprehensionAI = document.getElementById("comprehensionAI").value;
-    let comprehension = document.getElementById("comprehension").value;
-    let comprehensionComment = document.getElementById("comprehensionComment").value;
-    let engagementAI = document.getElementById("engagementAI").value;
-    let engagement = document.getElementById("engagement").value;
-    let engagementComment = document.getElementById("engagementComment").value;
-    let behaviorAI = document.getElementById("behaviorAI").value;
-    let behavior = document.getElementById("behavior").value;
-    let behaviorComment = document.getElementById("behaviorComment").value;
-    let assessment = document.getElementById("assessment").value;
-    const response = await fetch("http://localhost:3001/trackers", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ 
-        students, 
-        teachers, 
-        courses, 
-        period, 
-        attendance, 
-        lesson, 
-        comprehension, 
-        comprehensionAI, 
-        comprehensionComment, 
-        engagement, 
-        engagementAI, 
-        engagementComment,
-        behavior, 
-        behaviorAI, 
-        behaviorComment,
-        assessment }),
-    });
-    const data = await response.text();
-    console.log(data);
+    const trackerObject = {
+      students: this.props.student.id,
+      teachers: this.props.teacher.id,
+      courses: this.props.course.id,
+      period: this.props.period,
+      attendance: document.getElementById("attendance").value,
+      lesson: document.getElementById("lesson").value,
+      comprehension: document.getElementById("comprehension").value,
+      comprehensionAI: document.getElementById("comprehensionAI").value,
+      comprehensionComment: document.getElementById("comprehensionComment").value,
+      engagement: document.getElementById("engagement").value,
+      engagementAI:document.getElementById("engagementAI").value,
+      engagementComment: document.getElementById("engagementComment").value,
+      behavior: document.getElementById("behavior").value,
+      behaviorAI: document.getElementById("behaviorAI").value,
+      behaviorComment: document.getElementById("behaviorComment").value,
+      assessment: document.getElementById("assessment").value,
+    };
+    const tracker = await trackerService.create(trackerObject);
+    console.log(tracker)
   }
 
   toggle() {
@@ -71,42 +51,59 @@ export class TrackerCreator extends Component {
   render() {
     return (
       <div>
-        <Button outline color="primary" onClick={() => this.setState({ modal: true })}>
+        <Button
+          outline
+          color="primary"
+          onClick={() => this.setState({ modal: true })}
+        >
           Student Tracking
         </Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalBody style={{backgroundColor: "lightgray"}}>
-            <p><strong>Student:</strong>{this.props.student.firstName} {this.props.student.lastName}</p>
-            <p><strong>Teacher:</strong>{this.props.teacher.firstName} {this.props.teacher.lastName}</p>
-            <p><strong>Course:</strong>{this.props.course.name}</p>
-            <p><strong>Period:</strong>{this.props.period}</p>
+        <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
+          <ModalBody style={{ backgroundColor: "lightgray" }}>
+            <p>
+              <strong>Student:</strong>
+              {this.props.student.firstName} {this.props.student.lastName}
+            </p>
+            <p>
+              <strong>Teacher:</strong>
+              {this.props.teacher.firstName} {this.props.teacher.lastName}
+            </p>
+            <p>
+              <strong>Course:</strong>
+              {this.props.course.name}
+            </p>
+            <p>
+              <strong>Period:</strong>
+              {this.props.period}
+            </p>
             <Form>
               <FormGroup>
-                <Label for="attendance"><h3>Attendance</h3></Label>
-                <Input
-                  type="select"
-                  name="attendance"
-                  id="attendance"
-                >
+                <Label for="attendance">
+                  <h3>Attendance</h3>
+                </Label>
+                <Input type="select" name="attendance" id="attendance">
                   <option></option>
                   <option>Present</option>
                   <option>Absent</option>
                 </Input>
               </FormGroup>
               <FormGroup>
-                <Label for="lesson"><h3>Lesson Description</h3></Label>
-                <Input
-                  type="text"
-                  name="lesson"
-                  id="lesson"
-                />
+                <Label for="lesson">
+                  <h3>Lesson Description</h3>
+                </Label>
+                <Input type="text" name="lesson" id="lesson" />
               </FormGroup>
-              <Container style={{backgroundColor: "tan"}}><h3>Check for Understanding</h3>
-                <Row form >
+              <Container style={{ backgroundColor: "tan" }}>
+                <h3>Check for Understanding</h3>
+                <Row form>
                   <Col md={3}>
                     <FormGroup>
                       <Label for="comprehension">Check for Understanding</Label>
-                      <Input type="select" name="comprehension" id="comprehension">
+                      <Input
+                        type="select"
+                        name="comprehension"
+                        id="comprehension"
+                      >
                         <option></option>
                         <option value="1">Not Understanding</option>
                         <option value="2">Superficial Understanding</option>
@@ -117,15 +114,29 @@ export class TrackerCreator extends Component {
                   </Col>
                   <Col md={9}>
                     <FormGroup>
-                      <Label for="comprehensionAI">Check for Understanding Additional Information</Label>
-                      <Input type="select" name="comprehensionAI" id="comprehensionAI" multiple>
+                      <Label for="comprehensionAI">
+                        Check for Understanding Additional Information
+                      </Label>
+                      <Input
+                        type="select"
+                        name="comprehensionAI"
+                        id="comprehensionAI"
+                        multiple
+                      >
                         <option>Requires review of basic content</option>
                         <option>Processing/Memory/Retrieval issues</option>
                         <option>Requires review of current content</option>
                         <option>Requires modifications to content</option>
-                        <option>Requires differentiation and infusion to enhance understanding</option>
-                        <option>Requires assistance/ support from leadership</option>
-                        <option>Requires use of support materials/ tools</option>
+                        <option>
+                          Requires differentiation and infusion to enhance
+                          understanding
+                        </option>
+                        <option>
+                          Requires assistance/ support from leadership
+                        </option>
+                        <option>
+                          Requires use of support materials/ tools
+                        </option>
                         <option>Reading/ Comprehension issues</option>
                         <option>Specific Learning Disabilities</option>
                         <option>Requires behavioral support</option>
@@ -134,7 +145,9 @@ export class TrackerCreator extends Component {
                   </Col>
                 </Row>
                 <FormGroup>
-                  <Label for="comprehensionComment">Check for Understanding Comment</Label>
+                  <Label for="comprehensionComment">
+                    Check for Understanding Comment
+                  </Label>
                   <Input
                     type="text"
                     name="comprehensionComment"
@@ -142,7 +155,7 @@ export class TrackerCreator extends Component {
                   />
                 </FormGroup>
               </Container>
-              <Container style={{backgroundColor: "lightblue"}}>
+              <Container style={{ backgroundColor: "lightblue" }}>
                 <h3>Engagement</h3>
                 <Row form>
                   <Col md={3}>
@@ -150,26 +163,53 @@ export class TrackerCreator extends Component {
                       <Label for="engagement">Engagement</Label>
                       <Input type="select" name="engagement" id="engagement">
                         <option></option>
-                        <option value="1">Disengaged: No demonstration of learning, disruptive/ defiant/ avoidant</option>
-                        <option value="2">Retreatism: Little to no effort, productivity or inquiry, interest, or collaboration, no demonstrated inquiry</option>
-                        <option value="3">Ritual: Minimal effort to avoid negative consequences, no self-directed/ motivated, minimal inquiry</option>
-                        <option value="4">Strategic: Clear effort, focus on directions and task completion to meet standard, minimal inquiry</option>
-                        <option value="5">High: Persistent, sustained inquiry, self-directed learning, self motivated, highly engaged in learning</option>
+                        <option value="1">
+                          Disengaged: No demonstration of learning, disruptive/
+                          defiant/ avoidant
+                        </option>
+                        <option value="2">
+                          Retreatism: Little to no effort, productivity or
+                          inquiry, interest, or collaboration, no demonstrated
+                          inquiry
+                        </option>
+                        <option value="3">
+                          Ritual: Minimal effort to avoid negative consequences,
+                          no self-directed/ motivated, minimal inquiry
+                        </option>
+                        <option value="4">
+                          Strategic: Clear effort, focus on directions and task
+                          completion to meet standard, minimal inquiry
+                        </option>
+                        <option value="5">
+                          High: Persistent, sustained inquiry, self-directed
+                          learning, self motivated, highly engaged in learning
+                        </option>
                       </Input>
                     </FormGroup>
                   </Col>
                   <Col md={9}>
                     <FormGroup>
-                    <Label for="engagementAI">Engagement Additional Information</Label>
-                      <Input type="select" name="engagementAI" id="engagementAI" multiple>
+                      <Label for="engagementAI">
+                        Engagement Additional Information
+                      </Label>
+                      <Input
+                        type="select"
+                        name="engagementAI"
+                        id="engagementAI"
+                        multiple
+                      >
                         <option>Work refusal</option>
                         <option>Oppositionality</option>
                         <option>Disruptive to others</option>
                         <option>Aggression (verbal)</option>
                         <option>Aggression (physical)</option>
-                        <option>Involved in other tasks/ activities/ behaviors</option>
+                        <option>
+                          Involved in other tasks/ activities/ behaviors
+                        </option>
                         <option>Attention seeking behaviors (negative)</option>
-                        <option>Self-harm behaviors (verbally or physically)</option>
+                        <option>
+                          Self-harm behaviors (verbally or physically)
+                        </option>
                         <option>Negative attitude</option>
                         <option>Shut down/ lack of participation</option>
                         <option>Minimal Effort</option>
@@ -179,7 +219,9 @@ export class TrackerCreator extends Component {
                         <option>Emotional Difficulty Anxiety</option>
                         <option>Emotional Difficulty Depression</option>
                         <option>Medical Issue</option>
-                        <option>Requires Assistance/ Support from Leadership</option>
+                        <option>
+                          Requires Assistance/ Support from Leadership
+                        </option>
                         <option>Requires Behavioral Support</option>
                       </Input>
                     </FormGroup>
@@ -194,25 +236,58 @@ export class TrackerCreator extends Component {
                   />
                 </FormGroup>
               </Container>
-              <Container style={{backgroundColor: "gold"}}>
+              <Container style={{ backgroundColor: "gold" }}>
                 <h3>Behavior/Zone</h3>
                 <Row form>
                   <Col md={3}>
                     <FormGroup>
-                    <Label for="behavior">Behavior/Zone of Regulation</Label>
+                      <Label for="behavior">Behavior/Zone of Regulation</Label>
                       <Input type="select" name="behavior" id="behavior">
                         <option></option>
-                        <option id="zone" style={{backgroundColor: "green"}} value="1">Green Zone (happy, focused, calm, ready to learn)</option>
-                        <option id="zone" style={{backgroundColor: "orange"}} value="2">Yellow Zone (loss of some control, excited, silly/wiggly, frustrated)</option>
-                        <option id="zone" style={{backgroundColor: "blue"}} value="3">Blue Zone (sad, sick, moving slowly, shut down, tired, anxious)</option>
-                        <option id="zone" style={{backgroundColor: "red"}} value="4">Red Zone (angry, mad, aggressive verbally/physically)</option>
+                        <option
+                          id="zone"
+                          style={{ backgroundColor: "green" }}
+                          value="1"
+                        >
+                          Green Zone (happy, focused, calm, ready to learn)
+                        </option>
+                        <option
+                          id="zone"
+                          style={{ backgroundColor: "orange" }}
+                          value="2"
+                        >
+                          Yellow Zone (loss of some control, excited,
+                          silly/wiggly, frustrated)
+                        </option>
+                        <option
+                          id="zone"
+                          style={{ backgroundColor: "blue" }}
+                          value="3"
+                        >
+                          Blue Zone (sad, sick, moving slowly, shut down, tired,
+                          anxious)
+                        </option>
+                        <option
+                          id="zone"
+                          style={{ backgroundColor: "red" }}
+                          value="4"
+                        >
+                          Red Zone (angry, mad, aggressive verbally/physically)
+                        </option>
                       </Input>
                     </FormGroup>
                   </Col>
                   <Col md={9}>
                     <FormGroup>
-                      <Label for="behaviorAI">Behavior/Zone Additional Information</Label>
-                      <Input type="select" name="behaviorAI" id="behaviorAI" multiple>
+                      <Label for="behaviorAI">
+                        Behavior/Zone Additional Information
+                      </Label>
+                      <Input
+                        type="select"
+                        name="behaviorAI"
+                        id="behaviorAI"
+                        multiple
+                      >
                         <option>Out of seat</option>
                         <option>Loss of Control</option>
                         <option>Talking Out</option>
@@ -234,28 +309,26 @@ export class TrackerCreator extends Component {
                     </FormGroup>
                   </Col>
                 </Row>
-              <FormGroup>
-                <Label for="behaviorComment">Behavior/Zone Comment</Label>
-                <Input
-                  type="text"
-                  name="behaviorComment"
-                  id="behaviorComment"
-                />
-              </FormGroup>
+                <FormGroup>
+                  <Label for="behaviorComment">Behavior/Zone Comment</Label>
+                  <Input
+                    type="text"
+                    name="behaviorComment"
+                    id="behaviorComment"
+                  />
+                </FormGroup>
               </Container>
               <FormGroup>
-                <Label for="assessment"><h3>Assessment</h3></Label>
-                <Input
-                  type="text"
-                  name="assessment"
-                  id="assessment"
-                />
+                <Label for="assessment">
+                  <h3>Assessment</h3>
+                </Label>
+                <Input type="text" name="assessment" id="assessment" />
               </FormGroup>
               <Button
                 color="primary"
                 onClick={() => {
                   this.createTracker();
-                  this.setState({ modal: false })
+                  this.setState({ modal: false });
                 }}
               >
                 Submit
