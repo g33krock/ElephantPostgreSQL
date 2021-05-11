@@ -8,6 +8,7 @@ import {
   Modal,
   ModalBody,
 } from "reactstrap";
+import { studentService } from "../services/studentService";
 
 export class StudentUpdater extends Component {
   constructor(props) {
@@ -18,22 +19,16 @@ export class StudentUpdater extends Component {
   }
 
   async updateStudent() {
-    let firstName = document.getElementById("studentFirstName").value;
-    let lastName = document.getElementById("studentLastName").value;
-    let grade = document.getElementById("studentGrade").value;
-    let campuses = document.getElementById("studentCampus").value;
-    let iep = document.getElementById("IEP").value;
-    let medical_information = document.getElementById("medInfo").value;
-    let additional_information = document.getElementById("addInfo").value;
-    const response = fetch("http://localhost:3001/students/"+this.props.studentId, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ firstName, lastName, campuses, grade, iep, medical_information, additional_information }),
-    });
-    const data = response;
-    console.log(data);
+    const studentObject = {
+      studentID: this.props.studentId,
+      firstName: document.getElementById("studentFirstName").value,
+      lastName: document.getElementById("studentLastName").value,
+      grade: document.getElementById("studentGrade").value,
+      campuses: document.getElementById("studentCampus").value,
+      iep: document.getElementById("IEP").value
+    };
+    const student = await studentService.update(studentObject);
+    console.log(student)
   }
 
   toggle() {

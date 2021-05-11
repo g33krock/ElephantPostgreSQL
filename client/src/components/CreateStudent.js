@@ -8,6 +8,7 @@ import {
   Modal,
   ModalBody,
 } from "reactstrap";
+import { studentService } from "../services/studentService";
 
 export class StudentCreator extends Component {
   constructor(props) {
@@ -18,20 +19,15 @@ export class StudentCreator extends Component {
   }
 
   async createStudent() {
-    let firstName = document.getElementById("studentFirstName").value;
-    let lastName = document.getElementById("studentLastName").value;
-    let grade = document.getElementById("studentGrade").value;
-    let campuses = document.getElementById("studentCampus").value;
-    let iep = document.getElementById("IEP").value;
-    const response = await fetch("http://localhost:3001/students", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ firstName, lastName, campuses, grade, iep }),
-    });
-    const data = await response.text();
-    console.log(data);
+    const studentObject = {
+      firstName: document.getElementById("studentFirstName").value,
+      lastName: document.getElementById("studentLastName").value,
+      grade: document.getElementById("studentGrade").value,
+      campuses: document.getElementById("studentCampus").value,
+      iep: document.getElementById("IEP").value
+    };
+    const student = await studentService.create(studentObject);
+    console.log(student)
   }
 
   toggle() {

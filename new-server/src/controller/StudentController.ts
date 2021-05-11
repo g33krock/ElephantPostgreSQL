@@ -28,5 +28,9 @@ export class StudentController {
 		return student.save();
 	}
 
+	async loadStudentSchedules(request: Request, response:Response, next: NextFunction) {
+		return await (await Student.findOne(request.params.id, { relations: ["schedule", "schedule.student", "schedule.course"]})).schedules
+	}
+
 
 }

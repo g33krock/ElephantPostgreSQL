@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Button, Modal, ModalBody, Form } from "reactstrap"; 
+import { studentService } from "../services/studentService";
   export class DeleteStudent extends Component {
     constructor(props) {
       super(props);
@@ -39,15 +40,11 @@ import { Button, Modal, ModalBody, Form } from "reactstrap";
       );
     }
     deleteStudent(){
-      console.log(`${this.props.studentId}`)
-      const response = fetch("http://localhost:3001/students/"+this.props.studentId, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      const dData = response;
-    console.log(dData);
+      const studentObject = {
+        studentID: this.props.studentId
+      };
+      const student =  studentService.delete(studentObject);
+      console.log(student)
     }
   }
 

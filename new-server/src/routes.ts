@@ -57,6 +57,11 @@ export const Routes = [{
 	route: "/students/:id",
 	controller: StudentController,
 	action: "remove"
+},{
+	method: "get",
+	route: "/students/:id/schedules",
+	controller: StudentController,
+	action: "loadStudentSchedules"
 },
 
 // Schedule

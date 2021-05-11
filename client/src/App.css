@@ -112,3 +112,7 @@ h2 {
   grid-template-columns: 15% 15% 15% 15% 15% 15%;
   grid-row-gap: 0px;
 }
+
+#trackerBox {
+  border: 2px solid #000000;
+}

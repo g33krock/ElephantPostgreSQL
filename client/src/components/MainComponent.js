@@ -3,6 +3,7 @@ import Student from './StudentComponent';
 import Home from './HomeComponent';
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Teacher from './TeacherComponent';
+import Schedule from './ScheduleComponent';
 
 class Main extends Component {
     
@@ -10,7 +11,7 @@ class Main extends Component {
         super(props);
         this.state = {
             students: [],
-            teachers:[]
+            teachers:[],
         };
     }
 
@@ -18,6 +19,7 @@ class Main extends Component {
         return (
             <div>
                 <Switch>
+                    <Route path='/schedules' component={Schedule} />
                     <Route path='/teachers' component={Teacher} />
                     <Route path='/students' component={Student} />
                     <Route path='/home' component={Home} />
