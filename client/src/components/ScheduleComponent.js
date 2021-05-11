@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardTitle, Row, Col, CardImg } from "reactstrap";
+import {ScheduleUpdater} from "./UpdateSchedule"
 
 
 
@@ -37,6 +38,10 @@ export default class Schedule extends Component {
     console.log(schedule);
   }
 
+  releaseKraken() {
+      ScheduleUpdater.toggle()
+  }
+
   render() {
       return (
           <div>
@@ -52,7 +57,7 @@ export default class Schedule extends Component {
             {this.state.studentSchedules.map(studentSchedule => 
                 <Row key={studentSchedule.id} xs="1">
                     <Col xs="2">
-                        <Card onClick={() => this.setStudentSchedule(studentSchedule)}>
+                        <Card>
                         <CardImg src={`${studentSchedule.profile_image}`} alt={studentSchedule.firstName} />
                             <CardTitle className='card-title' style={{color: 'black' }}>
                             {studentSchedule.firstName} {studentSchedule.lastName} 

@@ -59,25 +59,25 @@ export class TrackerCreator extends Component {
           Student Tracking
         </Button>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
-          <ModalBody style={{ backgroundColor: "lightgray" }}>
+          <ModalBody style={{ backgroundColor: "lightgray", color: 'black', fontSize: '21px', textAlign: 'center'}}>
             <p>
-              <strong>Student:</strong>
+              <strong>Student: </strong>
               {this.props.student.firstName} {this.props.student.lastName}
             </p>
             <p>
-              <strong>Teacher:</strong>
+              <strong>Teacher: </strong>
               {this.props.teacher.firstName} {this.props.teacher.lastName}
             </p>
             <p>
-              <strong>Course:</strong>
+              <strong>Course: </strong>
               {this.props.course.name}
             </p>
             <p>
-              <strong>Period:</strong>
+              <strong>Period: </strong>
               {this.props.period}
             </p>
             <Form>
-              <FormGroup>
+              <FormGroup id="trackerBox">
                 <Label for="attendance">
                   <h3>Attendance</h3>
                 </Label>
@@ -87,13 +87,13 @@ export class TrackerCreator extends Component {
                   <option>Absent</option>
                 </Input>
               </FormGroup>
-              <FormGroup>
+              <FormGroup id="trackerBox">
                 <Label for="lesson">
                   <h3>Lesson Description</h3>
                 </Label>
                 <Input type="text" name="lesson" id="lesson" />
               </FormGroup>
-              <Container style={{ backgroundColor: "tan" }}>
+              <Container style={{ backgroundColor: "tan" }} id="trackerBox">
                 <h3>Check for Understanding</h3>
                 <Row form>
                   <Col md={3}>
@@ -155,7 +155,7 @@ export class TrackerCreator extends Component {
                   />
                 </FormGroup>
               </Container>
-              <Container style={{ backgroundColor: "lightblue" }}>
+              <Container style={{ backgroundColor: "lightblue" }} id="trackerBox">
                 <h3>Engagement</h3>
                 <Row form>
                   <Col md={3}>
@@ -236,7 +236,7 @@ export class TrackerCreator extends Component {
                   />
                 </FormGroup>
               </Container>
-              <Container style={{ backgroundColor: "gold" }}>
+              <Container style={{ backgroundColor: "gold" }} id="trackerBox">
                 <h3>Behavior/Zone</h3>
                 <Row form>
                   <Col md={3}>
@@ -318,7 +318,7 @@ export class TrackerCreator extends Component {
                   />
                 </FormGroup>
               </Container>
-              <FormGroup>
+              <FormGroup id="trackerBox">
                 <Label for="assessment">
                   <h3>Assessment</h3>
                 </Label>

@@ -25,7 +25,9 @@ export class StudentUpdater extends Component {
       lastName: document.getElementById("studentLastName").value,
       grade: document.getElementById("studentGrade").value,
       campuses: document.getElementById("studentCampus").value,
-      iep: document.getElementById("IEP").value
+      iep: document.getElementById("IEP").value,
+      medical_information: document.getElementById("medInfo").value,
+      additional_information: document.getElementById("addInfo").value
     };
     const student = await studentService.update(studentObject);
     console.log(student)

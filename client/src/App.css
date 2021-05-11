@@ -100,11 +100,14 @@ h2 {
  }
 
  .card-title {
-  text-shadow:2px 2px 4px #000000
+  font-size: large;
+  font-weight: bolder;
  }
 
  #schedBox {
    border: 2px solid #000000;
+   font-size: large;
+   font-weight: bolder;
  }
 
  .schedule-container {
