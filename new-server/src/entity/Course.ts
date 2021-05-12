@@ -8,7 +8,7 @@ export class Course extends BaseEntity {
 	id: number;
 
 	@OneToMany(() => Schedule, schedule => schedule.course)
-	schedule: Schedule[];
+	schedules: Schedule[];
 
 	@Column({
 		nullable: true

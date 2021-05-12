@@ -13,10 +13,10 @@ export class Schedule extends BaseEntity {
 	@ManyToOne(() => Student, student => student.schedules)
 	student: Student;
 
-	@ManyToOne(() => Course, course => course.schedule)
+	@ManyToOne(() => Course, course => course.schedules)
 	course: Course;
 
-	@ManyToOne(() => Teacher, teacher => teacher.schedule)
+	@ManyToOne(() => Teacher, teacher => teacher.schedules)
 	teacher: Teacher;
 
 	@ManyToOne(() => Campus, campus => campus.schedules)

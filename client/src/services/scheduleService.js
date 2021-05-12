@@ -20,7 +20,7 @@ class ScheduleService {
     };
     async delete(scheduleObject){
         console.log(scheduleObject)
-        const response = fetch("http://localhost:3001/schedules/"+scheduleObject.scheduleID, {
+        const response = fetch("http://localhost:3001/schedules/"+scheduleObject.scheduleId, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -29,7 +29,8 @@ class ScheduleService {
         return response;
     };
     async update(scheduleObject) {
-        const response = fetch("http://localhost:3001/schedules/"+scheduleObject.scheduleID, {
+        console.log(scheduleObject)
+        const response = fetch("http://localhost:3001/schedules/"+scheduleObject.id, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

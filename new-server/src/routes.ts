@@ -7,6 +7,7 @@ import { RoleController } from "./controller/RoleController";
 import { School_AdminController } from "./controller/School_AdminController";
 import { TeacherController } from "./controller/TeacherController";
 import { TrackerController } from "./controller/TrackerController";
+import { CourseController } from "./controller/CourseController";
 
 export const Routes = [{
 	method: "get",
@@ -236,7 +237,7 @@ export const Routes = [{
 	controller: TeacherController,
 	action: "loadTeacherSchedules"
 },
-
+// Tracker
 {
 	method: "get",
 	route: "/trackers",
@@ -261,6 +262,34 @@ export const Routes = [{
 	method: "delete",
 	route: "/trackers/:id",
 	controller: TrackerController,
+	action: "remove"
+},
+
+// Course
+{
+	method: "get",
+	route: "/courses",
+	controller: CourseController,
+	action: "all"
+}, {
+	method: "get",
+	route: "/courses/:id",
+	controller: CourseController,
+	action: "one"
+}, {
+	method: "put",
+	route: "/courses/:id",
+	controller: CourseController,
+	action: "update"
+}, {
+	method: "post",
+	route: "/courses",
+	controller: CourseController,
+	action: "save"
+}, {
+	method: "delete",
+	route: "/courses/:id",
+	controller: CourseController,
 	action: "remove"
 }
 ];

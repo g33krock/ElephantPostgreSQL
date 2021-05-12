@@ -44,9 +44,9 @@ export class ScheduleUpdater extends Component {
 
   async updateSchedule() {
     const scheduleObject = {
-      scheduleID: this.props.scheduleId,
-      teacherID: document.getElementById("scheduleTeacher").value,
-      courseID: document.getElementById("scheduleCourse").value,
+      id: this.props.scheduleId,
+      teacherId: parseInt(document.getElementById("scheduleTeacher").value),
+      courseId: parseInt(document.getElementById("scheduleCourse").value),
     };
     const schedule = await scheduleService.update(scheduleObject);
     console.log(schedule);
@@ -71,16 +71,16 @@ export class ScheduleUpdater extends Component {
             <Form>
               <FormGroup>
                 <Label for="scheduleTeacher">Select Teacher</Label>
-                <Input type="select">
+                <Input type="select" id="scheduleTeacher">
                   {this.state.teachers?.map((teacher) => (
-                    <option value={teacher?.id}>
+                    <option value={teacher.id}>
                       {teacher.firstName} {teacher.lastName}
                     </option>
                   ))}
                 </Input>
               </FormGroup>
               <FormGroup>
-                <Input type="select">
+                <Input type="select" id="scheduleCourse">
                   {this.state.courses?.map((course) => (
                     <option value={course.id}>{course.name}</option>
                   ))}
@@ -89,7 +89,7 @@ export class ScheduleUpdater extends Component {
               <Button
                 color="primary"
                 onClick={() => {
-                  this.updateStudent();
+                  this.updateSchedule();
                   this.setState({ modal: false });
                 }}
               >

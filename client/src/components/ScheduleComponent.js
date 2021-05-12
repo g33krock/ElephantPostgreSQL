@@ -72,6 +72,9 @@ export default class Schedule extends Component {
                                     Class: {periods.course.name} <br></br> Period: {periods.period}
                                 </CardTitle>
                             </Card>
+                            <ScheduleUpdater
+                                scheduleId={periods?.id}
+                            ></ScheduleUpdater>
                         </Col>
                     )}
                     {this.state.schedules?.filter(studentClass => studentClass.student.id === studentSchedule?.id && studentClass.period ===2).map(periods => 

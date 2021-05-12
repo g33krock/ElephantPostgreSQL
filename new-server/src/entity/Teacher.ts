@@ -35,7 +35,7 @@ export class Teacher extends BaseEntity {
 	link: string;
 
 	@OneToMany(() => Schedule, schedule => schedule.teacher)
-	schedule: Schedule[];
+	schedules: Schedule[];
 
 	@ManyToOne(() => Role, role => role.teachers)
 	role: Role;
