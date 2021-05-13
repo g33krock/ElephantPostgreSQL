@@ -45,8 +45,8 @@ export class ScheduleUpdater extends Component {
   async updateSchedule() {
     const scheduleObject = {
       id: this.props.scheduleId,
-      teacherId: parseInt(document.getElementById("scheduleTeacher").value),
-      courseId: parseInt(document.getElementById("scheduleCourse").value),
+      teacher: parseInt(document.getElementById("scheduleTeacher").value),
+      course: parseInt(document.getElementById("scheduleCourse").value),
     };
     const schedule = await scheduleService.update(scheduleObject);
     console.log(schedule);

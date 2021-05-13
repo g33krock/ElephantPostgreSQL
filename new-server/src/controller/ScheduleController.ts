@@ -17,15 +17,15 @@ export class ScheduleController {
 	}
 
 	async remove(request: Request, response: Response, next: NextFunction) {
-		let studentToRemove = await Schedule.findOne(request.params.id);
-		await Schedule.remove(studentToRemove);
+		let scheduleToRemove = await Schedule.findOne(request.params.id);
+		await Schedule.remove(scheduleToRemove);
 	}
 
 	async update(request: Request, response: Response, next: NextFunction) {
-		const student = await Schedule.findOne(request.params.id);
+		const schedule = await Schedule.findOne(request.params.id);
 		const data = request.body;
-		Object.assign(student, data);
-		return student.save();
+		Object.assign(schedule, data);
+		return schedule.save();
 	}
 
 }
