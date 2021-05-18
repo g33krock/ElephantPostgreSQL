@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardImgOverlay, CardText, CardTitle, Col, CardLink, Row, Button } from "reactstrap";
+import { Card, CardImg, CardImgOverlay, CardText, CardTitle, Col, CardLink, Row } from "reactstrap";
 import { TrackerCreator } from "./CreateTracker";
 
 export default class StudentSchedule extends Component {
@@ -55,12 +55,6 @@ export default class StudentSchedule extends Component {
                           period={studentsched.period}
                           >
                           </TrackerCreator>
-                        </Col>
-                        <Col>
-                          <Button outline color="success" size="sm">Update Class</Button>{' '}
-                        </Col>
-                        <Col>
-                          <Button outline color="danger" size="sm">Delete Class</Button>{' '}
                         </Col>
                       </Row>
                     </CardText>

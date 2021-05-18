@@ -11,7 +11,8 @@ class Header extends Component {
         this.toggleNav = this.toggleNav.bind(this);
         this.state = {
             isNavOpen: false,
-            campuses: []
+            campuses: [],
+            campus: null
         };
     }
 
@@ -24,6 +25,7 @@ class Header extends Component {
         })
     }
 
+
     toggleNav() {
         this.setState({
             isNavOpen: !this.state.isNavOpen
@@ -33,10 +35,10 @@ class Header extends Component {
         return (
             <React.Fragment>
                 <Jumbotron fluid>
-                    <div className="container">
-                        <div className="row">
+                    <div className="container" id="app">
+                        <div className="row" id="wrapper">
                             <div className="col">
-                                <h1>The Pirate Portal</h1>
+                                <h1 class="glitch" data-text="The Pirate Portal">The Pirate Portal</h1>
                                 <h2>Abandon all hope ye who enter here!</h2>
                             </div>
                         </div>
@@ -63,9 +65,9 @@ class Header extends Component {
                             </Nav>
                         </Collapse>
                         <Col sm={3}>
-                            <Input type="select">
+                            <Input type="select" onChange={() => this.setState({campus: this.campus})}>
                                 {this.state.campuses.map((campus) => <option>{campus.name}</option>)}
-                            </Input>
+                            </Input >
                         </Col>
                     </div>
                 </Navbar>

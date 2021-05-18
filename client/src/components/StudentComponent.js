@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardTitle, Row, Col, CardImg, CardBody, Button } from "reactstrap";
+import { Card, CardTitle, Row, Col, CardImg, CardBody } from "reactstrap";
 import StudentSchedule from "./StudentScheduleComponent";
 import {StudentCreator} from "./CreateStudent";
 import {DeleteStudent} from "./DeleteStudent";
@@ -69,7 +69,6 @@ export default class Student extends Component {
             <Card>
               {this.state.student && <CardImg src={`${this.state.student?.profile_image}`} alt={`${this.state.student?.firstName}`}></CardImg>}
               {this.state.student &&<CardBody>
-                <Button outline color="primary">Add Class</Button>
               </CardBody>}
             </Card>
           </div>

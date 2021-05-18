@@ -59,7 +59,7 @@ export class TrackerCreator extends Component {
           Student Tracking
         </Button>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
-          <ModalBody style={{ backgroundColor: "lightgray", color: 'black', fontSize: '21px', textAlign: 'center'}}>
+          <ModalBody id="fancy-cursor" style={{ backgroundColor: "lightgray", color: 'black', fontSize: '21px', textAlign: 'center'}}>
             <p>
               <strong>Student: </strong>
               {this.props.student.firstName} {this.props.student.lastName}
@@ -76,12 +76,12 @@ export class TrackerCreator extends Component {
               <strong>Period: </strong>
               {this.props.period}
             </p>
-            <Form>
+            <Form className="fancy-cursor">
               <FormGroup id="trackerBox">
                 <Label for="attendance">
                   <h3>Attendance</h3>
                 </Label>
-                <Input type="select" name="attendance" id="attendance">
+                <Input type="select" name="attendance" id="attendance" className="fancy-cursor">
                   <option></option>
                   <option>Present</option>
                   <option>Absent</option>
@@ -91,7 +91,7 @@ export class TrackerCreator extends Component {
                 <Label for="lesson">
                   <h3>Lesson Description</h3>
                 </Label>
-                <Input type="text" name="lesson" id="lesson" />
+                <Input type="text" name="lesson" id="lesson" className="fancy-cursor" />
               </FormGroup>
               <Container style={{ backgroundColor: "tan" }} id="trackerBox">
                 <h3>Check for Understanding</h3>
@@ -103,6 +103,7 @@ export class TrackerCreator extends Component {
                         type="select"
                         name="comprehension"
                         id="comprehension"
+                        className="fancy-cursor"
                       >
                         <option></option>
                         <option value="1">Not Understanding</option>
@@ -121,6 +122,7 @@ export class TrackerCreator extends Component {
                         type="select"
                         name="comprehensionAI"
                         id="comprehensionAI"
+                        className="fancy-cursor"
                         multiple
                       >
                         <option>Requires review of basic content</option>
@@ -152,6 +154,7 @@ export class TrackerCreator extends Component {
                     type="text"
                     name="comprehensionComment"
                     id="comprehensionComment"
+                    className="fancy-cursor"
                   />
                 </FormGroup>
               </Container>
@@ -161,7 +164,7 @@ export class TrackerCreator extends Component {
                   <Col md={3}>
                     <FormGroup>
                       <Label for="engagement">Engagement</Label>
-                      <Input type="select" name="engagement" id="engagement">
+                      <Input type="select" name="engagement" id="engagement" className="fancy-cursor">
                         <option></option>
                         <option value="1">
                           Disengaged: No demonstration of learning, disruptive/
@@ -196,6 +199,7 @@ export class TrackerCreator extends Component {
                         type="select"
                         name="engagementAI"
                         id="engagementAI"
+                        className="fancy-cursor"
                         multiple
                       >
                         <option>Work refusal</option>
@@ -233,6 +237,7 @@ export class TrackerCreator extends Component {
                     type="text"
                     name="engagementComment"
                     id="engagementComment"
+                    className="fancy-cursor"
                   />
                 </FormGroup>
               </Container>
@@ -242,7 +247,7 @@ export class TrackerCreator extends Component {
                   <Col md={3}>
                     <FormGroup>
                       <Label for="behavior">Behavior/Zone of Regulation</Label>
-                      <Input type="select" name="behavior" id="behavior">
+                      <Input type="select" name="behavior" id="behavior" className="fancy-cursor">
                         <option></option>
                         <option
                           id="zone"
@@ -286,6 +291,7 @@ export class TrackerCreator extends Component {
                         type="select"
                         name="behaviorAI"
                         id="behaviorAI"
+                        className="fancy-cursor"
                         multiple
                       >
                         <option>Out of seat</option>
@@ -315,6 +321,7 @@ export class TrackerCreator extends Component {
                     type="text"
                     name="behaviorComment"
                     id="behaviorComment"
+                    className="fancy-cursor"
                   />
                 </FormGroup>
               </Container>
@@ -322,7 +329,7 @@ export class TrackerCreator extends Component {
                 <Label for="assessment">
                   <h3>Assessment</h3>
                 </Label>
-                <Input type="text" name="assessment" id="assessment" />
+                <Input type="text" name="assessment" id="assessment" className="fancy-cursor"/>
               </FormGroup>
               <Button
                 color="primary"
