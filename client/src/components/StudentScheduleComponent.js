@@ -36,7 +36,7 @@ export default class StudentSchedule extends Component {
                 <Card onClick={() => this.setSchedule(studentsched)}>
                 <CardImg src={`${studentsched.teacher.image}`} alt={studentsched.teacher.firstName} />
                     <CardImgOverlay>
-                      <CardTitle style={{color: 'white'}}>
+                      <CardTitle style={{color: 'white'}} className="shadow">
                           Period: {studentsched.period}
                         </CardTitle>
                     </CardImgOverlay>

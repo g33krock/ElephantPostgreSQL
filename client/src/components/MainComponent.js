@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Student from './StudentComponent';
 import Home from './HomeComponent';
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Redirect } from 'react-router-dom'
 import Teacher from './TeacherComponent';
 import Schedule from './ScheduleComponent';
+import { PrivateRoute } from './PrivateRoute';
 
 class Main extends Component {
     
@@ -19,10 +20,10 @@ class Main extends Component {
         return (
             <div>
                 <Switch>
-                    <Route path='/schedules' component={Schedule} />
-                    <Route path='/teachers' component={Teacher} />
-                    <Route path='/students' component={Student} />
-                    <Route path='/home' component={Home} />
+                    <PrivateRoute path='/schedules' component={Schedule} />
+                    <PrivateRoute path='/teachers' component={Teacher} />
+                    <PrivateRoute path='/students' component={Student} />
+                    <PrivateRoute path='/home' component={Home} />
                     <Redirect to='/home' />
                 </Switch>
             </div>

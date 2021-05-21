@@ -4,6 +4,7 @@ import StudentSchedule from "./StudentScheduleComponent";
 import {StudentCreator} from "./CreateStudent";
 import {DeleteStudent} from "./DeleteStudent";
 import {StudentUpdater} from "./UpdateStudent";
+import AltStudentSchedule from "./AltSutdentSchedule";
 
 
 export default class Student extends Component {
@@ -74,6 +75,7 @@ export default class Student extends Component {
           </div>
           <div className="col-md-9">
             {this.state.student && <StudentSchedule student={this.state.student}></StudentSchedule>}
+            {this.state.student && <AltStudentSchedule student={this.state.student}></AltStudentSchedule>}
           </div>
         </div>
         <div className = "row">

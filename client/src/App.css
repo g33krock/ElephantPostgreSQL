@@ -310,8 +310,10 @@ skew to change the 'thickness' of the glitch.*/
   font-size: large;
   font-weight: bolder;
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
-  text-shadow: 2px 2px #050505;
+ }
 
+ .shadow {
+  text-shadow: 2px 2px #050505;
  }
 
  #schedBox {
