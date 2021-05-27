@@ -8,6 +8,7 @@ import { School_AdminController } from "./controller/School_AdminController";
 import { TeacherController } from "./controller/TeacherController";
 import { TrackerController } from "./controller/TrackerController";
 import { CourseController } from "./controller/CourseController";
+import { GradebookController } from "./controller/GradebookController";
 
 export const Routes = [{
 	method: "get",
@@ -290,6 +291,33 @@ export const Routes = [{
 	method: "delete",
 	route: "/courses/:id",
 	controller: CourseController,
+	action: "remove"
+},
+// Gradebooks
+{
+	method: "get",
+	route: "/gradebooks",
+	controller: GradebookController,
+	action: "all"
+}, {
+	method: "get",
+	route: "/gradebooks/:id",
+	controller: GradebookController,
+	action: "one"
+}, {
+	method: "put",
+	route: "/gradebooks/:id",
+	controller: GradebookController,
+	action: "update"
+}, {
+	method: "post",
+	route: "/gradebooks",
+	controller: GradebookController,
+	action: "save"
+}, {
+	method: "delete",
+	route: "/gradebooks/:id",
+	controller: GradebookController,
 	action: "remove"
 }
 ];

@@ -3,6 +3,7 @@ import { Schedule } from "./Schedule";
 import { Role } from "./Role";
 import { Campus } from "./Campus";
 import { Tracker } from "./Tracker";
+import { Gradebook } from "./Gradebook";
 
 @Entity()
 export class Teacher extends BaseEntity {
@@ -45,4 +46,7 @@ export class Teacher extends BaseEntity {
 
 	@OneToMany(() => Tracker, tracker => tracker.teachers)
 	trackers: Tracker[];
+
+	@OneToMany(() => Gradebook, gradebook => gradebook.teachers)
+	gradebooks: Gradebook[];
 }

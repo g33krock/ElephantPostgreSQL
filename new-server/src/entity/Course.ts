@@ -1,4 +1,5 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Gradebook } from "./Gradebook";
 import { Schedule } from "./Schedule";
 import { Tracker } from "./Tracker";
 
@@ -32,4 +33,7 @@ export class Course extends BaseEntity {
 
 	@OneToMany(() => Tracker, tracker => tracker.courses)
 	trackers: Tracker[];
+
+	@OneToMany(() => Gradebook, gradebook => gradebook.courses)
+	gradebooks: Gradebook[];
 }
