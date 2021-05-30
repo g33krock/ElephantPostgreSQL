@@ -17,7 +17,7 @@ export class Gradebook extends BaseEntity {
     @ManyToOne(() => Teacher, teacher => teacher.gradebooks)
 	teachers: Schedule;
 
-    @ManyToOne(() => Student, student => student.gradebooks)
+    @ManyToOne(() => Student, student => student.gradebooks, {onDelete: 'CASCADE'})
 	students: Student;
 
     @ManyToOne(() => Course, course => course.gradebooks)

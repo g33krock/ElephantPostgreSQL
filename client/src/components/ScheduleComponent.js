@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardTitle, Row, Col, CardImg } from "reactstrap";
+import { Card, CardTitle, Row, Col, CardImg, Table } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
 
 export default class Schedule extends Component {
@@ -17,7 +17,7 @@ export default class Schedule extends Component {
           .forEach(student => student.schedules.sort((schedulea, scheduleb) => schedulea.period-scheduleb.period))
         this.setState({
           students,
-        });
+        })
       });
   }
 
@@ -33,83 +33,38 @@ export default class Schedule extends Component {
 
   render() {
     return (
-      <div>
-        <Row dark sticky="top">
-          <Col xs="2">
-            {" "}
-            <h1>Student</h1>
-          </Col>
-          <Col xs="1">
-            {" "}
-            <h3>Period 1</h3>
-          </Col>
-          <Col xs="1">
-            {" "}
-            <h3>Period 2</h3>
-          </Col>
-          <Col xs="1">
-            {" "}
-            <h3>Period 3</h3>
-          </Col>
-          <Col xs="1">
-            {" "}
-            <h3>Period 4</h3>
-          </Col>
-          <Col xs="1">
-            {" "}
-            <h3>Period 5</h3>
-          </Col>
-          <Col xs="1">
-            {" "}
-            <h3>Period 6</h3>
-          </Col>
-          <Col xs="1">
-            {" "}
-            <h3>Period 7</h3>
-          </Col>
-          <Col xs="1">
-            {" "}
-            <h3>Period 8</h3>
-          </Col>
-          <Col xs="1">
-            {" "}
-            <h3>Period 9</h3>
-          </Col>
-          <Col xs="1">
-            {" "}
-            <h3>Period 10</h3>
-          </Col>
-        </Row>
-        {this.state.students.map((student) => (
-          <Row key={student.id} xs="1">
-            <Col xs="2">
-              <Card>
-                <CardImg
-                  src={`${student.profile_image}`}
-                  alt={student.firstName}
-                />
-                <CardTitle className="card-title" style={{ color: "black" }}>
-                  {student.firstName} {student.lastName}
-                </CardTitle>
-              </Card>
-            </Col>
-            {student.schedules.map((schedule) => (
-              <Col key={schedule.period} xs="1">
-                <Card>
-                  <CardImg
-                    src={`${schedule.teacher.image}`}
-                    alt={schedule.teacher.firstName}
-                  />
-                  <CardTitle style={{ fontSize: "10px" }}>
-                    Class: {schedule.course.name} <br></br> Period:{" "}
-                    {schedule.period}
-                  </CardTitle>
-                </Card>
-                <ScheduleUpdater scheduleId={schedule.id}></ScheduleUpdater>
-              </Col>
+      <div class="tableFixHead">
+        <Table bordered hover size="sm">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Period 1</th>
+              <th>Period 2</th>
+              <th>Period 3</th>
+              <th>Period 4</th>
+              <th>Period 5</th>
+              <th>Period 6</th>
+              <th>Period 7</th>
+              <th>Period 8</th>
+              <th>Period 9</th>
+              <th>Period 10</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.students.map((student) => (
+              <tr>
+                <th key={student.id}>{student.firstName} {student.lastName}</th>
+                {student.schedules.map((schedule) => (
+                <td className={schedule.teacher.firstName} id="schedItem">
+                  <strong>Course: </strong><small>{schedule.course.name}</small> 
+                  <br /> 
+                  <strong>Teacher: </strong><small>{schedule.teacher.firstName} {schedule.teacher.lastName}</small> <br />
+                  <ScheduleUpdater scheduleId={schedule.id} ></ScheduleUpdater>
+                </td>))}
+              </tr>
             ))}
-          </Row>
-        ))}
+          </tbody>
+        </Table>
       </div>
     );
   }

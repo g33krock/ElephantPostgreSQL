@@ -8,7 +8,7 @@ class ScheduleService {
           });
           return await response.json();
     };
-    async create (scheduleObject) {
+    async create(scheduleObject) {
         const response = await fetch("http://localhost:3001/schedules", {
             method: "POST",
             headers: {

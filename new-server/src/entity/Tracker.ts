@@ -9,7 +9,7 @@ export class Tracker extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@ManyToOne(() => Student, student => student.trackers)
+	@ManyToOne(() => Student, student => student.trackers, {onDelete: 'CASCADE'})
 	students: Student;
 
     @ManyToOne(() => Teacher, teacher => teacher.trackers)

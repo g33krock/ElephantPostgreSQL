@@ -11,7 +11,7 @@ export class Schedule extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@ManyToOne(() => Student, student => student.schedules)
+	@ManyToOne(() => Student, student => student.schedules, {onDelete: 'CASCADE'})
 	student: Student;
 
 	@ManyToOne(() => Course, course => course.schedules)

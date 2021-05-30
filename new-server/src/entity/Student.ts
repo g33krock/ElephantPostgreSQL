@@ -45,7 +45,7 @@ export class Student extends BaseEntity {
 	})
 	additional_information: string;
 
-	@OneToMany(() => Schedule, schedule => schedule.student)
+	@OneToMany(() => Schedule, schedule => schedule.student, {onDelete: 'CASCADE'})
 	schedules: Schedule[];
 
 	@OneToMany(() => Guardian, guardian => guardian.student)
@@ -54,9 +54,9 @@ export class Student extends BaseEntity {
 	@ManyToOne(() => Campus, campus => campus.students)
 	campuses: Campus;
 
-	@OneToMany(() => Tracker, tracker => tracker.students)
+	@OneToMany(() => Tracker, tracker => tracker.students, {onDelete: 'CASCADE'})
 	trackers: Tracker[];
 
-	@OneToMany(() => Gradebook, gradebook => gradebook.students)
+	@OneToMany(() => Gradebook, gradebook => gradebook.students, {onDelete: 'CASCADE'})
 	gradebooks: Gradebook[];
 }

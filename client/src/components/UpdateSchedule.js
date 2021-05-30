@@ -9,6 +9,7 @@ import {
   ModalBody,
 } from "reactstrap";
 import { scheduleService } from "../services/scheduleService";
+import Schedule from "./ScheduleComponent";
 
 export class ScheduleUpdater extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export class ScheduleUpdater extends Component {
       modal: false,
       teachers: null,
       courses: null,
+      name: null
     };
   }
 
@@ -49,7 +51,8 @@ export class ScheduleUpdater extends Component {
       course: parseInt(document.getElementById("scheduleCourse").value),
     };
     const schedule = await scheduleService.update(scheduleObject);
-    console.log(schedule);
+    this.setState({ name: new Date() })
+    console.log(schedule, this.state.name);
   }
 
   toggle() {
@@ -59,9 +62,9 @@ export class ScheduleUpdater extends Component {
   render() {
     return (
       <div>
-        <Button
-          outline
-          color="success"
+        <Button 
+        size="sm"
+          color="link"
           onClick={() => this.setState({ modal: true })}
         >
           Update Schedule

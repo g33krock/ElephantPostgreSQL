@@ -8,6 +8,7 @@ import {
   Modal,
   ModalBody,
 } from "reactstrap";
+import { scheduleService } from "../services/scheduleService";
 import { studentService } from "../services/studentService";
 
 export class StudentCreator extends Component {
@@ -27,7 +28,7 @@ export class StudentCreator extends Component {
       iep: document.getElementById("IEP").value
     };
     const student = await studentService.create(studentObject);
-    console.log(student)
+    console.log(student);
   }
 
   toggle() {

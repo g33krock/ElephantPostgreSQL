@@ -310,8 +310,9 @@ skew to change the 'thickness' of the glitch.*/
   font-size: large;
   font-weight: bolder;
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
+  /* text-shadow: 2px 2px #050505; */
  }
-
+ 
  .shadow {
   text-shadow: 2px 2px #050505;
  }
@@ -335,5 +336,93 @@ skew to change the 'thickness' of the glitch.*/
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
 
 }
+
+.tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
+
+#schedItem:hover {
+  opacity: 1;
+  background-image: url(https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/pencil.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvcGVuY2lsLnBuZyIsImlhdCI6MTYyMjIyMTk0MSwiZXhwIjoxOTM3NTgxOTQxfQ.YPpAJsBNoSZyQFU9B3SQoEptmWoS7o10CR1PXzPy0V0);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.Chris{
+  background: crimson;
+}
+.Monique{
+  background: darkmagenta;
+}
+.Atlas{
+  background: rgb(81, 252, 2);
+}
+.Sherry{
+  background: rgb(253, 249, 1);
+}
+.Amber{
+  background: rgb(253, 1, 253);
+}
+.Susan{
+  background: rgb(138, 118, 248);
+}
+.Jacob{
+  background: rgb(253, 144, 1);
+}
+.Tawna{
+  background: rgb(1, 253, 240);
+}
+.Yolanda{
+  background:yellowgreen;
+}
+.Tahmid{
+  background: rgb(93, 69, 1);
+  color: white
+}
+.Anna{
+  background: rgb(88, 1, 37);
+  color: white
+}
+.Brianna{
+  background-image: radial-gradient(rgb(54, 252, 5), rgb(248, 208, 97), rgb(5, 232, 253));
+}
+.Rebecca{
+  background: rgb(1, 51, 58);
+  color: white
+}
+.Michael{
+  background: rgb(0, 255, 200);
+}
+.Mary{
+  background: rgb(250, 225, 2);
+}
+.Grant{
+  background-image: linear-gradient(purple, lime);
+  color: white
+}
+.Justin{
+  background-image: linear-gradient(red, yellow);
+}
+.Ana{
+  background-image: linear-gradient(Blue, red);
+  color: white
+}
+.Daniel{
+  background-image: linear-gradient(Orange, Pink);
+}
+.Bill{
+  background-image: linear-gradient(Brown, Gray);
+  color: white
+}
+.Justice{
+  background-image: linear-gradient(Lime, Pink);
+}
+.Pamela{
+  background-image: linear-gradient(Red, Purple);
+  color: white
+}
+.Donna{
+  background-image: radial-gradient(white, rgb(193, 97, 248), rgb(5, 232, 253));
+}
+
+
 
 /*# sourceMappingURL=App.css.map */

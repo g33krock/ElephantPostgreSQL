@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Card, CardTitle, Row, Col, CardImg, CardBody } from "reactstrap";
+import { Card, CardTitle, Row, Col, CardImg, CardBody, Form, FormGroup, Label, Input, Button } from "reactstrap";
 import StudentSchedule from "./StudentScheduleComponent";
 import {StudentCreator} from "./CreateStudent";
 import {DeleteStudent} from "./DeleteStudent";
 import {StudentUpdater} from "./UpdateStudent";
-import AltStudentSchedule from "./AltSutdentSchedule";
+import AltStudentSchedule from "./AltStudentSchedule";
+import { EmptyScheduleCreator } from "./EmptySchedule";
 
 
 export default class Student extends Component {
@@ -38,7 +39,7 @@ export default class Student extends Component {
     return (
       <section>
         <Row>
-          <Col md="4"></Col>
+          <Col md="3"></Col>
           <Col md="1">
             <StudentCreator></StudentCreator>
           </Col>
@@ -61,7 +62,14 @@ export default class Student extends Component {
               studentIEP={this.state.student?.iep}>
             </StudentUpdater>
           </Col>
-          <Col md="4"></Col>
+          <Col md="1">
+            <EmptyScheduleCreator 
+              studentId={this.state.student?.id}
+              studentFirstName={this.state.student?.firstName}
+              studentLastName={this.state.student?.lastName}>
+            </EmptyScheduleCreator>
+          </Col>
+          <Col md="3"></Col>
         </Row>
         
         <h1>Student: {first} {last}</h1>
@@ -74,11 +82,24 @@ export default class Student extends Component {
             </Card>
           </div>
           <div className="col-md-9">
-            {this.state.student && <StudentSchedule student={this.state.student}></StudentSchedule>}
+            {/* {this.state.student && <StudentSchedule student={this.state.student}></StudentSchedule>} */}
             {this.state.student && <AltStudentSchedule student={this.state.student}></AltStudentSchedule>}
           </div>
         </div>
         <div className = "row">
+        {/* <Form>
+          <FormGroup>
+            <Label for="scheduleStudent">Select Student</Label>
+            <Input type="select" id="scheduleStudent">
+              {this.state.students.map(student => 
+                <option value={student}>
+                  {student.firstName} {student.lastName}
+                </option>
+              )}
+            </Input>
+          </FormGroup>
+          <Button onClick={() => this.setStudent(document.getElementById('scheduleStudent').value)}></Button>
+        </Form> */}
           {this.state.students.map(student => 
             <div key={student.id} className="col-md-2 m-1">
               <Card onClick={() => this.setStudent(student)}>

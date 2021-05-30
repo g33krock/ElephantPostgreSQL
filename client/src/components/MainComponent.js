@@ -5,6 +5,7 @@ import { Switch, Redirect } from 'react-router-dom'
 import Teacher from './TeacherComponent';
 import Schedule from './ScheduleComponent';
 import { PrivateRoute } from './PrivateRoute';
+import { Button } from "reactstrap";
 
 class Main extends Component {
     
@@ -13,12 +14,14 @@ class Main extends Component {
         this.state = {
             students: [],
             teachers:[],
+            lindasucks: true
         };
     }
 
     render() {
         return (
             <div>
+                <Button onClick={() => this.setState({lindasucks: false})}>Refresh</Button>
                 <Switch>
                     <PrivateRoute path='/schedules' component={Schedule} />
                     <PrivateRoute path='/teachers' component={Teacher} />
