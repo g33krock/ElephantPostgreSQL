@@ -9,7 +9,6 @@ import {
   ModalBody,
 } from "reactstrap";
 import { scheduleService } from "../services/scheduleService";
-import Schedule from "./ScheduleComponent";
 
 export class ScheduleUpdater extends Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardTitle, Row, Col, CardImg, Table } from "reactstrap";
+import { Table } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
 
 export default class Schedule extends Component {

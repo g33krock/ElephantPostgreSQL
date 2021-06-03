@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Card, CardTitle, Row, Col, CardImg, CardBody, Form, FormGroup, Label, Input, Button } from "reactstrap";
-import StudentSchedule from "./StudentScheduleComponent";
 import {StudentCreator} from "./CreateStudent";
 import {DeleteStudent} from "./DeleteStudent";
 import {StudentUpdater} from "./UpdateStudent";
@@ -27,11 +26,22 @@ export default class Student extends Component {
       });
   }
 
-  setStudent(student) {
-    // sets student property to student object.  This looks funny because they both are named student
-    this.setState({student: student});
-    console.log(student);
+  onChange = e => {
+
+    // Extract value of select like so. Use parseInt for
+    // improved type safety
+    // const valueSelectedByUser = (e.target.value);
+
+    // Update distance in state via setState()
+    this.setState({ student : e.target.value });
+    console.log(e.target.value)
   }
+
+  // setStudent(student) {
+  //   // sets student property to student object.  This looks funny because they both are named student
+  //   this.setState({student: student + valueSelectedByUser});
+  //   console.log(student.firstName);
+  // }
   
   render() {
     const first = this.state.student?.firstName;
@@ -56,7 +66,7 @@ export default class Student extends Component {
               studentFirstName={this.state.student?.firstName}
               studentLastName={this.state.student?.lastName}
               studentGrade={this.state.student?.grade}
-              studentCampus={this.state.student?.campuses.id}
+              studentCampus={this.state.student?.campuses?.id}
               studentMedInfo={this.state.student?.medical_information}
               studentAddInfo={this.state.student?.additional_information}
               studentIEP={this.state.student?.iep}>
@@ -87,20 +97,17 @@ export default class Student extends Component {
           </div>
         </div>
         <div className = "row">
-        {/* <Form>
-          <FormGroup>
+        
             <Label for="scheduleStudent">Select Student</Label>
-            <Input type="select" id="scheduleStudent">
+            <select id="scheduleStudent" onChange={this.onChange}>
               {this.state.students.map(student => 
-                <option value={student}>
+                <option key={student.id} value={student}>
                   {student.firstName} {student.lastName}
                 </option>
               )}
-            </Input>
-          </FormGroup>
-          <Button onClick={() => this.setStudent(document.getElementById('scheduleStudent').value)}></Button>
-        </Form> */}
-          {this.state.students.map(student => 
+            </select>
+          
+          {/* {this.state.students.map(student => 
             <div key={student.id} className="col-md-2 m-1">
               <Card onClick={() => this.setStudent(student)}>
                   <CardTitle className='card-title' style={{color: 'black' }}>
@@ -108,7 +115,7 @@ export default class Student extends Component {
                   </CardTitle>
               </Card>
             </div>
-          )}
+          )} */}
         </div>
       </section>
     );

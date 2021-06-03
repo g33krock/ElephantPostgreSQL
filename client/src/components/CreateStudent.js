@@ -8,7 +8,6 @@ import {
   Modal,
   ModalBody,
 } from "reactstrap";
-import { scheduleService } from "../services/scheduleService";
 import { studentService } from "../services/studentService";
 
 export class StudentCreator extends Component {

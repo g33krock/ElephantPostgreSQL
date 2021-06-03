@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardImgOverlay, CardText, CardTitle, Col, CardLink, Row, Table } from "reactstrap";
-import { TrackerCreator } from "./CreateTracker";
+import { Table } from "reactstrap";
 
 export default class AltStudentSchedule extends Component {
   constructor(props) {
@@ -28,9 +27,8 @@ export default class AltStudentSchedule extends Component {
     const student = this.props.student;
     const schedBox = this.state.studentschedule
       .filter(studentschedule => studentschedule.student?.id === student.id)
-      .sort((a, b) => (a.student.firstName > b.student.firstName) ? 1 : (a.student.firstName === b.student.firstName) ? ((a.period > b.period) ? 1 : -1) : -1)
+      .sort((a, b) => (a.student?.firstName > b.student?.firstName) ? 1 : (a.student?.firstName === b.student?.firstName) ? ((a.period > b.period) ? 1 : -1) : -1)
       .map(studentsched => {
-        console.log(studentsched.course.link)
         return (
             <Table key={studentsched.id}>
                 <thead>
