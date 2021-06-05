@@ -9,6 +9,10 @@ export default class Schedule extends Component {
   }
 
   componentDidMount() {
+    this.getSchedules()
+  }
+
+  getSchedules() {
     fetch("http://localhost:3001/students")
       // Convert response to a JSON object
       .then((response) => response.json())
@@ -59,7 +63,7 @@ export default class Schedule extends Component {
                   <strong>Course: </strong><small>{schedule.course.name}</small> 
                   <br /> 
                   <strong>Teacher: </strong><small>{schedule.teacher.firstName} {schedule.teacher.lastName}</small> <br />
-                  <ScheduleUpdater scheduleId={schedule.id} ></ScheduleUpdater>
+                  <ScheduleUpdater callback={() => this.getSchedules()} scheduleId={schedule.id} ></ScheduleUpdater>
                 </td>))}
               </tr>
             ))}

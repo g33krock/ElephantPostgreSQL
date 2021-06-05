@@ -27,21 +27,12 @@ export default class Student extends Component {
   }
 
   onChange = e => {
-
-    // Extract value of select like so. Use parseInt for
-    // improved type safety
-    // const valueSelectedByUser = (e.target.value);
-
-    // Update distance in state via setState()
-    this.setState({ student : e.target.value });
+    const studentId = Number(e.target.value)
+    const student = this.state.students.find(student => student.id === studentId) 
+    this.setState({ student });
+    console.log(this.state)
     console.log(e.target.value)
   }
-
-  // setStudent(student) {
-  //   // sets student property to student object.  This looks funny because they both are named student
-  //   this.setState({student: student + valueSelectedByUser});
-  //   console.log(student.firstName);
-  // }
   
   render() {
     const first = this.state.student?.firstName;
@@ -81,7 +72,16 @@ export default class Student extends Component {
           </Col>
           <Col md="3"></Col>
         </Row>
-        
+        <div className = "row">
+          <Label for="scheduleStudent">Select Student</Label>
+          <select id="scheduleStudent" onChange={this.onChange}>
+            {this.state.students.map(student => 
+              <option key={student.id} value={student.id}>
+                {student.firstName} {student.lastName}
+              </option>
+            )}
+          </select>
+        </div>
         <h1>Student: {first} {last}</h1>
         <div className="row">
           <div className="col-md-3">
@@ -92,31 +92,10 @@ export default class Student extends Component {
             </Card>
           </div>
           <div className="col-md-9">
-            {/* {this.state.student && <StudentSchedule student={this.state.student}></StudentSchedule>} */}
             {this.state.student && <AltStudentSchedule student={this.state.student}></AltStudentSchedule>}
           </div>
         </div>
-        <div className = "row">
         
-            <Label for="scheduleStudent">Select Student</Label>
-            <select id="scheduleStudent" onChange={this.onChange}>
-              {this.state.students.map(student => 
-                <option key={student.id} value={student}>
-                  {student.firstName} {student.lastName}
-                </option>
-              )}
-            </select>
-          
-          {/* {this.state.students.map(student => 
-            <div key={student.id} className="col-md-2 m-1">
-              <Card onClick={() => this.setStudent(student)}>
-                  <CardTitle className='card-title' style={{color: 'black' }}>
-                    {student.firstName} {student.lastName} 
-                  </CardTitle>
-              </Card>
-            </div>
-          )} */}
-        </div>
       </section>
     );
   }

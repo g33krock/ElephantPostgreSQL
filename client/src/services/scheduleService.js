@@ -30,7 +30,7 @@ class ScheduleService {
     };
     async update(scheduleObject) {
         console.log(scheduleObject)
-        const response = fetch("http://localhost:3001/schedules/"+scheduleObject.id, {
+        const response = await fetch("http://localhost:3001/schedules/"+scheduleObject.id, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

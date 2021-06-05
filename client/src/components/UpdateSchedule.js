@@ -49,9 +49,9 @@ export class ScheduleUpdater extends Component {
       teacher: parseInt(document.getElementById("scheduleTeacher").value),
       course: parseInt(document.getElementById("scheduleCourse").value),
     };
-    const schedule = await scheduleService.update(scheduleObject);
-    this.setState({ name: new Date() })
-    console.log(schedule, this.state.name);
+    await scheduleService.update(scheduleObject);
+    await this.props.callback()
+    this.setState({ modal: false })
   }
 
   toggle() {
@@ -92,7 +92,6 @@ export class ScheduleUpdater extends Component {
                 color="primary"
                 onClick={() => {
                   this.updateSchedule();
-                  this.setState({ modal: false });
                 }}
               >
                 Submit

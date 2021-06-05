@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
+import { TrackerCreator } from "./CreateTracker"
 
 export default class AltStudentSchedule extends Component {
   constructor(props) {
@@ -41,6 +42,13 @@ export default class AltStudentSchedule extends Component {
                         <td id={`${studentsched.teacher.firstName}`}><strong>Teacher:</strong> <p style={{fontSize: 'small'}}>{studentsched.teacher.firstName} {studentsched.teacher.lastName}</p> <strong>Course:</strong> <p style={{fontSize: 'small'}}>{studentsched.course.name}</p></td>
                     </tr>
                 </tbody>
+                <TrackerCreator
+                  student={studentsched.student}
+                  teacher={studentsched.teacher}
+                  course={studentsched.course}
+                  period={studentsched.period}
+                >
+                </TrackerCreator>
                 
                  
                         
