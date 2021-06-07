@@ -38,15 +38,15 @@ class Header extends Component {
                     <div className="container" id="app">
                         <div className="row" id="wrapper">
                             <div className="col">
-                                <h1 class="glitch" data-text="The Pirate Portal">The Pirate Portal</h1>
-                                <h2>Abandon all hope ye who enter here!</h2>
+                                <h1 className="glitch" data-text="DigiCampus">DigiCampus</h1>
+                                <h2>Let the robots do the work for you!</h2>
                             </div>
                         </div>
                     </div>
                 </Jumbotron>
                 <Navbar dark sticky="top" expand="md">
                     <div className="container">
-                        <NavbarBrand className="mr-auto" href="/"><img src='/assets/images/PirateShip.png' height="50" width="50" alt="Pirate Ship"/></NavbarBrand>
+                        <NavbarBrand className="mr-auto" href="/"><img src='https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Apple.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXBwbGUucG5nIiwiaWF0IjoxNjIzMDkyOTc0LCJleHAiOjE5Mzg0NTI5NzR9.kI-zXjC828rQxRlF0dGG0zSP1fHGFN_qaY-8h7yPSLE' height="50" width="50" alt="Pirate Ship"/></NavbarBrand>
                         <NavbarToggler onClick={this.toggleNav} />
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>

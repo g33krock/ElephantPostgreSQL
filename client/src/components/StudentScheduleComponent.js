@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardImg, CardImgOverlay, CardText, CardTitle, Col, CardLink, Row } from "reactstrap";
+import { GradebookCreator } from "./CreateGradebook";
 import { TrackerCreator } from "./CreateTracker";
 
 export default class StudentSchedule extends Component {
@@ -49,12 +50,22 @@ export default class StudentSchedule extends Component {
                       <Row>
                         <Col sm="12" md={{ size: 3, offset: 3 }}>
                           <TrackerCreator
-                          student={studentsched.student}
-                          teacher={studentsched.teacher}
-                          course={studentsched.course}
-                          period={studentsched.period}
+                            student={studentsched.student}
+                            teacher={studentsched.teacher}
+                            course={studentsched.course}
+                            period={studentsched.period}
                           >
                           </TrackerCreator>
+                        </Col>
+                        <Col sm="12" md={{ size: 3, offset: 3 }}>
+                          <GradebookCreator
+                            student={studentsched.student}
+                            teacher={studentsched.teacher}
+                            course={studentsched.course}
+                            period={studentsched.period}
+                            schedule={studentsched.id}
+                          >
+                          </GradebookCreator>
                         </Col>
                       </Row>
                     </CardText>

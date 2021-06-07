@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardImgOverlay, CardText, CardTitle } from "reactstrap";
+import { Card, CardText, CardTitle } from "reactstrap";
 import { TrackerCreator } from "./CreateTracker";
 
 export default class TeacherSchedule extends Component {

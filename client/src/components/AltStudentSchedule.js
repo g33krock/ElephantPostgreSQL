@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
+import { GradebookCreator } from "./CreateGradebook";
 import { TrackerCreator } from "./CreateTracker"
 
 export default class AltStudentSchedule extends Component {
@@ -49,6 +50,16 @@ export default class AltStudentSchedule extends Component {
                   period={studentsched.period}
                 >
                 </TrackerCreator>
+                <GradebookCreator
+                  student={studentsched.student}
+                  teacher={studentsched.teacher}
+                  course={studentsched.course}
+                  period={studentsched.period}
+                  schedule={studentsched}
+                  campus={studentsched.campus}
+                >
+                </GradebookCreator>
+                        
                 
                  
                         

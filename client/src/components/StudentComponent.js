@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardTitle, Row, Col, CardImg, CardBody, Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Card, Row, Col, CardImg, CardBody, Label } from "reactstrap";
 import {StudentCreator} from "./CreateStudent";
 import {DeleteStudent} from "./DeleteStudent";
 import {StudentUpdater} from "./UpdateStudent";
@@ -65,7 +65,8 @@ export default class Student extends Component {
             <EmptyScheduleCreator 
               studentId={this.state.student?.id}
               studentFirstName={this.state.student?.firstName}
-              studentLastName={this.state.student?.lastName}>
+              studentLastName={this.state.student?.lastName}
+              campusId={this.state.student?.campuses.id}>
             </EmptyScheduleCreator>
           </Col>
           <Col md="3"></Col>

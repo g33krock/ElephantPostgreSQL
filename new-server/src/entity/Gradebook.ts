@@ -29,7 +29,12 @@ export class Gradebook extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	date: Date;
+	assignmentDate: string;
+
+	@Column({
+		nullable: true
+	})
+	name: string;
 
 	@Column({
 		nullable: true
