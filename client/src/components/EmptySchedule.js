@@ -11,15 +11,16 @@ export class EmptyScheduleCreator extends Component {
     };
   }
 
-  async emptySchedule() {
+  async emptySchedule(studentId) {
     for(let i=1; i < 11; i++) {
     const scheduleObject = {
-      student: this.props.studentId,
+      student: studentId,
       period:i, 
       teacher: 13, 
       course: 15, 
       campus: 6
     };
+    console.log(studentId)
     
     const schedule = await scheduleService.create(scheduleObject);
     console.log(schedule)}

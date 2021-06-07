@@ -16,10 +16,8 @@ export default class Student extends Component {
   componentDidMount() {
     // Fetch Student Table from API
     fetch("http://localhost:3001/students")
-      // Convert response to a JSON object
       .then((response) => response.json())
       .then((data) => {
-        // Create relationship between students state array and JSON object
         this.setState({
           students: data,
         });
@@ -75,6 +73,7 @@ export default class Student extends Component {
         <div className = "row">
           <Label for="scheduleStudent">Select Student</Label>
           <select id="scheduleStudent" onChange={this.onChange}>
+            <option selected>None</option>
             {this.state.students.map(student => 
               <option key={student.id} value={student.id}>
                 {student.firstName} {student.lastName}
@@ -88,6 +87,9 @@ export default class Student extends Component {
             <Card>
               {this.state.student && <CardImg src={`${this.state.student?.profile_image}`} alt={`${this.state.student?.firstName}`}></CardImg>}
               {this.state.student &&<CardBody>
+                <p><strong>Campus:</strong> {this.state.student.campuses.name}</p>
+                <p><strong>Grade:</strong> {this.state.student.grade}</p>
+                <p><strong>Additional Information:</strong> {this.state.student.additional_information}</p>
               </CardBody>}
             </Card>
           </div>

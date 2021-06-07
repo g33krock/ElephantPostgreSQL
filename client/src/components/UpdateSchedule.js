@@ -74,6 +74,7 @@ export class ScheduleUpdater extends Component {
               <FormGroup>
                 <Label for="scheduleTeacher">Select Teacher</Label>
                 <Input type="select" id="scheduleTeacher">
+                  <option value='13' selected>None</option>
                   {this.state.teachers?.map((teacher) => (
                     <option value={teacher.id}>
                       {teacher.firstName} {teacher.lastName}
@@ -83,6 +84,7 @@ export class ScheduleUpdater extends Component {
               </FormGroup>
               <FormGroup>
                 <Input type="select" id="scheduleCourse">
+                <option value='15' selected>None</option>
                   {this.state.courses?.map((course) => (
                     <option value={course.id}>{course.name}</option>
                   ))}
