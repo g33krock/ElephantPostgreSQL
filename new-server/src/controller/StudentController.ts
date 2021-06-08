@@ -4,11 +4,11 @@ import { Student } from "../entity/Student";
 export class StudentController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Student.find({ relations: ["schedules", "campuses", "schedules.teacher", "schedules.course"] });
+		return Student.find({ relations: ["schedules", "campuses", "schedules.teacher", "schedules.course", "guardians"] });
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Student.findOne(request.params.id, { relations: ["schedules", "campuses", "schedules.teacher"] });
+		return Student.findOne(request.params.id, { relations: ["schedules", "campuses", "schedules.teacher", "guardians"] });
 	}
 
 

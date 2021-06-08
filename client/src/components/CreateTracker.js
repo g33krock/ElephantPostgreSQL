@@ -9,7 +9,7 @@ import {
   ModalBody,
   Row,
   Col,
-  Container,
+  Container
 } from "reactstrap";
 import { trackerService } from "../services/trackerService";
 
@@ -52,8 +52,7 @@ export class TrackerCreator extends Component {
     return (
       <div>
         <Button
-          outline
-          color="primary"
+          color="link"
           onClick={() => this.setState({ modal: true })}
         >
           Student Tracking

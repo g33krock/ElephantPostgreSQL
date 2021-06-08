@@ -32,7 +32,7 @@ export class GradebookCreator extends Component {
       name: document.getElementById("name").value,
     };
     const gradebook = await gradebookService.create(gradebookObject);
-    console.log(gradebook)
+    console.log(gradebook);
   }
 
   toggle() {
@@ -42,15 +42,19 @@ export class GradebookCreator extends Component {
   render() {
     return (
       <div>
-        <Button
-          outline
-          color="primary"
-          onClick={() => this.setState({ modal: true })}
-        >
+        <Button color="link" onClick={() => this.setState({ modal: true })}>
           Gradebook
         </Button>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
-          <ModalBody id="fancy-cursor" style={{ backgroundColor: "lightgray", color: 'black', fontSize: '21px', textAlign: 'center'}}>
+          <ModalBody
+            id="fancy-cursor"
+            style={{
+              backgroundColor: "lightgray",
+              color: "black",
+              fontSize: "21px",
+              textAlign: "center",
+            }}
+          >
             <p>
               <strong>Student: </strong>
               {this.props.student.firstName} {this.props.student.lastName}
@@ -68,25 +72,38 @@ export class GradebookCreator extends Component {
               {this.props.period}
             </p>
             <Form className="fancy-cursor">
-            <FormGroup id="trackerBox">
+              <FormGroup id="trackerBox">
                 <Label for="name">
                   <h3>Assignment Name</h3>
                 </Label>
-                <Input type="text" name="name" id="name" className="fancy-cursor">
-                </Input>
+                <Input
+                  type="text"
+                  name="name"
+                  id="name"
+                  className="fancy-cursor"
+                ></Input>
               </FormGroup>
               <FormGroup id="trackerBox">
                 <Label for="pointsEarned">
                   <h3>Points Earned</h3>
                 </Label>
-                <Input type="number" name="pointsEarned" id="pointsEarned" className="fancy-cursor">
-                </Input>
+                <Input
+                  type="number"
+                  name="pointsEarned"
+                  id="pointsEarned"
+                  className="fancy-cursor"
+                ></Input>
               </FormGroup>
               <FormGroup id="trackerBox">
                 <Label for="pointsAvailable">
                   <h3>Points Available</h3>
                 </Label>
-                <Input type="number" name="pointsAvailable" id="pointsAvailable" className="fancy-cursor" />
+                <Input
+                  type="number"
+                  name="pointsAvailable"
+                  id="pointsAvailable"
+                  className="fancy-cursor"
+                />
               </FormGroup>
               <Button
                 color="primary"
