@@ -41,17 +41,49 @@ export default class Schedule extends Component {
         <Table bordered hover size="sm">
           <thead>
             <tr>
-              <th>Student</th>
-              <th>Period 1</th>
-              <th>Period 2</th>
-              <th>Period 3</th>
-              <th>Period 4</th>
-              <th>Period 5</th>
-              <th>Period 6</th>
-              <th>Period 7</th>
-              <th>Period 8</th>
-              <th>Period 9</th>
-              <th>Period 10</th>
+              <th>
+                <h2>Student</h2>
+              </th>
+              <th>
+                <h3>Period 1</h3>
+                <p>7:50-8:40</p>
+              </th>
+              <th>
+                <h3>Period 2</h3>
+                <p>8:40-9:30</p>
+              </th>
+              <th>
+                <h3>Period 3</h3>
+                <p>9:30-10:20</p>
+              </th>
+              <th>
+                <h3>Period 4</h3>
+                <p>10:20-11:10</p>
+              </th>
+              <th>
+                <h3>Period 5</h3>
+                <p>11:10-12:00</p>
+              </th>
+              <th>
+                <h3>Period 6</h3>
+                <p>12:00-12:50</p>
+              </th>
+              <th>
+                <h3>Period 7</h3>
+                <p>12:50-1:40</p>
+              </th>
+              <th>
+                <h3>Period 8</h3>
+                <p>1:40-2:30</p>
+              </th>
+              <th>
+                <h3>Period 9</h3>
+                <p>2:30-3:20</p>
+              </th>
+              <th>
+                <h3>Period 10</h3>
+                <p>3:20-4:10</p>
+              </th>
             </tr>
           </thead>
           <tbody>

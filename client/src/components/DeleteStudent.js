@@ -11,7 +11,7 @@ import { studentService } from "../services/studentService";
     render() {
       return (
         <div>
-          <Button outline color="danger" onClick={() => this.setState({ modal: true })}>
+          <Button outline color="danger" size="sm" onClick={() => this.setState({ modal: true })}>
             Delete Student
           </Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle}>

@@ -25,7 +25,9 @@ export class StudentCreator extends Component {
       lastName: document.getElementById("studentLastName").value,
       grade: document.getElementById("studentGrade").value,
       campuses: document.getElementById("studentCampus").value,
-      iep: document.getElementById("IEP").value
+      iep: document.getElementById("IEP").value,
+      funding: document.getElementById("studentFunding").value,
+      instructionmode: document.getElementById("studentInstructionMode").value
     };
     const student = await studentService.create(studentObject);
     fetch("http://localhost:3001/students")
@@ -48,7 +50,7 @@ export class StudentCreator extends Component {
   render() {
     return (
       <div>
-        <Button outline color="primary" onClick={() => this.setState({ modal: true })}>
+        <Button color="link" onClick={() => this.setState({ modal: true })}>
           Add Student
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -101,6 +103,28 @@ export class StudentCreator extends Component {
                   <option value="3">Litchfield Park</option>
                   <option value="4">Scottsdale</option>
                   <option value="5">Tucson</option>
+                </Input>
+              </FormGroup>
+              <FormGroup>
+                <Label for="studentFunding">Funding Source</Label>
+                <Input type="select" name="studentFunding" id="studentFunding">
+                  <option></option>
+                  <option value="1">ESA</option>
+                  <option value="2">District</option>
+                  <option value="3">Private Pay</option>
+                  <option value="4">Scholarship</option>
+                </Input>
+              </FormGroup>
+              <FormGroup>
+                <Label for="studentInstructionMode">Instruction Mode</Label>
+                <Input type="select" name="studentInstructionMode" id="studentInstructionMode">
+                  <option></option>
+                  <option value="1">Ground</option>
+                  <option value="2">Home</option>
+                  <option value="3">Virtual</option>
+                  <option value="4">Campus/Home</option>
+                  <option value="5">Campus/Virtual</option>
+                  <option value="6">Home/Virtual</option>
                 </Input>
               </FormGroup>
               <Button

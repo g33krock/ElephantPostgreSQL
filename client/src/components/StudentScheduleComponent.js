@@ -34,7 +34,7 @@ export default class StudentSchedule extends Component {
         console.log(studentsched.course.link)
         return (
             <Col key={studentsched.id}>
-                <Card onClick={() => this.setSchedule(studentsched)}>
+                <Card body outline color="primary" onClick={() => this.setSchedule(studentsched)}>
                 <CardImg src={`${studentsched.teacher.image}`} alt={studentsched.teacher.firstName} />
                     <CardImgOverlay>
                       <CardTitle style={{color: 'white'}} className="shadow">

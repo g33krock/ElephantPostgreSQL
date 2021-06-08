@@ -27,7 +27,9 @@ export class StudentUpdater extends Component {
       campuses: document.getElementById("studentCampus").value,
       iep: document.getElementById("IEP").value,
       medical_information: document.getElementById("medInfo").value,
-      additional_information: document.getElementById("addInfo").value
+      additional_information: document.getElementById("addInfo").value,
+      funding: document.getElementById("studentFunding").value,
+      instructionmode: document.getElementById("studentInstructionMode").value
     };
     const student = await studentService.update(studentObject);
     console.log(student)
@@ -40,7 +42,7 @@ export class StudentUpdater extends Component {
   render() {
     return (
       <div>
-        <Button outline color="success" onClick={() => this.setState({ modal: true })}>
+        <Button outline color="success" size="sm" onClick={() => this.setState({ modal: true })}>
           Update Student
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -114,6 +116,36 @@ export class StudentUpdater extends Component {
                   name="addInfo"
                   id="addInfo"
                 />
+              </FormGroup>
+              <FormGroup>
+                <Label for="studentFunding">Funding Source</Label>
+                <Input 
+                type="select" 
+                name="studentFunding" 
+                id="studentFunding"
+                defaultValue={this.props.studentFunding}>
+                  <option></option>
+                  <option value="1">ESA</option>
+                  <option value="2">District</option>
+                  <option value="3">Private Pay</option>
+                  <option value="4">Scholarship</option>
+                </Input>
+              </FormGroup>
+              <FormGroup>
+                <Label for="studentInstructionMode">Instruction Mode</Label>
+                <Input 
+                type="select" 
+                name="studentInstructionMode" 
+                id="studentInstructionMode"
+                defaultValue={this.props.studentInstructionMode}>
+                  <option></option>
+                  <option value="1">Ground</option>
+                  <option value="2">Home</option>
+                  <option value="3">Virtual</option>
+                  <option value="4">Campus/Home</option>
+                  <option value="5">Campus/Virtual</option>
+                  <option value="6">Home/Virtual</option>
+                </Input>
               </FormGroup>
               <Button
                 color="primary"

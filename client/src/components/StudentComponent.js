@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Row, Col, CardImg, CardBody, Label } from "reactstrap";
+import { Card, Row, Col, CardImg, CardBody, Label, Container } from "reactstrap";
 import {StudentCreator} from "./CreateStudent";
 import {DeleteStudent} from "./DeleteStudent";
 import {StudentUpdater} from "./UpdateStudent";
@@ -36,61 +36,64 @@ export default class Student extends Component {
     const first = this.state.student?.firstName;
     const last = this.state.student?.lastName;
     return (
-      <section>
+      <Container>
         <Row>
-          <Col md="3"></Col>
-          <Col md="1">
+          <Col>
+            <Label for="scheduleStudent">Select Student</Label>
+            <select id="scheduleStudent" onChange={this.onChange}>
+              <option selected>None</option>
+              {this.state.students.map(student => 
+                <option key={student.id} value={student.id}>
+                  {student.firstName} {student.lastName}
+                </option>
+              )}
+            </select>
+          </Col>
+          <Col>
             <StudentCreator></StudentCreator>
           </Col>
-          <Col md="1">
-            <DeleteStudent 
-              studentId={this.state.student?.id}
-              studentFirstName={this.state.student?.firstName}
-              studentLastName={this.state.student?.lastName}>
-            </DeleteStudent>
-          </Col>
-          <Col md="1">
-            <StudentUpdater 
-              studentId={this.state.student?.id}
-              studentFirstName={this.state.student?.firstName}
-              studentLastName={this.state.student?.lastName}
-              studentGrade={this.state.student?.grade}
-              studentCampus={this.state.student?.campuses?.id}
-              studentMedInfo={this.state.student?.medical_information}
-              studentAddInfo={this.state.student?.additional_information}
-              studentIEP={this.state.student?.iep}>
-            </StudentUpdater>
-          </Col>
-          <Col md="1">
-            <EmptyScheduleCreator 
-              studentId={this.state.student?.id}
-              studentFirstName={this.state.student?.firstName}
-              studentLastName={this.state.student?.lastName}
-              campusId={this.state.student?.campuses.id}>
-            </EmptyScheduleCreator>
-          </Col>
-          <Col md="3"></Col>
         </Row>
-        <div className = "row">
-          <Label for="scheduleStudent">Select Student</Label>
-          <select id="scheduleStudent" onChange={this.onChange}>
-            <option selected>None</option>
-            {this.state.students.map(student => 
-              <option key={student.id} value={student.id}>
-                {student.firstName} {student.lastName}
-              </option>
-            )}
-          </select>
-        </div>
         <h1>Student: {first} {last}</h1>
         <div className="row">
           <div className="col-md-3">
-            <Card>
+            <Card body outline color="primary">
               {this.state.student && <CardImg src={`${this.state.student?.profile_image}`} alt={`${this.state.student?.firstName}`}></CardImg>}
               {this.state.student &&<CardBody>
                 <p><strong>Campus:</strong> {this.state.student.campuses.name}</p>
                 <p><strong>Grade:</strong> {this.state.student.grade}</p>
                 <p><strong>Additional Information:</strong> {this.state.student.additional_information}</p>
+                <Row>
+                <Col md="4">
+                  <DeleteStudent 
+                    studentId={this.state.student?.id}
+                    studentFirstName={this.state.student?.firstName}
+                    studentLastName={this.state.student?.lastName}>
+                  </DeleteStudent>
+                </Col>
+                <Col md="4">
+                  <StudentUpdater 
+                    studentId={this.state.student?.id}
+                    studentFirstName={this.state.student?.firstName}
+                    studentLastName={this.state.student?.lastName}
+                    studentGrade={this.state.student?.grade}
+                    studentCampus={this.state.student?.campuses?.id}
+                    studentMedInfo={this.state.student?.medical_information}
+                    studentAddInfo={this.state.student?.additional_information}
+                    studentIEP={this.state.student?.iep}
+                    studentFunding={this.state.student?.funding?.id}
+                    studentInstructionMode={this.state.student?.instructionmode?.id}>
+                  </StudentUpdater>
+                </Col>
+                <Col md="4">
+                  <EmptyScheduleCreator 
+                    studentId={this.state.student?.id}
+                    studentFirstName={this.state.student?.firstName}
+                    studentLastName={this.state.student?.lastName}
+                    campusId={this.state.student?.campuses.id}>
+                  </EmptyScheduleCreator>
+                </Col>
+                </Row>
+        
               </CardBody>}
             </Card>
           </div>
@@ -99,7 +102,7 @@ export default class Student extends Component {
           </div>
         </div>
         
-      </section>
+      </Container>
     );
   }
 }

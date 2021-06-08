@@ -30,7 +30,7 @@ export class EmptyScheduleCreator extends Component {
   render() {
     return (
       <div>
-        <Button outline color="primary" onClick={() => this.emptySchedule()}>
+        <Button outline color="primary" size="sm" onClick={() => this.emptySchedule()}>
           Add Schedule
         </Button>
     </div>

@@ -30,27 +30,29 @@ export class StudentInfo extends Component {
           <ModalBody>
             <Card>
               <CardTitle>
-                {this.props.student.firstName} {this.props.student.lastName}
+                <h3>{this.props.student.firstName} {this.props.student.lastName}</h3>
               </CardTitle>
               <CardBody>
-                <p>Grade: {this.props.student.grade}</p>
+                <p><strong>Grade:</strong> {this.props.student.grade}</p>
                 <p>
-                  Medical Information: {this.props.student.medical_information}
+                  <strong>Medical Information:</strong> {this.props.student.medical_information}
                 </p>
                 <p>
-                  Additional Information:{" "}
+                  <strong>Additional Information:</strong>{" "}
                   {this.props.student.additional_information}
                 </p>
                 {this.props.student.guardians.map((guardian) => (
                   <div>
                     <p>
-                      Parent: {guardian.firstName} {guardian.lastName}
+                      <strong>Parent:</strong> {guardian.firstName} {guardian.lastName}
                     </p>
-                    <p>Email: {guardian.email}</p>
-                    <p>Phone: {guardian.phone}</p>
-                    <p>Address: {guardian.address}</p>
+                    <p><strong>Email:</strong> {guardian.email}</p>
+                    <p><strong>Phone:</strong> {guardian.phone}</p>
+                    <p><strong>Address:</strong> {guardian.address}</p>
                   </div>
                 ))}
+                <p><strong>Funding:</strong> {this.props.student.funding?.type}</p>
+                <p><strong>Instruction Mode:</strong> {this.props.student.instructionmode?.type}</p>
               </CardBody>
             </Card>
             <Button

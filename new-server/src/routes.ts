@@ -9,6 +9,8 @@ import { TeacherController } from "./controller/TeacherController";
 import { TrackerController } from "./controller/TrackerController";
 import { CourseController } from "./controller/CourseController";
 import { GradebookController } from "./controller/GradebookController";
+import { FundingController } from "./controller/FundingController";
+import { InstructionModeController } from "./controller/InstructionModeController";
 
 export const Routes = [{
 	method: "get",
@@ -318,6 +320,60 @@ export const Routes = [{
 	method: "delete",
 	route: "/gradebooks/:id",
 	controller: GradebookController,
+	action: "remove"
+},
+// Funding
+{
+	method: "get",
+	route: "/funding",
+	controller: FundingController,
+	action: "all"
+}, {
+	method: "get",
+	route: "/funding/:id",
+	controller: FundingController,
+	action: "one"
+}, {
+	method: "put",
+	route: "/funding/:id",
+	controller: FundingController,
+	action: "update"
+}, {
+	method: "post",
+	route: "/funding",
+	controller: FundingController,
+	action: "save"
+}, {
+	method: "delete",
+	route: "/funding/:id",
+	controller: FundingController,
+	action: "remove"
+},
+// InstructionMode
+{
+	method: "get",
+	route: "/instructionmode",
+	controller: InstructionModeController,
+	action: "all"
+}, {
+	method: "get",
+	route: "/instructionmode/:id",
+	controller: InstructionModeController,
+	action: "one"
+}, {
+	method: "put",
+	route: "/instructionmode/:id",
+	controller: InstructionModeController,
+	action: "update"
+}, {
+	method: "post",
+	route: "/instructionmode",
+	controller: InstructionModeController,
+	action: "save"
+}, {
+	method: "delete",
+	route: "/instructionmode/:id",
+	controller: InstructionModeController,
 	action: "remove"
 }
 ];

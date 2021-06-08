@@ -250,7 +250,7 @@ export class TrackerCreator extends Component {
                         <option></option>
                         <option
                           id="zone"
-                          style={{ backgroundColor: "green" }}
+                          style={{ backgroundColor: "green", color:"white" }}
                           value="1"
                         >
                           Green Zone (happy, focused, calm, ready to learn)
@@ -265,7 +265,7 @@ export class TrackerCreator extends Component {
                         </option>
                         <option
                           id="zone"
-                          style={{ backgroundColor: "blue" }}
+                          style={{ backgroundColor: "blue", color:"white" }}
                           value="3"
                         >
                           Blue Zone (sad, sick, moving slowly, shut down, tired,
@@ -273,7 +273,7 @@ export class TrackerCreator extends Component {
                         </option>
                         <option
                           id="zone"
-                          style={{ backgroundColor: "red" }}
+                          style={{ backgroundColor: "red", color:"white" }}
                           value="4"
                         >
                           Red Zone (angry, mad, aggressive verbally/physically)

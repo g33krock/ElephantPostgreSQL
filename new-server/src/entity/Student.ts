@@ -4,6 +4,8 @@ import { Guardian } from "./Guardian";
 import { Campus } from "./Campus";
 import { Tracker } from "./Tracker";
 import { Gradebook } from "./Gradebook";
+import { Funding } from "./Funding";
+import { InstructionMode } from "./InstructionMode";
 
 @Entity()
 export class Student extends BaseEntity {
@@ -59,4 +61,10 @@ export class Student extends BaseEntity {
 
 	@OneToMany(() => Gradebook, gradebook => gradebook.students, {onDelete: 'CASCADE'})
 	gradebooks: Gradebook[];
+
+	@ManyToOne(() => Funding, funding => funding.students)
+	funding: Funding;
+
+	@ManyToOne(() => InstructionMode, instructionmode => instructionmode.students)
+	instructionmode: InstructionMode;
 }

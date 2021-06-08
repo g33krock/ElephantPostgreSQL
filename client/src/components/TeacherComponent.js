@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Label } from "reactstrap";
+import { Container, Label } from "reactstrap";
 import TeacherSchedule from "./TeacherScheduleComponent";
 
 
@@ -10,12 +10,10 @@ export default class Teacher extends Component {
   }
 
   componentDidMount() {
-    // Fetch Teacher Table from API
+    // Fetch Student Table from API
     fetch("http://localhost:3001/teachers")
-      // Convert response to a JSON object
       .then((response) => response.json())
       .then((data) => {
-        // Create relationship between teachers state array and JSON object
         this.setState({
           teachers: data,
         });
@@ -32,7 +30,7 @@ export default class Teacher extends Component {
   
   render() {
     return (
-      <section>
+      <Container>
         <h1>Teachers {this.state.teacher?.firstName}</h1>
         <div className = "row">
           <Label for="scheduleTeacher">Select Teacher</Label>
@@ -46,7 +44,7 @@ export default class Teacher extends Component {
           </select>
         </div>
         {this.state.teacher && <TeacherSchedule teacher={this.state.teacher}></TeacherSchedule>}
-      </section>
+      </Container>
     );
   }
 }
