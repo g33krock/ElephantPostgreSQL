@@ -5,6 +5,7 @@ import {DeleteStudent} from "./DeleteStudent";
 import {StudentUpdater} from "./UpdateStudent";
 import AltStudentSchedule from "./AltStudentSchedule";
 import { EmptyScheduleCreator } from "./EmptySchedule";
+import { GuardianCreator } from "./CreateGuardian";
 
 
 export default class Student extends Component {
@@ -93,6 +94,10 @@ export default class Student extends Component {
                   </EmptyScheduleCreator>
                 </Col>
                 </Row>
+                <GuardianCreator
+                  studentId={this.state.student?.id}
+                >
+                </GuardianCreator>
         
               </CardBody>}
             </Card>

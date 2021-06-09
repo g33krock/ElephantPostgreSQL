@@ -9,7 +9,7 @@ import {
   ModalBody,
 } from "reactstrap";
 import { studentService } from "../services/studentService";
-// import { EmptyScheduleCreator } from "./EmptySchedule";
+
 
 export class StudentCreator extends Component {
   constructor(props) {
@@ -37,9 +37,6 @@ export class StudentCreator extends Component {
         students: data,
       });
     });
-    // const studentES = this.state.students.find(student => student.firstName === studentObject.firstName && student.lastName === studentObject.lastName)
-    // const studentId = studentES.id
-    // await EmptyScheduleCreator.emptySchedule(studentId)
     console.log(student);
   }
 

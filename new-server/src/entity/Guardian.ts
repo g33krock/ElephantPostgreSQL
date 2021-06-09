@@ -39,4 +39,7 @@ export class Guardian extends BaseEntity {
 
 	@ManyToOne(() => Student, student => student.guardians)
 	student: Student;
+
+	@OneToMany(() => Student, student => student.guardian)
+	students: Guardian[];
 }

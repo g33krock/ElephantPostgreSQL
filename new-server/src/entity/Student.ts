@@ -67,4 +67,7 @@ export class Student extends BaseEntity {
 
 	@ManyToOne(() => InstructionMode, instructionmode => instructionmode.students)
 	instructionmode: InstructionMode;
+
+	@ManyToOne(() => Guardian, guardian => guardian.students)
+	guardian: Guardian;
 }

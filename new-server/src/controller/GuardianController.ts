@@ -4,7 +4,7 @@ import { Guardian } from "../entity/Guardian";
 export class GuardianController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Guardian.find();
+		return Guardian.find({ relations: ["student"] });
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
