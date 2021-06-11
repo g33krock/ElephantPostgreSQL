@@ -6,6 +6,7 @@ import {StudentUpdater} from "./UpdateStudent";
 import AltStudentSchedule from "./AltStudentSchedule";
 import { EmptyScheduleCreator } from "./EmptySchedule";
 import { GuardianCreator } from "./CreateGuardian";
+import { SpedQuestionCreator } from "./CreateSpedQuestion";
 
 
 export default class Student extends Component {
@@ -98,6 +99,10 @@ export default class Student extends Component {
                   studentId={this.state.student?.id}
                 >
                 </GuardianCreator>
+                <SpedQuestionCreator
+                  studentId={this.state.student?.id}
+                >
+                </SpedQuestionCreator>
         
               </CardBody>}
             </Card>

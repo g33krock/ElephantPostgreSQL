@@ -11,6 +11,8 @@ import { CourseController } from "./controller/CourseController";
 import { GradebookController } from "./controller/GradebookController";
 import { FundingController } from "./controller/FundingController";
 import { InstructionModeController } from "./controller/InstructionModeController";
+import { SpedQuestionController } from "./controller/SpedQuestionController";
+import { SpedResponseController } from "./controller/SpedResponseController";
 
 export const Routes = [{
 	method: "get",
@@ -374,6 +376,60 @@ export const Routes = [{
 	method: "delete",
 	route: "/instructionmode/:id",
 	controller: InstructionModeController,
+	action: "remove"
+},
+// SpedQuestion
+{
+	method: "get",
+	route: "/spedQuestions",
+	controller: SpedQuestionController,
+	action: "all"
+}, {
+	method: "get",
+	route: "/spedQuestions/:id",
+	controller: SpedQuestionController,
+	action: "one"
+}, {
+	method: "put",
+	route: "/spedQuestions/:id",
+	controller: SpedQuestionController,
+	action: "update"
+}, {
+	method: "post",
+	route: "/spedQuestions",
+	controller: SpedQuestionController,
+	action: "save"
+}, {
+	method: "delete",
+	route: "/spedQuestions/:id",
+	controller: SpedQuestionController,
+	action: "remove"
+},
+// SpedResponse
+{
+	method: "get",
+	route: "/spedResponses",
+	controller: SpedResponseController,
+	action: "all"
+}, {
+	method: "get",
+	route: "/spedResponses/:id",
+	controller: SpedResponseController,
+	action: "one"
+}, {
+	method: "put",
+	route: "/spedResponses/:id",
+	controller: SpedResponseController,
+	action: "update"
+}, {
+	method: "post",
+	route: "/spedResponses",
+	controller: SpedResponseController,
+	action: "save"
+}, {
+	method: "delete",
+	route: "/spedResponses/:id",
+	controller: SpedResponseController,
 	action: "remove"
 }
 ];

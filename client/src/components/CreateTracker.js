@@ -12,6 +12,7 @@ import {
   Container
 } from "reactstrap";
 import { trackerService } from "../services/trackerService";
+import { SpedResponseCreator } from "./CreateSpedResponse";
 
 export class TrackerCreator extends Component {
   constructor(props) {
@@ -330,6 +331,8 @@ export class TrackerCreator extends Component {
                 </Label>
                 <Input type="text" name="assessment" id="assessment" className="fancy-cursor"/>
               </FormGroup>
+              <SpedResponseCreator
+              student={this.props.student.id}></SpedResponseCreator>
               <Button
                 color="primary"
                 onClick={() => {

@@ -6,6 +6,7 @@ import { Tracker } from "./Tracker";
 import { Gradebook } from "./Gradebook";
 import { Funding } from "./Funding";
 import { InstructionMode } from "./InstructionMode";
+import { SpedQuestion } from "./SpedQuestion";
 
 @Entity()
 export class Student extends BaseEntity {
@@ -70,4 +71,7 @@ export class Student extends BaseEntity {
 
 	@ManyToOne(() => Guardian, guardian => guardian.students)
 	guardian: Guardian;
+
+	@OneToMany(() => SpedQuestion, spedQuestion => spedQuestion.student, {onDelete: 'CASCADE'})
+	spedQuestions: SpedQuestion[];
 }
