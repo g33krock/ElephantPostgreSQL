@@ -5,6 +5,9 @@ import {
   Input,
   Label,
   Button,
+  Row,
+  Col,
+  Container
 } from "reactstrap";
 import { spedResponseService } from "../services/spedResponseService";
 
@@ -32,6 +35,9 @@ export class SpedResponseCreator extends Component {
     const spedResponseObject = {
       date: document.getElementById("spedResponseDate").value,
       question: i.question,
+      meet: document.getElementById("spedResponseMeet"+i.id).value,
+      success: document.getElementById("spedResponseSuccess"+i.id).value,
+      opportunity: document.getElementById("spedResponseOpportunity"+i.id).value,
       response: document.getElementById("spedResponseResponse"+i.id).value,
       students: this.props.student,
       spedQuestions: i.id
@@ -67,16 +73,50 @@ export class SpedResponseCreator extends Component {
               </FormGroup>
               {this.state.spedQuestions.map((spedQuestion => 
             <div>
-              <FormGroup>
-                <Label for="spedResponseQuestion" id={`spedResponseQuestion${spedQuestion?.id}`} value={spedQuestion?.id}>{spedQuestion.question} </Label>
-              </FormGroup>
-              <FormGroup>
-                <Label for="spedResponseResponse">Response </Label>
-                <Input
-                  type="string"
-                  id={`spedResponseResponse${spedQuestion?.id}`}
-                />
-              </FormGroup>
+              <Container id="trackerBox">
+                <FormGroup>
+                  <Label for="spedResponseQuestion" id={`spedResponseQuestion${spedQuestion?.id}`} value={spedQuestion?.id}>{spedQuestion.question} </Label>
+                </FormGroup>
+                <FormGroup check>
+                  <Label check>
+                    <Input 
+                    type="select"
+                    id={`spedResponseMeet${spedQuestion?.id}`}>
+                      <option></option>
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </Input>
+                    Did {spedQuestion.students?.firstName} meet this goal?
+                  </Label>
+                </FormGroup>
+                <Row>
+                  <Col>
+                    <FormGroup>
+                      <Label for="spedResponseSuccess">Successes </Label>
+                      <Input
+                        type="number"
+                        id={`spedResponseSuccess${spedQuestion?.id}`}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="spedResponseOpportunity">Opportunities </Label>
+                      <Input
+                        type="number"
+                        id={`spedResponseOpportunity${spedQuestion?.id}`}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <FormGroup>
+                  <Label for="spedResponseResponse">Comment </Label>
+                  <Input
+                    type="string"
+                    id={`spedResponseResponse${spedQuestion?.id}`}
+                  />
+                </FormGroup>
+              </Container>
               </div>
               ))}
               <Button

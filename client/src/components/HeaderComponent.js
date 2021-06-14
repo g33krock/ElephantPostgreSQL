@@ -62,6 +62,9 @@ class Header extends Component {
                                 <NavItem>
                                     <NavLink className="nav-link" to="/schedules">Schedule</NavLink>
                                 </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/sped">Sped</NavLink>
+                                </NavItem>
                             </Nav>
                         </Collapse>
                         <Col sm={3}>

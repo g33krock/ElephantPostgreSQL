@@ -5,6 +5,7 @@ import { Switch, Redirect } from 'react-router-dom'
 import Teacher from './TeacherComponent';
 import Schedule from './ScheduleComponent';
 import { PrivateRoute } from './PrivateRoute';
+import Sped from './SpedComponent';
 
 class Main extends Component {
     
@@ -22,6 +23,7 @@ class Main extends Component {
             <div>
                 
                 <Switch>
+                    <PrivateRoute path='/sped' component={Sped} />
                     <PrivateRoute path='/schedules' component={Schedule} />
                     <PrivateRoute path='/teachers' component={Teacher} />
                     <PrivateRoute path='/students' component={Student} />

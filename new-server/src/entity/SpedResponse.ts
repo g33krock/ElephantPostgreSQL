@@ -24,6 +24,21 @@ export class SpedResponse extends BaseEntity {
 	})
 	question: string;
 
+	@Column({
+		nullable: true
+	})
+	meet: string;
+
+	@Column({
+		nullable: true
+	})
+	success: number;
+
+	@Column({
+		nullable: true
+	})
+	opportunity: number;
+
     @Column({
 		nullable: true
 	})
