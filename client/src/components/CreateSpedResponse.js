@@ -4,7 +4,6 @@ import {
   FormGroup,
   Input,
   Label,
-  Button,
   Row,
   Col,
   Container
@@ -29,6 +28,12 @@ export class SpedResponseCreator extends Component {
         spedQuestions: data.filter(datas => datas.student.id === this.props.student),
       });
     });
+  }
+
+  componentDidUpdate() {
+    if(this.props.submitted) {
+      this.createSpedResponseNinja()
+    }
   }
   
   async createSpedResponse(i) {
@@ -56,6 +61,9 @@ export class SpedResponseCreator extends Component {
   toggle() {
     return !this.state.modal;
   }
+
+  createSpedResponseNinja() {this.state.spedQuestions.forEach((scheduleQuestion =>
+  this.createSpedResponse(scheduleQuestion)))}
   
 
   render() {
@@ -119,16 +127,6 @@ export class SpedResponseCreator extends Component {
               </Container>
               </div>
               ))}
-              <Button
-                color="primary"
-                onClick={() => {
-                  this.state.spedQuestions.map((scheduleQuestion =>
-                  this.createSpedResponse(scheduleQuestion)))
-                  
-                }}
-              >
-                Submit
-              </Button>
             </Form>
       </div>
     );

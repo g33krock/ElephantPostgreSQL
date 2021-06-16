@@ -19,6 +19,7 @@ export class TrackerCreator extends Component {
     super(props);
     this.state = {
       modal: false,
+      submitted:false
     };
   }
 
@@ -331,13 +332,13 @@ export class TrackerCreator extends Component {
                 </Label>
                 <Input type="text" name="assessment" id="assessment" className="fancy-cursor"/>
               </FormGroup>
-              <SpedResponseCreator
-              student={this.props.student.id}></SpedResponseCreator>
+              <SpedResponseCreator submitted={this.state.submitted}
+              student={this.props.student.id} ></SpedResponseCreator>
               <Button
                 color="primary"
                 onClick={() => {
                   this.createTracker();
-                  this.setState({ modal: false });
+                  this.setState({ modal: false, submitted:true });
                 }}
               >
                 Submit

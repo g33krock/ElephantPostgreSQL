@@ -1,9 +1,9 @@
 {
    "type": "postgres",
-   "host": "db.qyctrtcwtwasdktftmuy.supabase.co",
+   "host": "34.68.110.76",
    "port": 5432,
    "username": "postgres",
-   "password": "GassyPenguin16",
+   "password": "Take1Twice",
    "database": "postgres",
    "synchronize": true,
    "logging": false,
