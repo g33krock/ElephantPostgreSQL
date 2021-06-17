@@ -1,6 +1,8 @@
+import {baseURL} from "../baseURL";
+
 class StudentService {
     async all () {
-        const response = await fetch("http://localhost:3001/students", {
+        const response = await fetch(`${baseURL}/students`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -9,7 +11,7 @@ class StudentService {
           return await response.json();
     };
     async create (studentObject) {
-        const response = await fetch("http://localhost:3001/students", {
+        const response = await fetch(`${baseURL}/students`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -20,7 +22,7 @@ class StudentService {
     };
     async delete(studentObject){
         console.log(studentObject)
-        const response = fetch("http://localhost:3001/students/"+studentObject.studentID, {
+        const response = fetch(`${baseURL}/students/`+studentObject.studentID, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -29,7 +31,7 @@ class StudentService {
         return response;
     };
     async update(studentObject) {
-        const response = fetch("http://localhost:3001/students/"+studentObject.studentID, {
+        const response = fetch(`${baseURL}/students/`+studentObject.studentID, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

@@ -1,6 +1,8 @@
+import {baseURL} from "../baseURL";
+
 class ScheduleService {
     async all () {
-        const response = await fetch("http://localhost:3001/schedules", {
+        const response = await fetch(`${baseURL}/schedules`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -9,7 +11,7 @@ class ScheduleService {
           return await response.json();
     };
     async create(scheduleObject) {
-        const response = await fetch("http://localhost:3001/schedules", {
+        const response = await fetch(`${baseURL}/schedules`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -20,7 +22,7 @@ class ScheduleService {
     };
     async delete(scheduleObject){
         console.log(scheduleObject)
-        const response = await fetch("http://localhost:3001/schedules/"+scheduleObject.scheduleId, {
+        const response = await fetch(`${baseURL}/schedules/`+scheduleObject.scheduleId, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -30,7 +32,7 @@ class ScheduleService {
     };
     async update(scheduleObject) {
         console.log(scheduleObject)
-        const response = await fetch("http://localhost:3001/schedules/"+scheduleObject.id, {
+        const response = await fetch(`${baseURL}/schedules/`+scheduleObject.id, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

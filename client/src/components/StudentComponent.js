@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {baseURL} from "../baseURL";
 import { Card, Row, Col, CardImg, CardBody, Label, Container } from "reactstrap";
 import {StudentCreator} from "./CreateStudent";
 import {DeleteStudent} from "./DeleteStudent";
@@ -17,7 +18,7 @@ export default class Student extends Component {
 
   componentDidMount() {
     // Fetch Student Table from API
-    fetch("http://localhost:3001/students")
+    fetch(`${baseURL}/students`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({

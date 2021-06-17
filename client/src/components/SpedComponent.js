@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {baseURL} from "../baseURL";
 import { Card, Row, Col, CardImg, CardBody, Label, Container } from "reactstrap";
 import { SpedQuestionCreator } from "./CreateSpedQuestion";
 import SpedResponse from "./SpedResponses";
@@ -12,7 +13,7 @@ export default class Sped extends Component {
 
   componentDidMount() {
     // Fetch Student Table from API
-    fetch("http://localhost:3001/students")
+    fetch(`${baseURL}/students`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({

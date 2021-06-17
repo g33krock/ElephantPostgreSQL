@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {baseURL} from "../baseURL";
 
 
 export default class CampusSchedule extends Component {
@@ -12,7 +13,7 @@ export default class CampusSchedule extends Component {
       return
     }
     console.log(this.props.campus)
-    fetch(`http://localhost:3001/teachers/${this.props.campus.id}/schedules`) //Fetch TeacherSchedule Table from API
+    fetch(`${baseURL}/teachers/${this.props.campus.id}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         console.log(data)

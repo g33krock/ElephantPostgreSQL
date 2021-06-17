@@ -332,7 +332,7 @@ export class TrackerCreator extends Component {
                 </Label>
                 <Input type="text" name="assessment" id="assessment" className="fancy-cursor"/>
               </FormGroup>
-              <SpedResponseCreator submitted={this.state.submitted}
+              <SpedResponseCreator submitted={this.state.submitted} modal={this.state.modal}
               student={this.props.student.id} ></SpedResponseCreator>
               <Button
                 color="primary"

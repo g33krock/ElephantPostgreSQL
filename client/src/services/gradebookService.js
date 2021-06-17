@@ -1,6 +1,8 @@
+import {baseURL} from "../baseURL";
+
 class GradebookService {
     async all () {
-        const response = await fetch("http://localhost:3001/gradebooks", {
+        const response = await fetch(`${baseURL}/gradebooks`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -9,7 +11,7 @@ class GradebookService {
           return await response.json();
     };
     async create (gradebookObject) {
-        const response = await fetch("http://localhost:3001/gradebooks", {
+        const response = await fetch(`${baseURL}/gradebooks`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -20,7 +22,7 @@ class GradebookService {
     };
     async delete(gradebookObject){
         console.log(gradebookObject)
-        const response = fetch("http://localhost:3001/gradebooks/"+gradebookObject.gradebookId, {
+        const response = fetch(`${baseURL}/gradebooks/`+gradebookObject.gradebookId, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -30,7 +32,7 @@ class GradebookService {
     };
     async update(gradebookObject) {
         console.log(gradebookObject)
-        const response = fetch("http://localhost:3001/gradebooks/"+gradebookObject.id, {
+        const response = fetch(`${baseURL}/gradebooks/`+gradebookObject.id, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {baseURL} from "../baseURL";
 import {
   Form,
   FormGroup,
@@ -26,7 +27,7 @@ export class SpedQuestionCreator extends Component {
       student: this.props.studentId,
     };
     const spedQuestion = await spedQuestionService.create(spedQuestionObject);
-    fetch("http://localhost:3001/spedQuestions")
+    fetch(`${baseURL}/spedQuestions`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({

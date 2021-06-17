@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {baseURL} from "../baseURL";
 import {
   Form,
   FormGroup,
@@ -23,7 +24,7 @@ export class ScheduleUpdater extends Component {
 
   componentDidMount() {
     // Fetch Student Table from API
-    fetch("http://localhost:3001/teachers")
+    fetch(`${baseURL}/teachers`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((data) => {
@@ -32,7 +33,7 @@ export class ScheduleUpdater extends Component {
           teachers: data,
         });
       });
-    fetch("http://localhost:3001/courses")
+    fetch(`${baseURL}/courses`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((data) => {

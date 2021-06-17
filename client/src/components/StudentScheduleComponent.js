@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {baseURL} from "../baseURL";
 import { Card, CardImg, CardImgOverlay, CardText, CardTitle, Col, CardLink, Row } from "reactstrap";
 import { GradebookCreator } from "./CreateGradebook";
 import { TrackerCreator } from "./CreateTracker";
@@ -10,7 +11,7 @@ export default class StudentSchedule extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/schedules") //Fetch StudentSchedule Table from API
+    fetch(`${baseURL}/schedules`) //Fetch StudentSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         this.setState({

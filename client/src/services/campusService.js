@@ -1,6 +1,8 @@
+import {baseURL} from "../baseURL";
+
 class CampusService {
     async all () {
-        const response = await fetch("http://localhost:3001/campuses", {
+        const response = await fetch(`${baseURL}/campuses`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

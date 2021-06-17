@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {baseURL} from "../baseURL";
 import {
   Form,
   FormGroup,
@@ -30,7 +31,7 @@ export class GuardianCreator extends Component {
       additional_info: document.getElementById("guardianAdditionalInfo").value
     };
     const guardian = await guardianService.create(guardianObject);
-    fetch("http://localhost:3001/guardians")
+    fetch(`${baseURL}/spedQuestions`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({

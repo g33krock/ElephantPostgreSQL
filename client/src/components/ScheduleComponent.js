@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {baseURL} from "../baseURL"
 import { Table } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
 
@@ -13,7 +14,7 @@ export default class Schedule extends Component {
   }
 
   getSchedules() {
-    fetch("http://localhost:3001/students")
+    fetch(`${baseURL}/students`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((students) => {

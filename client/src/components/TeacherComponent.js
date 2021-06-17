@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {baseURL} from "../baseURL";
 import { Container, Label } from "reactstrap";
 import TeacherSchedule from "./TeacherScheduleComponent";
 
@@ -11,7 +12,7 @@ export default class Teacher extends Component {
 
   componentDidMount() {
     // Fetch Student Table from API
-    fetch("http://localhost:3001/teachers")
+    fetch(`${baseURL}/teachers`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({

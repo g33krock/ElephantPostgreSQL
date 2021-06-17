@@ -1,6 +1,8 @@
+import {baseURL} from "../baseURL";
+
 class SpedQuestionService {
     async all () {
-        const response = await fetch("http://localhost:3001/spedQuestions", {
+        const response = await fetch(`${baseURL}/spedQuestions`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -9,7 +11,7 @@ class SpedQuestionService {
           return await response.json();
     };
     async create (spedQuestionObject) {
-        const response = await fetch("http://localhost:3001/spedQuestions", {
+        const response = await fetch(`${baseURL}/spedQuestions`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -20,7 +22,7 @@ class SpedQuestionService {
     };
     async delete(spedQuestionObject){
         console.log(spedQuestionObject)
-        const response = fetch("http://localhost:3001/spedQuestions/"+spedQuestionObject.spedQuestionId, {
+        const response = fetch(`${baseURL}/spedQuestions/`+spedQuestionObject.spedQuestionId, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -30,7 +32,7 @@ class SpedQuestionService {
     };
     async update(spedQuestionObject) {
         console.log(spedQuestionObject)
-        const response = fetch("http://localhost:3001/spedQuestions/"+spedQuestionObject.id, {
+        const response = fetch(`${baseURL}/spedQuestions/`+spedQuestionObject.id, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

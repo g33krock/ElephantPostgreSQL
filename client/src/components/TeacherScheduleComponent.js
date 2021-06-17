@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {baseURL} from "../baseURL";
 import { Card, CardText, CardTitle } from "reactstrap";
 import { GradebookCreator } from "./CreateGradebook";
 import { TrackerCreator } from "./CreateTracker";
@@ -15,7 +16,7 @@ export default class TeacherSchedule extends Component {
       return;
     }
     console.log(this.props.teacher);
-    fetch(`http://localhost:3001/teachers/${this.props.teacher.id}/schedules`) //Fetch TeacherSchedule Table from API
+    fetch(`${baseURL}/teachers/${this.props.teacher.id}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         console.log(data);

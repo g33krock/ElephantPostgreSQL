@@ -1,6 +1,8 @@
+import {baseURL} from "../baseURL";
+
 class GuardianService {
     async all () {
-        const response = await fetch("http://localhost:3001/guardians", {
+        const response = await fetch(`${baseURL}/guardians`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -9,7 +11,7 @@ class GuardianService {
           return await response.json();
     };
     async create (guardianObject) {
-        const response = await fetch("http://localhost:3001/guardians", {
+        const response = await fetch(`${baseURL}/guardians`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -20,7 +22,7 @@ class GuardianService {
     };
     async delete(guardianObject){
         console.log(guardianObject)
-        const response = fetch("http://localhost:3001/guardians/"+guardianObject.guardianID, {
+        const response = fetch(`${baseURL}/guardians/`+guardianObject.guardianID, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -29,7 +31,7 @@ class GuardianService {
         return response;
     };
     async update(guardianObject) {
-        const response = fetch("http://localhost:3001/guardians/"+guardianObject.guardianID, {
+        const response = fetch(`${baseURL}/guardians/`+guardianObject.guardianID, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

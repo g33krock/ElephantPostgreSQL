@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {baseURL} from "../baseURL";
 import {
   Form,
   FormGroup,
@@ -30,7 +31,7 @@ export class StudentCreator extends Component {
       instructionmode: document.getElementById("studentInstructionMode").value
     };
     const student = await studentService.create(studentObject);
-    fetch("http://localhost:3001/students")
+    fetch(`${baseURL}/students`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({

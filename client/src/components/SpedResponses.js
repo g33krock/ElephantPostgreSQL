@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {baseURL} from "../baseURL";
 import { Table } from "reactstrap";
 
 export default class SpedResponse extends Component {
@@ -12,7 +13,7 @@ export default class SpedResponse extends Component {
   }
 
   getSchedules() {
-    fetch("http://localhost:3001/spedResponses")
+    fetch(`${baseURL}/spedResponses`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((speds) => {

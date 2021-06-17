@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {baseURL} from "../baseURL";
 import {
   Form,
   FormGroup,
@@ -21,7 +22,7 @@ export class SpedResponseCreator extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/spedQuestions")
+    fetch(`${baseURL}/spedQuestions`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({
@@ -32,7 +33,8 @@ export class SpedResponseCreator extends Component {
 
   componentDidUpdate() {
     if(this.props.submitted) {
-      this.createSpedResponseNinja()
+      this.createSpedResponseNinja();
+      return
     }
   }
   
@@ -48,7 +50,7 @@ export class SpedResponseCreator extends Component {
       spedQuestions: i.id
     };
     const spedResponse = await spedResponseService.create(spedResponseObject);
-    fetch("http://localhost:3001/spedResponses")
+    fetch({baseURL}+"/spedResponses")
     .then((response) => response.json())
     .then((data) => {
       this.setState({

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {baseURL} from "../baseURL";
 import { Table } from "reactstrap";
 
 
@@ -9,7 +10,7 @@ export default class AltStudentSchedule extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/schedules") //Fetch StudentSchedule Table from API
+    fetch(`${baseURL}/schedules`) //Fetch StudentSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         this.setState({
@@ -42,22 +43,6 @@ export default class AltStudentSchedule extends Component {
                         <td id={`${studentsched.teacher.firstName}`}><strong>Teacher:</strong> <p style={{fontSize: 'small'}}>{studentsched.teacher.firstName} {studentsched.teacher.lastName}</p> <strong>Course:</strong> <p style={{fontSize: 'small'}}>{studentsched.course.name}</p></td>
                     </tr>
                 </tbody>
-                {/* <TrackerCreator
-                  student={studentsched.student}
-                  teacher={studentsched.teacher}
-                  course={studentsched.course}
-                  period={studentsched.period}
-                >
-                </TrackerCreator>
-                <GradebookCreator
-                  student={studentsched.student}
-                  teacher={studentsched.teacher}
-                  course={studentsched.course}
-                  period={studentsched.period}
-                  schedule={studentsched}
-                  campus={studentsched.campus}
-                >
-                </GradebookCreator> */}
             </Table>
         )
       });
