@@ -86,7 +86,7 @@ export class GuardianCreator extends Component {
                 </Input>
               </FormGroup>
               <FormGroup>
-                <Label for="guardianAdditionalInfo">Address</Label>
+                <Label for="guardianAdditionalInfo">Additional Info</Label>
                 <Input type="text" name="guardianAdditionalInfo" id="guardianAdditionalInfo">
                 </Input>
               </FormGroup>

@@ -6,6 +6,7 @@ import Teacher from './TeacherComponent';
 import Schedule from './ScheduleComponent';
 import { PrivateRoute } from './PrivateRoute';
 import Sped from './SpedComponent';
+import Header from './HeaderComponent';
 
 class Main extends Component {
     
@@ -17,17 +18,17 @@ class Main extends Component {
             
         };
     }
-
+    campus = Header.campus
     render() {
         return (
             <div>
                 
                 <Switch>
-                    <PrivateRoute path='/sped' component={Sped} />
-                    <PrivateRoute path='/schedules' component={Schedule} />
-                    <PrivateRoute path='/teachers' component={Teacher} />
-                    <PrivateRoute path='/students' component={Student} />
-                    <PrivateRoute path='/home' component={Home} />
+                    <PrivateRoute path='/sped' campus={this.props?.campus} component={Sped} />
+                    <PrivateRoute path='/schedules' campus={Header.campus} component={Schedule} />
+                    <PrivateRoute path='/teachers' campus={this.props?.campus} component={Teacher} />
+                    <PrivateRoute path='/students' campus={this.props?.campus} component={Student} />
+                    <PrivateRoute path='/home' campus={this.props?.campus} component={Home} />
                     <Redirect to='/home' />
                 </Switch>
             </div>

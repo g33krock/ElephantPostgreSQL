@@ -31,6 +31,15 @@ class Header extends Component {
             isNavOpen: !this.state.isNavOpen
         });
     }
+
+    onChange = e => {
+        const campusId = Number(e.target.value)
+        const campus = this.state.campuses.find(campus => campus.id === campusId) 
+        this.setState({ campus });
+        console.log(this.state)
+        console.log(e.target.value)
+      }
+
     render() {
         return (
             <React.Fragment>
@@ -68,7 +77,7 @@ class Header extends Component {
                             </Nav>
                         </Collapse>
                         <Col sm={3}>
-                            <Input type="select" onChange={() => this.setState({campus: this.campus})}>
+                            <Input type="select" id="selectCampus" onChange={this.onChange}>
                                 {this.state.campuses.map((campus) => <option>{campus.name}</option>)}
                             </Input >
                         </Col>

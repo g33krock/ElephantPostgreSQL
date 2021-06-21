@@ -36,12 +36,97 @@ export class Student extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	iep: boolean;
+	iep: string;
+
+	@Column({
+		nullable: true
+	})
+	birthDate: string;
+
+	@Column({
+		nullable: true
+	})
+	campus: string;
+
+	@Column({
+		nullable: true
+	})
+	previousSchools: string;
 
 	@Column({
 		nullable: true
 	})
 	medical_information: string;
+
+	@Column({
+		nullable: true
+	})
+	allergies: string;
+
+	@Column({
+		nullable: true
+	})
+	hearingLimitations: string;
+
+	@Column({
+		nullable: true
+	})
+	visionLimitations: string;
+
+	@Column({
+		nullable: true
+	})
+	mobilityLimitations: string;
+
+	@Column({
+		nullable: true
+	})
+	sensitivities: string;
+
+	@Column({
+		nullable: true
+	})
+	therapies: string;
+
+	@Column({
+		nullable: true
+	})
+	medicationsAtSchool: string;
+
+	@Column({
+		nullable: true
+	})
+	social: string;
+
+	@Column({
+		nullable: true
+	})
+	emotional: string;
+
+	@Column({
+		nullable: true
+	})
+	physical: string;
+
+	@Column({
+		nullable: true
+	})
+	math: string;
+
+	@Column({
+		nullable: true
+	})
+	reading: string;
+
+	@Column({
+		nullable: true
+	})
+	writing: string;
+
+	@Column({
+		nullable: true
+	})
+	interests: string;
 
 	@Column({
 		nullable: true

@@ -16,8 +16,8 @@ export class EmptyScheduleCreator extends Component {
     const scheduleObject = {
       student: this.props.studentId,
       period:i, 
-      teacher: 1, 
-      course: 1, 
+      teacher: 13, 
+      course: 15, 
       campus: this.props.campusId
       
     };

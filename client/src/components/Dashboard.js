@@ -26,7 +26,9 @@ export function Dashboard() {
       <BrowserRouter>
         <div className="App">
             <Header />
-            <Main />
+            <Main
+              campus={Header?.campus}
+            />
         </div>
         </BrowserRouter>
     </div>
