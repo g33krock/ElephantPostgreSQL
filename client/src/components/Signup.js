@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useHistory, Link } from 'react-router-dom'
-
+import { Container } from 'reactstrap'
 import { useAuth } from '../contexts/Auth'
 
 export function Signup() {
@@ -32,7 +32,8 @@ export function Signup() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+    <Container>
+    <form onSubmit={handleSubmit}>
         <label htmlFor="input-email">Email</label>
         <br />
         <input id="input-email" type="email" ref={emailRef} />
@@ -51,6 +52,8 @@ export function Signup() {
       <p>
         Already have an account? <Link to="/login">Log In</Link>
       </p>
+    </Container>
+      
     </>
   )
 }

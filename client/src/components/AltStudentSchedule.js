@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {baseURL} from "../baseURL";
-import { Table } from "reactstrap";
+import { Table, NavLink } from "reactstrap";
+
 
 
 export default class AltStudentSchedule extends Component {
@@ -40,7 +41,11 @@ export default class AltStudentSchedule extends Component {
                 </thead>
                 <tbody>
                     <tr>
-                        <td id={`${studentsched.teacher.firstName}`}><strong>Teacher:</strong> <p style={{fontSize: 'small'}}>{studentsched.teacher.firstName} {studentsched.teacher.lastName}</p> <strong>Course:</strong> <p style={{fontSize: 'small'}}>{studentsched.course.name}</p></td>
+                        <td id={`${studentsched.teacher.firstName}`}>
+                          <strong>Teacher:</strong> <p style={{fontSize: 'small'}}>{studentsched.teacher.firstName} {studentsched.teacher.lastName}</p> 
+                          <strong>Course:</strong> <p style={{fontSize: 'small'}}>{studentsched.course.name}</p>
+                          <NavLink href={studentsched.teacher?.link}>Virtual</NavLink>
+                          </td>
                     </tr>
                 </tbody>
             </Table>

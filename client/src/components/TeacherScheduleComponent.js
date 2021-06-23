@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {baseURL} from "../baseURL";
-import { Card, CardText, CardTitle } from "reactstrap";
+import { Card, CardText, CardTitle, NavLink } from "reactstrap";
 import { GradebookCreator } from "./CreateGradebook";
 import { TrackerCreator } from "./CreateTracker";
 import { StudentInfo } from "./StudentInfo";
@@ -54,6 +54,7 @@ export default class TeacherSchedule extends Component {
                 </p>
                 <p>Course Name:{teachersched.course.name}</p>
                 <p>Subject:{teachersched.course.subject}</p>
+                <NavLink href={this.props.teacher.link}>Class Link</NavLink>
               </CardText>
               <StudentInfo student={teachersched.student}></StudentInfo>
 
