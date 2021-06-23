@@ -18,16 +18,18 @@ export function Dashboard() {
     history.push('/login')
   }
 
+  const campus = Header.campus
+
   return (
     <div>
       {/* Change it to display the user ID too 👇*/}
-      <p>Welcome, {user?.id}!</p>
+      <p>Welcome, {user?.email}!</p>
       <button onClick={handleSignOut}>Sign out</button>
       <BrowserRouter>
         <div className="App">
             <Header />
             <Main
-              campus={Header?.campus}
+              campus={campus}
             />
         </div>
         </BrowserRouter>

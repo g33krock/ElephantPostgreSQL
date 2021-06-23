@@ -36,7 +36,7 @@ class Header extends Component {
         const campusId = Number(e.target.value)
         const campus = this.state.campuses.find(campus => campus.id === campusId) 
         this.setState({ campus });
-        console.log(this.state)
+        console.log(campus);
         console.log(e.target.value)
       }
 
@@ -78,7 +78,8 @@ class Header extends Component {
                         </Collapse>
                         <Col sm={3}>
                             <Input type="select" id="selectCampus" onChange={this.onChange}>
-                                {this.state.campuses.map((campus) => <option>{campus.name}</option>)}
+                                <option></option>
+                                {this.state.campuses.map((campus) => <option value={campus.id}>{campus.name}</option>)}
                             </Input >
                         </Col>
                     </div>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import '../App.css';
-import { Signup } from './Signup';
-import { Login } from './Login';
-import { Dashboard } from './Dashboard';
-import { AuthProvider } from '../contexts/Auth';
-import { PrivateRoute } from './PrivateRoute'
+import './App.css';
+import { Signup } from './components/Signup';
+import { Login } from './components/Login';
+import { Dashboard } from './components/Dashboard';
+import { AuthProvider } from './contexts/Auth';
+import { PrivateRoute } from './components/PrivateRoute'
 
 
 class App extends Component {

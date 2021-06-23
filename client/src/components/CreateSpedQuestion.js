@@ -58,6 +58,17 @@ export class SpedQuestionCreator extends Component {
                   id="spedQuestionDate"
                 />
               </FormGroup>
+              <FormGroup check>
+                  <Label check>Category</Label>
+                    <Input 
+                    type="select"
+                    id="spedQuestionCategory">
+                      <option></option>
+                      <option>ELA</option>
+                      <option>Math</option>
+                      <option>Social</option>
+                    </Input>
+                </FormGroup>
               <FormGroup>
                 <Label for="spedQuestionQuestion">Question</Label>
                 <Input

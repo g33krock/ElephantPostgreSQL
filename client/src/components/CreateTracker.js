@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {baseURL} from "../baseURL";
 import {
   Form,
   FormGroup,
@@ -12,15 +13,25 @@ import {
   Container
 } from "reactstrap";
 import { trackerService } from "../services/trackerService";
-import { SpedResponseCreator } from "./CreateSpedResponse";
+import { spedResponseService } from "../services/spedResponseService";
 
 export class TrackerCreator extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
-      submitted:false
+      spedQuestions:[]
     };
+  }
+
+  componentDidMount() {
+    fetch(`${baseURL}/spedQuestions`)
+    .then((response) => response.json())
+    .then((data) => {
+      this.setState({
+        spedQuestions: data.filter(datas => datas.student.id === this.props.student.id),
+      });
+    });
   }
 
   async createTracker() {
@@ -29,6 +40,7 @@ export class TrackerCreator extends Component {
       teachers: this.props.teacher.id,
       courses: this.props.course.id,
       period: this.props.period,
+      date: document.getElementById("spedResponseDate").value,
       attendance: document.getElementById("attendance").value,
       lesson: document.getElementById("lesson").value,
       comprehension: document.getElementById("comprehension").value,
@@ -46,9 +58,35 @@ export class TrackerCreator extends Component {
     console.log(tracker)
   }
 
+  async createSpedResponse(i) {
+    const spedResponseObject = {
+      date: document.getElementById("spedResponseDate").value,
+      question: i.question,
+      meet: document.getElementById("spedResponseMeet"+i.id).value,
+      success: document.getElementById("spedResponseSuccess"+i.id).value,
+      opportunity: document.getElementById("spedResponseOpportunity"+i.id).value,
+      response: document.getElementById("spedResponseResponse"+i.id).value,
+      students: this.props.student,
+      spedQuestions: i.id
+    };
+    const spedResponse = await spedResponseService.create(spedResponseObject);
+    fetch({baseURL}+"/spedResponses")
+    .then((response) => response.json())
+    .then((data) => {
+      this.setState({
+        spedResponse: data,
+      });
+    });
+    console.log(spedResponse);
+  }
+
+  createSpedResponseNinja() {this.state.spedQuestions.forEach((scheduleQuestion =>
+    this.createSpedResponse(scheduleQuestion)))}
+
   toggle() {
     return !this.state.modal;
   }
+
 
   render() {
     return (
@@ -77,7 +115,64 @@ export class TrackerCreator extends Component {
               <strong>Period: </strong>
               {this.props.period}
             </p>
+            
             <Form className="fancy-cursor">
+            <FormGroup>
+                <Label for="spedResponseDate">Date</Label>
+                <Input
+                  type="date"
+                  name={`spedResponseDate`}
+                  id={`spedResponseDate`}
+                />
+              </FormGroup>
+              {this.state.spedQuestions.filter((speQ) => speQ.category === this.props.course.subject).map((spedQuestion => 
+            <div>
+              <Container id="trackerBox">
+                <FormGroup>
+                  <Label for="spedResponseQuestion" id={`spedResponseQuestion${spedQuestion?.id}`} value={spedQuestion?.id}>{spedQuestion.question} </Label>
+                </FormGroup>
+                <FormGroup check>
+                  <Label check>
+                  Did {spedQuestion.students?.firstName} meet this goal?
+                    <Input 
+                    type="select"
+                    id={`spedResponseMeet${spedQuestion?.id}`}>
+                      <option></option>
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </Input>
+                  </Label>
+                </FormGroup>
+                <Row>
+                  <Col>
+                    <FormGroup>
+                      <Label for="spedResponseSuccess">Successes </Label>
+                      <Input
+                        type="number"
+                        id={`spedResponseSuccess${spedQuestion?.id}`}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="spedResponseOpportunity">Opportunities </Label>
+                      <Input
+                        type="number"
+                        id={`spedResponseOpportunity${spedQuestion?.id}`}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <FormGroup>
+                  <Label for="spedResponseResponse">Comment </Label>
+                  <Input
+                    type="string"
+                    id={`spedResponseResponse${spedQuestion?.id}`}
+                  />
+                </FormGroup>
+              </Container>
+              </div>
+              ))}
               <FormGroup id="trackerBox">
                 <Label for="attendance">
                   <h3>Attendance</h3>
@@ -332,13 +427,14 @@ export class TrackerCreator extends Component {
                 </Label>
                 <Input type="text" name="assessment" id="assessment" className="fancy-cursor"/>
               </FormGroup>
-              <SpedResponseCreator submitted={this.state.submitted} modal={this.state.modal}
-              student={this.props.student.id} ></SpedResponseCreator>
+              {/* <SpedResponseCreator submitted={this.state.submitted} modal={this.state.modal}
+              student={this.props.student.id} ></SpedResponseCreator> */}
               <Button
                 color="primary"
                 onClick={() => {
                   this.createTracker();
-                  this.setState({ modal: false, submitted:true });
+                  this.createSpedResponseNinja();
+                  this.setState({ modal: false });
                 }}
               >
                 Submit
