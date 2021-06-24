@@ -24,6 +24,7 @@ export class SpedQuestionCreator extends Component {
     const spedQuestionObject = {
       date: document.getElementById("spedQuestionDate").value,
       question: document.getElementById("spedQuestionQuestion").value,
+      category: document.getElementById("spedQuestionCategory").value,
       student: this.props.studentId,
     };
     const spedQuestion = await spedQuestionService.create(spedQuestionObject);

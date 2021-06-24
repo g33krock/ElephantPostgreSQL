@@ -125,7 +125,7 @@ export class TrackerCreator extends Component {
                   id={`spedResponseDate`}
                 />
               </FormGroup>
-              {this.state.spedQuestions.filter((speQ) => speQ.category === this.props.course.subject).map((spedQuestion => 
+              {this.state.spedQuestions.filter((speQ) => speQ.category === this.props.course.subject || speQ.category === 'Social').map((spedQuestion => 
             <div>
               <Container id="trackerBox">
                 <FormGroup>

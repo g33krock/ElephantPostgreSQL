@@ -11,6 +11,17 @@ export default class TeacherSchedule extends Component {
     this.state = { teacherschedule: [], teachersched: [], modal: false };
   }
 
+  componentDidMount(){
+    fetch(`${baseURL}/teachers/${this.props.teacher.id}/schedules`) //Fetch TeacherSchedule Table from API
+      .then((response) => response.json()) //Convert response to a JSON object
+      .then((data) => {
+        console.log(data);
+        this.setState({
+          teacherschedule: data, 
+        });
+      });
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.teacher === this.props.teacher) {
       return;
