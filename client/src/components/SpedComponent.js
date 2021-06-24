@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 import { SpedQuestionCreator } from "./CreateSpedQuestion";
 import SpedResponse from "./SpedResponses";
+import { SpedQuestionUpdater } from "./UpdateSpedQuestion";
 import classnames from "classnames";
 
 export default class Sped extends Component {
@@ -54,6 +55,7 @@ export default class Sped extends Component {
         });
       });
   }
+
 
   onChange = (e) => {
     const studentId = Number(e.target.value);
@@ -158,6 +160,9 @@ export default class Sped extends Component {
                         <th>
                           <h3>Category</h3>
                         </th>
+                        <th>
+                          <h3>Options</h3>
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -174,6 +179,14 @@ export default class Sped extends Component {
                             </td>
                             <td>
                               <small>{sped.category}</small>
+                            </td>
+                            <td>
+                              <SpedQuestionUpdater
+                                date={sped.date}
+                                question={sped.question}
+                                category={sped.category}
+                                spedQuestionId={sped.id}
+                              ></SpedQuestionUpdater>
                             </td>
                           </tr>
                         ))}

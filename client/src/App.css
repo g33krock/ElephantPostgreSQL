@@ -6,6 +6,13 @@ html, body, h1 {
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A');
 }
 
+html {
+  background-image: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2MjQ1NTUxMzAsImV4cCI6MTkzOTkxNTEzMH0.t7V5iTGS19-Dt0-T6xu-RHIKfkfYK5AO7dXtXjjxc1s');
+  background-repeat: no-repeat;
+  background-position: bottom;
+ 
+}
+
 .jumbotron {
   color:white;
   text-align: center;

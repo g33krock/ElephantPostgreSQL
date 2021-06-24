@@ -32,7 +32,7 @@ class SpedQuestionService {
     };
     async update(spedQuestionObject) {
         console.log(spedQuestionObject)
-        const response = fetch(`${baseURL}/spedQuestions/`+spedQuestionObject.id, {
+        const response = await fetch(`${baseURL}/spedQuestions/`+spedQuestionObject.id, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

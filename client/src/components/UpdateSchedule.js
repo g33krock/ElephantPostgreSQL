@@ -49,6 +49,7 @@ export class ScheduleUpdater extends Component {
       id: this.props.scheduleId,
       teacher: parseInt(document.getElementById("scheduleTeacher").value),
       course: parseInt(document.getElementById("scheduleCourse").value),
+      period: this.props.period
     };
     await scheduleService.update(scheduleObject);
     await this.props.callback()

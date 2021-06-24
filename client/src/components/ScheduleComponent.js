@@ -46,9 +46,11 @@ export default class Schedule extends Component {
             <tr>
               <th>
                 <h2>Student</h2>
+                <br/> <br/>
               </th>
               <th>
-                <h3>Period 1</h3>
+                <br/><br/><br/>
+                <h2>Period 1</h2>
                 <p>7:50-8:40</p>
               </th>
               <th>
@@ -93,12 +95,12 @@ export default class Schedule extends Component {
             {this.state.students.map((student) => (
               <tr>
                 <th key={student.id}>{student.firstName} {student.lastName}</th>
-                {student.schedules.map((schedule) => (
+                {student.schedules.sort((a, b) => a.period - b.period).map((schedule) => (
                 <td className={schedule.teacher.firstName} id="schedItem">
                   <strong>Course: </strong><small>{schedule.course.name}</small> 
                   <br /> 
                   <strong>Teacher: </strong><small>{schedule.teacher.firstName} {schedule.teacher.lastName}</small> <br />
-                  <ScheduleUpdater callback={() => this.getSchedules()} scheduleId={schedule.id} ></ScheduleUpdater>
+                  <ScheduleUpdater callback={() => this.getSchedules()} scheduleId={schedule.id} period={schedule.period} ></ScheduleUpdater>
                 </td>))}
               </tr>
             ))}
