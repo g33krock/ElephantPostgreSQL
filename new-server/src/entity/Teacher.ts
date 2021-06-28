@@ -4,6 +4,7 @@ import { Role } from "./Role";
 import { Campus } from "./Campus";
 import { Tracker } from "./Tracker";
 import { Gradebook } from "./Gradebook";
+import { Transcript } from "./Transcript";
 
 @Entity()
 export class Teacher extends BaseEntity {
@@ -49,4 +50,7 @@ export class Teacher extends BaseEntity {
 
 	@OneToMany(() => Gradebook, gradebook => gradebook.teachers)
 	gradebooks: Gradebook[];
+
+	@OneToMany(() => Transcript, transcript => transcript.teachers)
+	transcripts: Gradebook[];
 }

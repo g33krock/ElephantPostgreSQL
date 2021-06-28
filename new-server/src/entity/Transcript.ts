@@ -6,43 +6,43 @@ import { Campus } from "./Campus";
 import { Student } from "./Student";
 
 @Entity()
-export class Gradebook extends BaseEntity {
+export class Transcript extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@ManyToOne(() => Schedule, schedule => schedule.gradebooks)
-	schedules: Schedule;
+    @ManyToOne(() => Student, student => student.transcripts)
+	student: Student;
 
-    @ManyToOne(() => Teacher, teacher => teacher.gradebooks)
+    @ManyToOne(() => Teacher, teacher => teacher.transcripts)
 	teachers: Schedule;
 
-    @ManyToOne(() => Student, student => student.gradebooks, {onDelete: 'CASCADE'})
-	students: Student;
-
-    @ManyToOne(() => Course, course => course.gradebooks)
+    @ManyToOne(() => Course, course => course.transcripts)
 	courses: Course;
 
-    @ManyToOne(() => Campus, campus => campus.gradebooks)
+	@ManyToOne(() => Schedule, schedule => schedule.transcripts)
+	schedules: Schedule;
+
+    @ManyToOne(() => Campus, campus => campus.transcripts)
 	campus: Campus;
 
 	@Column({
 		nullable: true
 	})
-	assignmentDate: string;
+	grade: string;
 
 	@Column({
 		nullable: true
 	})
-	name: string;
+	category: string;
 
 	@Column({
 		nullable: true
 	})
-	pointsEarned: number;
+	credit: number;
 
 	@Column({
 		nullable: true
 	})
-	pointsAvailable: number;
+	civics: string;
 
 }

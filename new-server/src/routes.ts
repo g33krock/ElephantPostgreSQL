@@ -13,6 +13,7 @@ import { FundingController } from "./controller/FundingController";
 import { InstructionModeController } from "./controller/InstructionModeController";
 import { SpedQuestionController } from "./controller/SpedQuestionController";
 import { SpedResponseController } from "./controller/SpedResponseController";
+import { TranscriptController } from "./controller/TranscriptController";
 
 export const Routes = [{
 	method: "get",
@@ -431,5 +432,32 @@ export const Routes = [{
 	route: "/spedResponses/:id",
 	controller: SpedResponseController,
 	action: "remove"
-}
+},
+// Transcript
+{
+	method: "get",
+	route: "/transcripts",
+	controller: TranscriptController,
+	action: "all"
+}, {
+	method: "get",
+	route: "/transcripts/:id",
+	controller: TranscriptController,
+	action: "one"
+}, {
+	method: "put",
+	route: "/transcripts/:id",
+	controller: TranscriptController,
+	action: "update"
+}, {
+	method: "post",
+	route: "/transcripts",
+	controller: TranscriptController,
+	action: "save"
+}, {
+	method: "delete",
+	route: "/transcripts/:id",
+	controller: TranscriptController,
+	action: "remove"
+},
 ];
