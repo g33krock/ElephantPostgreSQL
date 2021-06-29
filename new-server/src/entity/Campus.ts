@@ -4,7 +4,6 @@ import { School_Admin } from "./School_Admin";
 import { Teacher } from "./Teacher";
 import { Student } from "./Student";
 import { Gradebook } from "./Gradebook";
-import { Transcript } from "./Transcript";
 
 @Entity()
 export class Campus extends BaseEntity {
@@ -19,9 +18,6 @@ export class Campus extends BaseEntity {
 
 	@OneToMany(() => Gradebook, gradebook => gradebook.campus)
 	gradebooks: Gradebook[];
-
-	@OneToMany(() => Transcript, transcript => transcript.campus)
-	transcripts: Gradebook[];
 
 	@Column({
 		nullable: true

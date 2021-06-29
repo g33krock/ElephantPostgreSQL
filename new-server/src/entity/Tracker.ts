@@ -23,11 +23,6 @@ export class Tracker extends BaseEntity {
 	})
 	attendance: string;
 
-	@Column({
-		nullable: true
-	})
-	date: string;
-
 	@ManyToOne(() => Course, course => course.trackers)
 	courses: Course;
 

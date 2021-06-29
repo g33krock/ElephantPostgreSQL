@@ -7,7 +7,6 @@ import { Gradebook } from "./Gradebook";
 import { Funding } from "./Funding";
 import { InstructionMode } from "./InstructionMode";
 import { SpedQuestion } from "./SpedQuestion";
-import { Transcript } from "./Transcript";
 
 @Entity()
 export class Student extends BaseEntity {
@@ -160,7 +159,4 @@ export class Student extends BaseEntity {
 
 	@OneToMany(() => SpedQuestion, spedQuestion => spedQuestion.student, {onDelete: 'CASCADE'})
 	spedQuestions: SpedQuestion[];
-
-	@OneToMany(() => Transcript, transcript => transcript.student, {onDelete: 'CASCADE'})
-	transcripts: SpedQuestion[];
 }

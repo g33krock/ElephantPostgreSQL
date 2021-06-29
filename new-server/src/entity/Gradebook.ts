@@ -1,8 +1,9 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 import { Schedule } from "./Schedule";
 import { Teacher } from "./Teacher";
 import { Course } from "./Course";
 import { Campus } from "./Campus";
+import { Tracker } from "./Tracker";
 import { Student } from "./Student";
 
 @Entity()
