@@ -6,7 +6,7 @@ import { Request, Response } from "express";
 import { Routes } from "./routes";
 
 const cors = require('cors');
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 createConnection().then(async connection => {
 
