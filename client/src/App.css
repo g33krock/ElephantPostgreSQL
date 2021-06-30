@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:100");
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
 html, body, h1 {
   padding: 0;
   margin: 0;
-  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-family: 'Orbitron', sans-serif;
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A');
 }
 
@@ -41,7 +41,8 @@ text set in the data-text attribute. */
   color: white;
   font-size: 4em;
   letter-spacing: 0.5em;
-  font-family: system-ui ;
+  src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+  font-family: 'Orbitron', sans-serif;
   /* Animation provies a slight random skew. Check bottom of doc
   for more information on how to random skew. */
   animation: glitch-skew 1s infinite linear alternate-reverse;
@@ -64,6 +65,8 @@ text set in the data-text attribute. */
   /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
   with an alternating animation to keep things fresh. */
   animation: glitch-anim 5s infinite linear alternate-reverse;
+  src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+  font-family: 'Orbitron', sans-serif;
 }
 .glitch::after {
   content: attr(data-text);
@@ -75,6 +78,8 @@ text set in the data-text attribute. */
   left: -2px;
   text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
   animation: glitch-anim2 1s infinite linear alternate-reverse;
+  src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+  font-family: 'Orbitron', sans-serif;
 }
 
 

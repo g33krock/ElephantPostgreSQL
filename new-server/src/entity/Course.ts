@@ -2,6 +2,7 @@ import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany } from "t
 import { Gradebook } from "./Gradebook";
 import { Schedule } from "./Schedule";
 import { Tracker } from "./Tracker";
+import { Transcript } from "./Transcript";
 
 @Entity()
 export class Course extends BaseEntity {
@@ -10,6 +11,9 @@ export class Course extends BaseEntity {
 
 	@OneToMany(() => Schedule, schedule => schedule.course)
 	schedules: Schedule[];
+
+	@OneToMany(() => Transcript, transcript => transcript.courses)
+	transcripts: Transcript[];
 
 	@Column({
 		nullable: true

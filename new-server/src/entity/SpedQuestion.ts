@@ -23,4 +23,9 @@ export class SpedQuestion extends BaseEntity {
 		nullable: true
 	})
 	question: string;
+
+	@Column({
+		nullable: true
+	})
+	category: string;
 }

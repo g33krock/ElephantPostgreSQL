@@ -9,7 +9,7 @@ export class TeacherController {
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Teacher.findOne(request.params.id, { relations: ["campus", "role", "schedules"] });
+		return Teacher.findOne(request.params.id, { relations: ["campus", "role", "schedules", "schedules.course"] });
 	}
 
 

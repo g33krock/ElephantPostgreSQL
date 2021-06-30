@@ -91,7 +91,7 @@ export default class TeacherSchedule extends Component {
 
     return (
       <div className="container" id="schedBox">
-        TeacherSchedule for {teacher.firstName} {teacher.lastName}
+        Schedule for {teacher.firstName} {teacher.lastName}
         <div className="row">{teacherSchedBox}</div>
       </div>
     );

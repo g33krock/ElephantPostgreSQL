@@ -32,7 +32,7 @@ export default class Teacher extends Component {
   render() {
     return (
       <Container>
-        <h1>Teachers {this.state.teacher?.firstName}</h1>
+        <h1 className="perfectdark">Hello {this.state.teacher?.firstName}</h1>
         <div className = "row">
           <Label for="scheduleTeacher">Select Teacher</Label>
           <select id="scheduleTeacher" onChange={this.onChange}>
