@@ -22,7 +22,7 @@ export default class AltStudentSchedule extends Component {
 
   setSchedule(studentsched) {
     this.setState({studentsched: studentsched})
-    // this.setState({student: studentsched.students})       //sets studentsched property to studentsched object.  This looks funny because they both are named studentsched
+        
   }
 
 
