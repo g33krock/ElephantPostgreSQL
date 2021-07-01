@@ -18,6 +18,7 @@ import {
 import { SpedQuestionCreator } from "./CreateSpedQuestion";
 import SpedResponse from "./SpedResponses";
 import { SpedQuestionUpdater } from "./UpdateSpedQuestion";
+import { DeleteSpedQuestion } from "./DeleteSpedQuestion";
 import classnames from "classnames";
 
 export default class Sped extends Component {
@@ -181,12 +182,23 @@ export default class Sped extends Component {
                               <small>{sped.category}</small>
                             </td>
                             <td>
-                              <SpedQuestionUpdater
-                                date={sped.date}
-                                question={sped.question}
-                                category={sped.category}
-                                spedQuestionId={sped.id}
-                              ></SpedQuestionUpdater>
+                              <Row>
+                                <Col>
+                                  <SpedQuestionUpdater
+                                    date={sped.date}
+                                    question={sped.question}
+                                    category={sped.category}
+                                    spedQuestionId={sped.id}
+                                  ></SpedQuestionUpdater>
+                                </Col>
+                                <Col>
+                                  <DeleteSpedQuestion
+                                    spedQuestion={sped.question}
+                                    spedQuestionId={sped.id}
+                                  ></DeleteSpedQuestion>
+                                </Col>
+                              </Row>
+                              
                             </td>
                           </tr>
                         ))}

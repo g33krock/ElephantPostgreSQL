@@ -36,7 +36,7 @@ export class SpedQuestionUpdater extends Component {
   render() {
     return (
       <div>
-        <Button outline color="success" size="sm" onClick={() => this.setState({ modal: true })}>
+        <Button outline color="primary" size="sm" onClick={() => this.setState({ modal: true })}>
           Update Question
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>

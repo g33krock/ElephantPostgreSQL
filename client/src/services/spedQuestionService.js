@@ -28,7 +28,7 @@ class SpedQuestionService {
                 "Content-Type": "application/json",
             },
         })
-        return response;
+        return await response;
     };
     async update(spedQuestionObject) {
         console.log(spedQuestionObject)
