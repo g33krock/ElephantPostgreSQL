@@ -42,13 +42,16 @@ export class Transcript extends BaseEntity {
 
     @Column({
         nullable: true
+
     })
     category: string;
 
-    @Column({
-        nullable: true
+    @Column("decimal",{
+        nullable: true,
+        precision: 5,
+        scale: 2
     })
-    credit: string;
+    credit: number;
 
     @Column({
         nullable: true
