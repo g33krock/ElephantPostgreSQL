@@ -10,6 +10,11 @@ export class Transcript extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column({
+        nullable: true
+    })
+    date: string;
+
     @ManyToOne(() => Student, student => student.transcripts)
     student: Student;
 
@@ -38,11 +43,26 @@ export class Transcript extends BaseEntity {
     @Column({
         nullable: true
     })
-    credit: number;
+    credit: string;
 
     @Column({
         nullable: true
     })
     civics: string;
+
+    @Column({
+        nullable: true
+    })
+    altTeacher: string;
+
+    @Column({
+        nullable: true
+    })
+    altCourse: string;
+
+    @Column({
+        nullable: true
+    })
+    altCampus: string;
 
 }

@@ -6,6 +6,7 @@ import Teacher from './TeacherComponent';
 import Schedule from './ScheduleComponent';
 import { PrivateRoute } from './PrivateRoute';
 import Sped from './SpedComponent';
+import Transcript from './TranscriptComponent';
 
 
 class Main extends Component {
@@ -33,6 +34,7 @@ class Main extends Component {
                     <PrivateRoute path='/schedules' campus={this.props?.campus} component={Schedule} />
                     <PrivateRoute path='/teachers' campus={this.props?.campus} component={Teacher} />
                     <PrivateRoute path='/students' campus={this.props?.campus} component={Student} />
+                    <PrivateRoute path='/transcripts' campus={this.props?.campus} component={Transcript} />
                     <PrivateRoute path='/home' campus={this.props?.campus} component={Home} />
                     <Redirect to='/home' />
                 </Switch>
