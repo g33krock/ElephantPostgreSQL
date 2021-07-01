@@ -54,7 +54,6 @@ export default class Transcript extends Component {
       });
   }
 
-
   onChange = (e) => {
     const studentId = Number(e.target.value);
     const student = this.state.students.find(
@@ -78,7 +77,7 @@ export default class Transcript extends Component {
                 this.toggle("1");
               }}
             >
-              Raw Data
+              Transcript
             </NavLink>
           </NavItem>
           <NavItem>
@@ -88,7 +87,7 @@ export default class Transcript extends Component {
                 this.toggle("2");
               }}
             >
-              Transcript Entries
+              Raw Entries
             </NavLink>
           </NavItem>
         </Nav>
@@ -141,7 +140,515 @@ export default class Transcript extends Component {
           <div className="col-md-9">
             <TabContent activeTab={this.state.activeTab}>
               <TabPane tabId="1">
-                Heyo!
+                <Container>
+                  <Row>
+                    <Col xs="5">
+                      <h3>Math</h3>
+                      <Table bordered hover size="sm">
+                        <thead>
+                          <tr>
+                            <th>
+                              <p>
+                                <small><strong>Date</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Category</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Course</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>School</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Teacher</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Grade</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Credit</strong></small>
+                              </p>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {this.state.transcripts
+                            .filter(
+                              (studentQ) =>
+                                studentQ.student?.id ===
+                                  this.state.student?.id &&
+                                studentQ.category === "Math"
+                            )
+                            .map((tran) => (
+                              <tr>
+                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <td>
+                                  <small>{tran.category}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.courses?.name}
+                                    {tran?.altCourse}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.school}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.teachers?.firstName}{" "}
+                                    {tran.teachers?.lastName}
+                                    {tran?.altTeacher}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.grade}</small>
+                                </td>
+                                <td>
+                                  <small>{tran.credit}</small>
+                                </td>
+                              </tr>
+                            ))}
+                        </tbody>
+                      </Table>
+                    </Col>
+                    <Col xs="2"></Col>
+                    <Col xs="5">
+                      <h3>ELA</h3>
+                      <Table bordered hover size="sm">
+                        <thead>
+                        <tr>
+                            <th>
+                              <p>
+                                <small><strong>Date</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Category</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Course</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>School</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Teacher</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Grade</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Credit</strong></small>
+                              </p>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {this.state.transcripts
+                            .filter(
+                              (studentQ) =>
+                                studentQ.student?.id ===
+                                  this.state.student?.id &&
+                                studentQ.category === "ELA"
+                            )
+                            .map((tran) => (
+                              <tr>
+                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <td>
+                                  <small>{tran.category}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.courses?.name}
+                                    {tran?.altCourse}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.school}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.teachers?.firstName}{" "}
+                                    {tran.teachers?.lastName}
+                                    {tran?.altTeacher}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.grade}</small>
+                                </td>
+                                <td>
+                                  <small>{tran.credit}</small>
+                                </td>
+                              </tr>
+                            ))}
+                        </tbody>
+                      </Table>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs="5">
+                      <h3>Science</h3>
+                      <Table bordered hover size="sm">
+                        <thead>
+                        <tr>
+                            <th>
+                              <p>
+                                <small><strong>Date</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Category</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Course</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>School</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Teacher</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Grade</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Credit</strong></small>
+                              </p>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {this.state.transcripts
+                            .filter(
+                              (studentQ) =>
+                                studentQ.student?.id ===
+                                  this.state.student?.id &&
+                                studentQ.category === "Science"
+                            )
+                            .map((tran) => (
+                              <tr>
+                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <td>
+                                  <small>{tran.category}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.courses?.name}
+                                    {tran?.altCourse}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.school}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.teachers?.firstName}{" "}
+                                    {tran.teachers?.lastName}
+                                    {tran?.altTeacher}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.grade}</small>
+                                </td>
+                                <td>
+                                  <small>{tran.credit}</small>
+                                </td>
+                              </tr>
+                            ))}
+                        </tbody>
+                      </Table>
+                    </Col>
+                    <Col xs="2"></Col>
+                    <Col xs="5">
+                      <h3>Social Studies</h3>
+                      <Table bordered hover size="sm">
+                        <thead>
+                        <tr>
+                            <th>
+                              <p>
+                                <small><strong>Date</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Category</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Course</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>School</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Teacher</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Grade</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Credit</strong></small>
+                              </p>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {this.state.transcripts
+                            .filter(
+                              (studentQ) =>
+                                studentQ.student?.id ===
+                                  this.state.student?.id &&
+                                studentQ.category === "Social Studies"
+                            )
+                            .map((tran) => (
+                              <tr>
+                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <td>
+                                  <small>{tran.category}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.courses?.name}
+                                    {tran?.altCourse}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.school}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.teachers?.firstName}{" "}
+                                    {tran.teachers?.lastName}
+                                    {tran?.altTeacher}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.grade}</small>
+                                </td>
+                                <td>
+                                  <small>{tran.credit}</small>
+                                </td>
+                              </tr>
+                            ))}
+                        </tbody>
+                      </Table>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs="5">
+                      <h3>CTE/Fine Arts</h3>
+                      <Table bordered hover size="sm">
+                        <thead>
+                        <tr>
+                            <th>
+                              <p>
+                                <small><strong>Date</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Category</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Course</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>School</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Teacher</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Grade</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Credit</strong></small>
+                              </p>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {this.state.transcripts
+                            .filter(
+                              (studentQ) =>
+                                studentQ.student?.id ===
+                                  this.state.student?.id &&
+                                studentQ.category === "CTE/Fine Arts"
+                            )
+                            .map((tran) => (
+                              <tr>
+                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <td>
+                                  <small>{tran.category}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.courses?.name}
+                                    {tran?.altCourse}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.school}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.teachers?.firstName}{" "}
+                                    {tran.teachers?.lastName}
+                                    {tran?.altTeacher}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.grade}</small>
+                                </td>
+                                <td>
+                                  <small>{tran.credit}</small>
+                                </td>
+                              </tr>
+                            ))}
+                        </tbody>
+                      </Table>
+                    </Col>
+                    <Col xs="2"></Col>
+                    <Col xs="5">
+                      <h3>Elective</h3>
+                      <Table bordered hover size="sm">
+                        <thead>
+                        <tr>
+                            <th>
+                              <p>
+                                <small><strong>Date</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Category</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Course</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>School</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Teacher</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Grade</strong></small>
+                              </p>
+                            </th>
+                            <th>
+                              <p>
+                                <small><strong>Credit</strong></small>
+                              </p>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {this.state.transcripts
+                            .filter(
+                              (studentQ) =>
+                                studentQ.student?.id ===
+                                  this.state.student?.id &&
+                                studentQ.category === "Elective"
+                            )
+                            .map((tran) => (
+                              <tr>
+                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <td>
+                                  <small>{tran.category}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.courses?.name}
+                                    {tran?.altCourse}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.school}</small>
+                                </td>
+                                <td>
+                                  <small>
+                                    {tran.teachers?.firstName}{" "}
+                                    {tran.teachers?.lastName}
+                                    {tran?.altTeacher}
+                                  </small>
+                                </td>
+                                <td>
+                                  <small>{tran.grade}</small>
+                                </td>
+                                <td>
+                                  <small>{tran.credit}</small>
+                                </td>
+                              </tr>
+                            ))}
+                        </tbody>
+                      </Table>
+                    </Col>
+                  </Row>
+                </Container>
               </TabPane>
               <TabPane tabId="2">
                 <div class="tableFixHead">
@@ -156,6 +663,9 @@ export default class Transcript extends Component {
                         </th>
                         <th>
                           <h3>Course</h3>
+                        </th>
+                        <th>
+                          <p>School</p>
                         </th>
                         <th>
                           <h3>Teacher</h3>
@@ -181,10 +691,20 @@ export default class Transcript extends Component {
                               <small>{tran.category}</small>
                             </td>
                             <td>
-                              <small>{tran.courses?.name}{tran?.altCourse}</small>
+                              <small>
+                                {tran.courses?.name}
+                                {tran?.altCourse}
+                              </small>
                             </td>
                             <td>
-                              <small>{tran.teachers?.firstName} {tran.teachers?.lastName}{tran?.altTeacher}</small>
+                              <small>{tran.school}</small>
+                            </td>
+                            <td>
+                              <small>
+                                {tran.teachers?.firstName}{" "}
+                                {tran.teachers?.lastName}
+                                {tran?.altTeacher}
+                              </small>
                             </td>
                             <td>
                               <small>{tran.grade}</small>

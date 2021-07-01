@@ -15,6 +15,11 @@ export class Transcript extends BaseEntity {
     })
     date: string;
 
+    @Column({
+        nullable: true
+    })
+    school: string;
+
     @ManyToOne(() => Student, student => student.transcripts)
     student: Student;
 
