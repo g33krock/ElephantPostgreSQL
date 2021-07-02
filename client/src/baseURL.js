@@ -1,1 +1,1 @@
-export const baseURL = 'https://aspire-digicampus.herokuapp.com/';
+export const baseURL = 'https://aspire-digicampus.herokuapp.com';
