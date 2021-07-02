@@ -1,0 +1,24 @@
+{
+	"name": "aspire-digicampus",
+	"version": "0.0.1",
+	"description": "Aspire Digicampus",
+	"devDependencies": {
+		"ts-node": "3.3.0",
+		"ts-node-dev": "^1.1.6"
+	},
+	"dependencies": {
+		"@types/node": "^8.10.66",
+		"body-parser": "^1.18.1",
+		"cors": "^2.8.5",
+		"express": "^4.15.4",
+		"pg": "^8.4.0",
+		"reflect-metadata": "^0.1.10",
+		"typeorm": "0.2.31",
+		"typescript": "3.3.3333"
+	},
+	"scripts": {
+		"start": "cd build && node index.js",
+		"start:dev": "ts-node-dev src/index.ts",
+		"build": "tsc"
+	}
+}
