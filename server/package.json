@@ -3,11 +3,11 @@
 	"version": "0.0.1",
 	"description": "Aspire Digicampus",
 	"devDependencies": {
-		"@types/node": "^8.0.29",
 		"ts-node": "3.3.0",
 		"ts-node-dev": "^1.1.6"
 	},
 	"dependencies": {
+		"@types/node": "^8.10.66",
 		"body-parser": "^1.18.1",
 		"cors": "^2.8.5",
 		"express": "^4.15.4",
