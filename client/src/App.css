@@ -442,6 +442,11 @@ skew to change the 'thickness' of the glitch.*/
   color: white
 }
 
+#tableHeader{
+  background-color: blue;
+  opacity: 50%;
+}
+
 
 
 /*# sourceMappingURL=App.css.map */

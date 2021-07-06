@@ -42,7 +42,7 @@ export default class Schedule extends Component {
     return (
       <div class="tableFixHead">
         <Table bordered hover size="sm">
-          <thead class="shadow">
+          <thead class="shadow" id="scheduleHeader">
             <tr>
               <th>
                 <h2>Student</h2>
