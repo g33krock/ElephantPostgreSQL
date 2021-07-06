@@ -15,10 +15,10 @@ createConnection().then(async connection => {
 	app.use(bodyParser.json());
 	app.use(cors());
 	app.use(express.static("../../client/build"))
-	app.use(function (req, res, next) {
-		console.log('Time:', Date.now())
-		next()
-	  })
+	// app.use(function (req, res, next) {
+	// 	console.log('Time:', Date.now())
+	// 	next()
+	//   })
 
 	// register express routes from defined application routes
 	Routes.forEach(route => {
