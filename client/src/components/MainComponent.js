@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Student from './StudentComponent';
+import Student from './StudentComponentFunction';
 import Home from './HomeComponent';
 import { Switch, Redirect } from 'react-router-dom'
 import Teacher from './TeacherComponent';
@@ -36,7 +36,7 @@ class Main extends Component {
                     <PrivateRoute path='/students' campus={this.props?.campus} component={Student} />
                     <PrivateRoute path='/transcripts' campus={this.props?.campus} component={Transcript} />
                     <PrivateRoute path='/home' campus={this.props?.campus} component={Home} />
-                    <Redirect to='/' />
+                    <Redirect to='/home' />
                 </Switch>
             </div>
             
