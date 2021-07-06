@@ -1,4 +1,4 @@
-import { supabase } from "../../utils/supabaseClient";
+// import { supabase } from "../../utils/supabaseClient";
 import React, { Component } from "react";
 import {baseURL} from "../baseURL";
 import { Card, Row, Col, CardImg, CardBody, Label, Container } from "reactstrap";
