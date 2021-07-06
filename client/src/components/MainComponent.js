@@ -36,7 +36,7 @@ class Main extends Component {
                     <PrivateRoute path='/students' campus={this.props?.campus} component={Student} />
                     <PrivateRoute path='/transcripts' campus={this.props?.campus} component={Transcript} />
                     <PrivateRoute path='/home' campus={this.props?.campus} component={Home} />
-                    <Redirect to='/home' />
+                    {/* <Redirect to='/' /> */}
                 </Switch>
             </div>
             
