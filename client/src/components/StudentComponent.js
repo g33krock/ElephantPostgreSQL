@@ -1,3 +1,4 @@
+import { supabase } from "../../utils/supabaseClient";
 import React, { Component } from "react";
 import {baseURL} from "../baseURL";
 import { Card, Row, Col, CardImg, CardBody, Label, Container } from "reactstrap";
@@ -9,6 +10,10 @@ import { EmptyScheduleCreator } from "./EmptySchedule";
 import { GuardianCreator } from "./CreateGuardian";
 import { SpedQuestionCreator } from "./CreateSpedQuestion";
 
+export default async function getUser(req, res) {
+  const user = await supabase.auth.user();
+  return res.status(200).json({ user: user });
+}
 
 export default class Student extends Component {
   constructor(props) {

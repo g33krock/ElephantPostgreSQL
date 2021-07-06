@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Student from './StudentComponentFunction';
+import Student from './StudentComponent';
 import Home from './HomeComponent';
 import { Switch, Redirect } from 'react-router-dom'
 import Teacher from './TeacherComponent';
