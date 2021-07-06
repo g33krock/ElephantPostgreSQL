@@ -443,8 +443,8 @@ skew to change the 'thickness' of the glitch.*/
 }
 
 #scheduleHeader{
-  background-color: blue;
-  opacity: 50%;
+  background-image: blue;
+  opacity: 0.5;
 }
 
 
