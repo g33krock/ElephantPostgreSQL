@@ -242,8 +242,8 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherHighschoolMath"><small>HS Science</small></Label>
-                      <Input type="select" name="teacherHighschoolMath" id="teacherHighschoolMath">
+                      <Label for="teacherHighschoolScience"><small>HS Science</small></Label>
+                      <Input type="select" name="teacherHighschoolScience" id="teacherHighschoolScience">
                         <option></option>
                         <option value="1">Uncomfortable</option>
                         <option value="2">Comfortable</option>
@@ -258,7 +258,7 @@ export class TeacherCreator extends Component {
                 <Row>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherP1">Period 1</Label>
+                      <Label for="teacherP1"><small>Period 1</small></Label>
                       <Input type="select" name="teacherP1" id="teacherP1">
                         <option>Yes</option>
                         <option>No</option>
@@ -267,7 +267,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherP2">Period 2</Label>
+                      <Label for="teacherP2"><small>Period 2</small></Label>
                       <Input type="select" name="teacherP2" id="teacherP2">
                         <option>Yes</option>
                         <option>No</option>
@@ -276,7 +276,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherP3">Period 3</Label>
+                      <Label for="teacherP3"><small>Period 3</small></Label>
                       <Input type="select" name="teacherP3" id="teacherP3">
                         <option>Yes</option>
                         <option>No</option>
@@ -285,7 +285,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherP4">Period 4</Label>
+                      <Label for="teacherP4"><small>Period 4</small></Label>
                       <Input type="select" name="teacherP4" id="teacherP4">
                         <option>Yes</option>
                         <option>No</option>
@@ -294,7 +294,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherP5">Period 5</Label>
+                      <Label for="teacherP5"><small>Period 5</small></Label>
                       <Input type="select" name="teacherP5" id="teacherP5">
                         <option>Yes</option>
                         <option>No</option>
@@ -305,7 +305,7 @@ export class TeacherCreator extends Component {
                 <Row>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherP6">Period 6</Label>
+                      <Label for="teacherP6"><small>Period 6</small></Label>
                       <Input type="select" name="teacherP6" id="teacherP6">
                         <option>Yes</option>
                         <option>No</option>
@@ -314,7 +314,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherP7">Period 7</Label>
+                      <Label for="teacherP7"><small>Period 7</small></Label>
                       <Input type="select" name="teacherP7" id="teacherP7">
                         <option>Yes</option>
                         <option>No</option>
@@ -323,7 +323,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherP8">Period 8</Label>
+                      <Label for="teacherP8"><small>Period 8</small></Label>
                       <Input type="select" name="teacherP8" id="teacherP8">
                         <option>Yes</option>
                         <option>No</option>
@@ -332,7 +332,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherP9">Period 9</Label>
+                      <Label for="teacherP9"><small>Period 9</small></Label>
                       <Input type="select" name="teacherP9" id="teacherP9">
                         <option>Yes</option>
                         <option>No</option>
@@ -341,7 +341,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherP10">Period 10</Label>
+                      <Label for="teacherP10"><small>Period 10</small></Label>
                       <Input type="select" name="teacherP10" id="teacherP10">
                         <option>Yes</option>
                         <option>No</option>
