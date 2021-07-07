@@ -59,22 +59,22 @@ export class Teacher extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	highschoolMath: string;
+	math: string;
 
 	@Column({
 		nullable: true
 	})
-	highschoolELA: string;
+	ELA: string;
 
 	@Column({
 		nullable: true
 	})
-	highschoolHistory: string;
+	history: string;
 
 	@Column({
 		nullable: true
 	})
-	highschoolScience: string;
+	science: string;
 
 	@Column({
 		nullable: true
@@ -84,52 +84,52 @@ export class Teacher extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	p1: string;
+	pOne: string;
 
 	@Column({
 		nullable: true
 	})
-	p2: string;
+	pTwo: string;
 
 	@Column({
 		nullable: true
 	})
-	p3: string;
+	pThree: string;
 
 	@Column({
 		nullable: true
 	})
-	p4: string;
+	pFour: string;
 
 	@Column({
 		nullable: true
 	})
-	p5: string;
+	pFive: string;
 
 	@Column({
 		nullable: true
 	})
-	p6: string;
+	pSix: string;
 
 	@Column({
 		nullable: true
 	})
-	p7: string;
+	pSeven: string;
 
 	@Column({
 		nullable: true
 	})
-	p8: string;
+	pEight: string;
 
 	@Column({
 		nullable: true
 	})
-	p9: string;
+	pNine: string;
 
 	@Column({
 		nullable: true
 	})
-	p10: string;
+	pTen: string;
 
 	@OneToMany(() => Schedule, schedule => schedule.teacher)
 	schedules: Schedule[];
