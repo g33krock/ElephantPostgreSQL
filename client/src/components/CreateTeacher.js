@@ -170,10 +170,11 @@ export class TeacherCreator extends Component {
                 </Col>
               </Row>
               <Container>
+                <h3>Subjects</h3>
                 <Row>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherElementary">Elementary</Label>
+                      <Label for="teacherElementary"><small>Elementary</small></Label>
                       <Input type="select" name="teacherElementary" id="teacherElementary">
                         <option></option>
                         <option value="1">Uncomfortable</option>
@@ -184,7 +185,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherMiddle">Middle School</Label>
+                      <Label for="teacherMiddle"><small>Middle School</small></Label>
                       <Input type="select" name="teacherMiddle" id="teacherMiddle">
                         <option></option>
                         <option value="1">Uncomfortable</option>
@@ -195,7 +196,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherElective">Elective</Label>
+                      <Label for="teacherElective"><small>Elective</small></Label>
                       <Input type="select" name="teacherElective" id="teacherElective">
                         <option></option>
                         <option value="1">Uncomfortable</option>
@@ -208,7 +209,7 @@ export class TeacherCreator extends Component {
                 <Row>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherHighschoolMath">Highschool Math</Label>
+                      <Label for="teacherHighschoolMath"><small>HS Math</small></Label>
                       <Input type="select" name="teacherHighschoolMath" id="teacherHighschoolMath">
                         <option></option>
                         <option value="1">Uncomfortable</option>
@@ -219,7 +220,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherHighschoolELA">Highschool ELA</Label>
+                      <Label for="teacherHighschoolELA"><small>HS ELA</small></Label>
                       <Input type="select" name="teacherHighschoolELA" id="teacherHighschoolELA">
                         <option></option>
                         <option value="1">Uncomfortable</option>
@@ -230,7 +231,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherHighschoolHistory">Highschool History</Label>
+                      <Label for="teacherHighschoolHistory"><small>HS History</small></Label>
                       <Input type="select" name="teacherHighschoolHistory" id="teacherHighschoolHistory">
                         <option></option>
                         <option value="1">Uncomfortable</option>
@@ -241,7 +242,7 @@ export class TeacherCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="teacherHighschoolMath">Highschool Science</Label>
+                      <Label for="teacherHighschoolMath"><small>HS Science</small></Label>
                       <Input type="select" name="teacherHighschoolMath" id="teacherHighschoolMath">
                         <option></option>
                         <option value="1">Uncomfortable</option>
@@ -253,6 +254,7 @@ export class TeacherCreator extends Component {
                 </Row>
               </Container>
               <Container>
+                <h3>Availability</h3>
                 <Row>
                   <Col>
                     <FormGroup>

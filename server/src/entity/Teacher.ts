@@ -24,6 +24,11 @@ export class Teacher extends BaseEntity {
 	@Column({
 		nullable: true
 	})
+	birthDate: string;
+
+	@Column({
+		nullable: true
+	})
 	image: string;
 
 	@Column({
@@ -35,6 +40,96 @@ export class Teacher extends BaseEntity {
 		nullable: true
 	})
 	link: string;
+
+	@Column({
+		nullable: true
+	})
+	phone: string;
+
+	@Column({
+		nullable: true
+	})
+	elementary: string;
+
+	@Column({
+		nullable: true
+	})
+	middle: string;
+
+	@Column({
+		nullable: true
+	})
+	highschoolMath: string;
+
+	@Column({
+		nullable: true
+	})
+	highschoolELA: string;
+
+	@Column({
+		nullable: true
+	})
+	highschoolHistory: string;
+
+	@Column({
+		nullable: true
+	})
+	highschoolScience: string;
+
+	@Column({
+		nullable: true
+	})
+	elective: string;
+
+	@Column({
+		nullable: true
+	})
+	p1: string;
+
+	@Column({
+		nullable: true
+	})
+	p2: string;
+
+	@Column({
+		nullable: true
+	})
+	p3: string;
+
+	@Column({
+		nullable: true
+	})
+	p4: string;
+
+	@Column({
+		nullable: true
+	})
+	p5: string;
+
+	@Column({
+		nullable: true
+	})
+	p6: string;
+
+	@Column({
+		nullable: true
+	})
+	p7: string;
+
+	@Column({
+		nullable: true
+	})
+	p8: string;
+
+	@Column({
+		nullable: true
+	})
+	p9: string;
+
+	@Column({
+		nullable: true
+	})
+	p10: string;
 
 	@OneToMany(() => Schedule, schedule => schedule.teacher)
 	schedules: Schedule[];
