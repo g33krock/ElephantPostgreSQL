@@ -29,7 +29,7 @@ export class TeacherCreator extends Component {
       lastName: document.getElementById("teacherLastName").value,
       birthDate: document.getElementById("birthDate").value,
       role: document.getElementById("teacherRole").value,
-      campuses: document.getElementById("teacherCampus").value,
+      campus: document.getElementById("teacherCampus").value,
       email: document.getElementById("teacherEmail").value,
       phone: document.getElementById("teacherPhone").value,
       link: document.getElementById("teacherLink").value,
