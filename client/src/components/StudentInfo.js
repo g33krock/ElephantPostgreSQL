@@ -51,8 +51,8 @@ export class StudentInfo extends Component {
                     <p><strong>Address:</strong> {guardian?.address}</p>
                   </div>
                 ))}
-                <p><strong>Funding:</strong> {this.props.student.funding?.type}</p>
-                <p><strong>Instruction Mode:</strong> {this.props.student.instructionmode?.type}</p>
+                <p><strong>Funding:</strong> {this.props.student?.funding.type}</p>
+                <p><strong>Instruction Mode:</strong> {this.props.student?.instructionmode.type}</p>
               </CardBody>
             </Card>
             <Button
