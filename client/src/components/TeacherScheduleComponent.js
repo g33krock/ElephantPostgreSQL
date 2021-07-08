@@ -12,7 +12,7 @@ export default class TeacherSchedule extends Component {
   }
 
   componentDidMount(){
-    fetch(`${baseURL}/teachers/${this.props.teacher.id}/schedules`) //Fetch TeacherSchedule Table from API
+    fetch(`${baseURL}/teachers/${this.props.teacher?.id}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         console.log(data);
@@ -27,7 +27,7 @@ export default class TeacherSchedule extends Component {
       return;
     }
     console.log(this.props.teacher);
-    fetch(`${baseURL}/teachers/${this.props.teacher.id}/schedules`) //Fetch TeacherSchedule Table from API
+    fetch(`${baseURL}/teachers/${this.props.teacher?.id}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         console.log(data);
