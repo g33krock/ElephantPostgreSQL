@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {baseURL} from "../baseURL";
 import { Table, NavLink } from "reactstrap";
+import { fetcher } from '../services/fetcher';
 
 
 
@@ -11,7 +12,7 @@ export default class AltStudentSchedule extends Component {
   }
 
   componentDidMount() {
-    fetch(`${baseURL}/schedules`) //Fetch StudentSchedule Table from API
+    fetcher(`${baseURL}/schedules`) //Fetch StudentSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         this.setState({

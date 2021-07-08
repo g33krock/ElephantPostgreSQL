@@ -1,8 +1,9 @@
 import {baseURL} from "../baseURL";
+import { fetcher } from "./fetcher";
 
 class TeacherService {
     async all () {
-        const response = await fetch(`${baseURL}/teachers`, {
+        const response = await fetcher(`${baseURL}/teachers`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -11,7 +12,7 @@ class TeacherService {
           return await response.json();
     };
     async create (teacherObject) {
-        const response = await fetch(`${baseURL}/teachers`, {
+        const response = await fetcher(`${baseURL}/teachers`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -22,7 +23,7 @@ class TeacherService {
     };
     async delete(teacherObject){
         console.log(teacherObject)
-        const response = fetch(`${baseURL}/teachers/`+teacherObject.teacherID, {
+        const response = fetcher(`${baseURL}/teachers/`+teacherObject.teacherID, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -31,7 +32,7 @@ class TeacherService {
         return response;
     };
     async update(teacherObject) {
-        const response = fetch(`${baseURL}/teachers/`+teacherObject.teacherID, {
+        const response = fetcher(`${baseURL}/teachers/`+teacherObject.teacherID, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

@@ -10,6 +10,7 @@ import {
   ModalBody,
 } from "reactstrap";
 import { guardianService } from "../services/guardianService";
+import { fetcher } from '../services/fetcher';
 
 
 export class GuardianCreator extends Component {
@@ -31,7 +32,7 @@ export class GuardianCreator extends Component {
       additional_info: document.getElementById("guardianAdditionalInfo").value
     };
     const guardian = await guardianService.create(guardianObject);
-    fetch(`${baseURL}/spedQuestions`)
+    fetcher(`${baseURL}/spedQuestions`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({

@@ -9,6 +9,7 @@ import AltStudentSchedule from "./AltStudentSchedule";
 import { EmptyScheduleCreator } from "./EmptySchedule";
 import { GuardianCreator } from "./CreateGuardian";
 import { SpedQuestionCreator } from "./CreateSpedQuestion";
+import { fetcher } from '../services/fetcher';
 
 // export default async function getUser(req, res) {
 //   const user = await supabase.auth.user();
@@ -23,7 +24,7 @@ export default class Student extends Component {
 
   componentDidMount() {
     // Fetch Student Table from API
-    fetch(`${baseURL}/students`)
+    fetcher(`${baseURL}/students`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({

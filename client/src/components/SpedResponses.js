@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {baseURL} from "../baseURL";
 import { Table } from "reactstrap";
+import { fetcher } from '../services/fetcher';
 
 export default class SpedResponse extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class SpedResponse extends Component {
   }
 
   getSchedules() {
-    fetch(`${baseURL}/spedResponses`)
+    fetcher(`${baseURL}/spedResponses`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((speds) => {

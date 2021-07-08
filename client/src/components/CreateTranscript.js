@@ -13,6 +13,7 @@ import {
   Col,
 } from "reactstrap";
 import { transcriptService } from "../services/transcriptService";
+import { fetcher } from '../services/fetcher';
 
 export class TranscriptCreator extends Component {
   constructor(props) {
@@ -26,14 +27,14 @@ export class TranscriptCreator extends Component {
   }
 
   componentDidMount() {
-    fetch(`${baseURL}/teachers`)
+    fetcher(`${baseURL}/teachers`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
           teachers: data,
         });
       });
-    fetch(`${baseURL}/courses`)
+    fetcher(`${baseURL}/courses`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
@@ -56,7 +57,7 @@ export class TranscriptCreator extends Component {
       student: this.props.studentId,
     };
     const transcript = await transcriptService.create(transcriptObject);
-    fetch(`${baseURL}/transcripts`)
+    fetcher(`${baseURL}/transcripts`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({

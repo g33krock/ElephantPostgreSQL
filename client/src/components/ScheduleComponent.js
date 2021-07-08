@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {baseURL} from "../baseURL"
 import { Table } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
+import { fetcher } from '../services/fetcher';
 
 export default class Schedule extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export default class Schedule extends Component {
   }
 
   getSchedules() {
-    fetch(`${baseURL}/students`)
+    fetcher(`${baseURL}/students`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((students) => {

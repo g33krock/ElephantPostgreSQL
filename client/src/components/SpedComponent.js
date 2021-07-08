@@ -20,6 +20,7 @@ import SpedResponse from "./SpedResponses";
 import { SpedQuestionUpdater } from "./UpdateSpedQuestion";
 import { DeleteSpedQuestion } from "./DeleteSpedQuestion";
 import classnames from "classnames";
+import { fetcher } from '../services/fetcher';
 
 export default class Sped extends Component {
   constructor(props) {
@@ -41,14 +42,14 @@ export default class Sped extends Component {
 
   componentDidMount() {
     // Fetch Student Table from API
-    fetch(`${baseURL}/students`)
+    fetcher(`${baseURL}/students`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
           students: data,
         });
       });
-    fetch(`${baseURL}/spedQuestions`)
+    fetcher(`${baseURL}/spedQuestions`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({

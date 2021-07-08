@@ -4,6 +4,7 @@ import { Card, CardText, CardTitle, NavLink } from "reactstrap";
 import { GradebookCreator } from "./CreateGradebook";
 import { TrackerCreator } from "./CreateTracker";
 import { StudentInfo } from "./StudentInfo";
+import { fetcher } from '../services/fetcher';
 
 export default class TeacherSchedule extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class TeacherSchedule extends Component {
   }
 
   componentDidMount(){
-    fetch(`${baseURL}/teachers/${this.props.teacher?.id}/schedules`) //Fetch TeacherSchedule Table from API
+    fetcher(`${baseURL}/teachers/${this.props.teacher?.id}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         console.log(data);
@@ -27,7 +28,7 @@ export default class TeacherSchedule extends Component {
       return;
     }
     console.log(this.props.teacher);
-    fetch(`${baseURL}/teachers/${this.props.teacher?.id}/schedules`) //Fetch TeacherSchedule Table from API
+    fetcher(`${baseURL}/teachers/${this.props.teacher?.id}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         console.log(data);

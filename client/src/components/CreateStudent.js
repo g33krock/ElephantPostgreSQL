@@ -13,6 +13,7 @@ import {
   Container
 } from "reactstrap";
 import { studentService } from "../services/studentService";
+import { fetcher } from '../services/fetcher';
 
 
 export class StudentCreator extends Component {
@@ -49,7 +50,7 @@ export class StudentCreator extends Component {
       interests: document.getElementById("interests").value,
     };
     const student = await studentService.create(studentObject);
-    fetch(`${baseURL}/students`)
+    fetcher(`${baseURL}/students`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({

@@ -1,8 +1,9 @@
 import {baseURL} from "../baseURL";
+import { fetcher } from "./fetcher";
 
 class TranscriptService {
     async all () {
-        const response = await fetch(`${baseURL}/transcripts`, {
+        const response = await fetcher(`${baseURL}/transcripts`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -11,7 +12,7 @@ class TranscriptService {
           return await response.json();
     };
     async create (transcriptObject) {
-        const response = await fetch(`${baseURL}/transcripts`, {
+        const response = await fetcher(`${baseURL}/transcripts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -22,7 +23,7 @@ class TranscriptService {
     };
     async delete(transcriptObject){
         console.log(transcriptObject)
-        const response = fetch(`${baseURL}/transcripts/`+transcriptObject.transcriptId, {
+        const response = fetcher(`${baseURL}/transcripts/`+transcriptObject.transcriptId, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -32,7 +33,7 @@ class TranscriptService {
     };
     async update(transcriptObject) {
         console.log(transcriptObject)
-        const response = fetch(`${baseURL}/transcripts/`+transcriptObject.id, {
+        const response = fetcher(`${baseURL}/transcripts/`+transcriptObject.id, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

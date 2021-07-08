@@ -1,8 +1,9 @@
 import {baseURL} from "../baseURL";
+import { fetcher } from './fetcher';
 
 class SpedResponseService {
     async all () {
-        const response = await fetch(`${baseURL}/spedResponses`, {
+        const response = await fetcher(`${baseURL}/spedResponses`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -11,7 +12,7 @@ class SpedResponseService {
           return await response.json();
     };
     async create (spedResponseObject) {
-        const response = await fetch(`${baseURL}/spedResponses`, {
+        const response = await fetcher(`${baseURL}/spedResponses`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -22,7 +23,7 @@ class SpedResponseService {
     };
     async delete(spedResponseObject){
         console.log(spedResponseObject)
-        const response = fetch(`${baseURL}/spedResponses/`+spedResponseObject.spedResponseId, {
+        const response = fetcher(`${baseURL}/spedResponses/`+spedResponseObject.spedResponseId, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -32,7 +33,7 @@ class SpedResponseService {
     };
     async update(spedResponseObject) {
         console.log(spedResponseObject)
-        const response = fetch(`${baseURL}/spedResponses/`+spedResponseObject.spedResponseId, {
+        const response = fetcher(`${baseURL}/spedResponses/`+spedResponseObject.spedResponseId, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

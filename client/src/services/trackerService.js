@@ -1,8 +1,9 @@
 import {baseURL} from "../baseURL";
+import { fetcher } from "./fetcher";
 
 class TrackerService {
     async create (trackerObject) {
-        const response = await fetch(`${baseURL}/trackers`, {
+        const response = await fetcher(`${baseURL}/trackers`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { trackerService } from "../services/trackerService";
 import { spedResponseService } from "../services/spedResponseService";
+import { fetcher } from '../services/fetcher';
 
 export class TrackerCreator extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export class TrackerCreator extends Component {
   }
 
   componentDidMount() {
-    fetch(`${baseURL}/spedQuestions`)
+    fetcher(`${baseURL}/spedQuestions`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({
@@ -70,7 +71,7 @@ export class TrackerCreator extends Component {
       spedQuestions: i.id
     };
     const spedResponse = await spedResponseService.create(spedResponseObject);
-    fetch({baseURL}+"/spedResponses")
+    fetcher({baseURL}+"/spedResponses")
     .then((response) => response.json())
     .then((data) => {
       this.setState({

@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 import { TranscriptCreator } from "./CreateTranscript";
 import classnames from "classnames";
+import { fetcher } from '../services/fetcher';
 
 export default class Transcript extends Component {
   constructor(props) {
@@ -38,14 +39,14 @@ export default class Transcript extends Component {
 
   componentDidMount() {
     // Fetch Student Table from API
-    fetch(`${baseURL}/students`)
+    fetcher(`${baseURL}/students`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
           students: data,
         });
       });
-    fetch(`${baseURL}/transcripts`)
+    fetcher(`${baseURL}/transcripts`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({

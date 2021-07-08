@@ -10,6 +10,7 @@ import {
   ModalBody,
 } from "reactstrap";
 import { scheduleService } from "../services/scheduleService";
+import { fetcher } from '../services/fetcher';
 
 export class ScheduleUpdater extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export class ScheduleUpdater extends Component {
 
   componentDidMount() {
     // Fetch Student Table from API
-    fetch(`${baseURL}/teachers`)
+    fetcher(`${baseURL}/teachers`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((data) => {
@@ -33,7 +34,7 @@ export class ScheduleUpdater extends Component {
           teachers: data,
         });
       });
-    fetch(`${baseURL}/courses`)
+    fetcher(`${baseURL}/courses`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((data) => {

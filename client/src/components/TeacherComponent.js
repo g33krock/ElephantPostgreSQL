@@ -3,6 +3,7 @@ import {baseURL} from "../baseURL";
 import { Container, Label } from "reactstrap";
 import TeacherSchedule from "./TeacherScheduleComponent";
 import {TeacherCreator} from "./CreateTeacher";
+import { fetcher } from "../services/fetcher";
 
 
 export default class Teacher extends Component {
@@ -13,7 +14,7 @@ export default class Teacher extends Component {
 
   componentDidMount() {
     // Fetch Student Table from API
-    fetch(`${baseURL}/teachers`)
+    fetcher(`${baseURL}/teachers`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({

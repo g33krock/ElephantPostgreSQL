@@ -13,6 +13,7 @@ import {
   Container
 } from "reactstrap";
 import { teacherService } from "../services/teacherService";
+import { fetcher } from '../services/fetcher';
 
 
 export class TeacherCreator extends Component {
@@ -52,7 +53,7 @@ export class TeacherCreator extends Component {
       pTen: document.getElementById("teacherP10").value
     };
     const teacher = await teacherService.create(teacherObject);
-    fetch(`${baseURL}/teachers`)
+    fetcher(`${baseURL}/teachers`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({

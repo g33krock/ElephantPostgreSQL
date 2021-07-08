@@ -8,6 +8,7 @@ import AltStudentSchedule from "./AltStudentSchedule";
 import { EmptyScheduleCreator } from "./EmptySchedule";
 import { GuardianCreator } from "./CreateGuardian";
 import { SpedQuestionCreator } from "./CreateSpedQuestion";
+import { fetcher } from "../services/fetcher";
 
 
 export default function Student()  {
@@ -17,7 +18,7 @@ export default function Student()  {
 
   useEffect(() => {
     // Fetch Student Table from API
-    fetch(`${baseURL}/students`)
+    fetcher(`${baseURL}/students`)
       .then((response) => response.json())
       .then((data) => {
         setStudents(data);

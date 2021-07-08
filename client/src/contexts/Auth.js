@@ -5,6 +5,7 @@ const AuthContext = React.createContext()
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState()
+    const [token, setToken] = useState()
     const [loading, setLoading] = useState(true)
   
     useEffect(() => {
@@ -17,6 +18,7 @@ export function AuthProvider({ children }) {
       // Listen for changes on auth state (logged in, signed out, etc.)
       const { data: listener } = supabase.auth.onAuthStateChange(
         async (event, session) => {
+          setToken(session?.access_token ?? null);
           setUser(session?.user ?? null)
           setLoading(false)
         }

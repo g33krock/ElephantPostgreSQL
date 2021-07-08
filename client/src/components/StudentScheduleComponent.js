@@ -3,6 +3,7 @@ import {baseURL} from "../baseURL";
 import { Card, CardImg, CardImgOverlay, CardText, CardTitle, Col, CardLink, Row } from "reactstrap";
 import { GradebookCreator } from "./CreateGradebook";
 import { TrackerCreator } from "./CreateTracker";
+import { fetcher } from "../services/fetcher";
 
 export default class StudentSchedule extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export default class StudentSchedule extends Component {
   }
 
   componentDidMount() {
-    fetch(`${baseURL}/schedules`) //Fetch StudentSchedule Table from API
+    fetcher(`${baseURL}/schedules`) //Fetch StudentSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         this.setState({

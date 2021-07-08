@@ -10,6 +10,7 @@ import {
   ModalBody,
 } from "reactstrap";
 import { spedQuestionService } from "../services/spedQuestionService";
+import { fetcher } from '../services/fetcher';
 
 
 export class SpedQuestionCreator extends Component {
@@ -28,7 +29,7 @@ export class SpedQuestionCreator extends Component {
       student: this.props.studentId,
     };
     const spedQuestion = await spedQuestionService.create(spedQuestionObject);
-    fetch(`${baseURL}/spedQuestions`)
+    fetcher(`${baseURL}/spedQuestions`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({
