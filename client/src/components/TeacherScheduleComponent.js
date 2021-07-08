@@ -56,15 +56,15 @@ export default class TeacherSchedule extends Component {
               <CardTitle>Period: {teachersched.period}</CardTitle>
               <CardText style={{ color: "black" }}>
                 <p>
-                  Student:{teachersched.student.firstName}{" "}
-                  {teachersched.student.lastName}
+                  Student:{teachersched.student?.firstName}{" "}
+                  {teachersched.student?.lastName}
                 </p>
                 <p>
                   Teacher:{this.props.teacher.firstName}{" "}
                   {this.props.teacher.lastName}
                 </p>
-                <p>Course Name:{teachersched.course.name}</p>
-                <p>Subject:{teachersched.course.subject}</p>
+                <p>Course Name:{teachersched.course?.name}</p>
+                <p>Subject:{teachersched.course?.subject}</p>
                 <NavLink href={this.props.teacher.link}>Class Link</NavLink>
               </CardText>
               <StudentInfo student={teachersched.student}></StudentInfo>
