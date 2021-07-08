@@ -30,7 +30,7 @@ export class TeacherController {
 	}
 
 	async loadTeacherSchedules(request: Request, response:Response, next: NextFunction) {
-		return await (await Teacher.findOne(request.params.id, { relations: ["schedules"]})).schedules
+		return await (await Teacher.findOne(request.params.id, { relations: ["schedules", "campuses", "schedules.student", "schedules.course"]})).schedules
 	}
 
 }
