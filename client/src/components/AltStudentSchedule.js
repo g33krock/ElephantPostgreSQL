@@ -41,9 +41,9 @@ export default class AltStudentSchedule extends Component {
                 </thead>
                 <tbody>
                     <tr>
-                        <td id={`${studentsched.teacher.firstName}`}>
-                          <strong>Teacher:</strong> <p style={{fontSize: 'small'}}>{studentsched.teacher.firstName} {studentsched.teacher.lastName}</p> 
-                          <strong>Course:</strong> <p style={{fontSize: 'small'}}>{studentsched.course.name}</p>
+                        <td id={`${studentsched.teacher?.firstName}`}>
+                          <strong>Teacher:</strong> <p style={{fontSize: 'small'}}>{studentsched.teacher?.firstName} {studentsched.teacher?.lastName}</p> 
+                          <strong>Course:</strong> <p style={{fontSize: 'small'}}>{studentsched.course?.name}</p>
                           <NavLink href={studentsched.teacher?.link}>Virtual</NavLink>
                           </td>
                     </tr>
