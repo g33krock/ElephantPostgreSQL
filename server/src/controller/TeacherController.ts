@@ -18,19 +18,19 @@ export class TeacherController {
 	}
 
 	async remove(request: Request, response: Response, next: NextFunction) {
-		let studentToRemove = await Teacher.findOne(request.params.id);
-		await Teacher.remove(studentToRemove);
+		let teacherToRemove = await Teacher.findOne(request.params.id);
+		await Teacher.remove(teacherToRemove);
 	}
 
 	async update(request: Request, response: Response, next: NextFunction) {
-		const student = await Teacher.findOne(request.params.id);
+		const teacher = await Teacher.findOne(request.params.id);
 		const data = request.body;
-		Object.assign(student, data);
-		return student.save();
+		Object.assign(teacher, data);
+		return teacher.save();
 	}
 
 	async loadTeacherSchedules(request: Request, response:Response, next: NextFunction) {
-		return await (await Teacher.findOne(request.params.id, { relations: ["schedules", "schedules.student", "schedules.course", "schedules.student.guardians", "schedules.teacher", "schedules.student.funding", "schedules.student.instructionmode"]})).schedules
+		return await (await Teacher.findOne(request.params.id, { relations: ["schedules"]})).schedules
 	}
 
 }

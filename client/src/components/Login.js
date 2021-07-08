@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { Container } from 'reactstrap'
 import { useAuth } from '../contexts/Auth'
 
@@ -49,9 +49,9 @@ export function Login() {
 
       <br />
 
-      {/* <p>
+      <p>
         Don't have an account? <Link to="/signup">Sign Up</Link>
-      </p> */}
+      </p>
     </Container>
       
     </>

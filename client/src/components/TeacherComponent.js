@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {baseURL} from "../baseURL";
 import { Container, Label } from "reactstrap";
 import TeacherSchedule from "./TeacherScheduleComponent";
+import {TeacherCreator} from "./CreateTeacher";
 
 
 export default class Teacher extends Component {
@@ -32,6 +33,7 @@ export default class Teacher extends Component {
   render() {
     return (
       <Container>
+        <TeacherCreator></TeacherCreator>
         <h1 className="perfectdark">Hello {this.state.teacher?.firstName}</h1>
         <div className = "row">
           <Label for="scheduleTeacher">Select Teacher</Label>

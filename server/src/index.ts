@@ -1,9 +1,12 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import "reflect-metadata";
 import { createConnection } from "typeorm";
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { Request, Response } from "express";
 import { Routes } from "./routes";
+// import { supabase } from "./utils/supabaseClient";
 
 const cors = require('cors');
 const port = process.env.PORT || 3001;
@@ -15,10 +18,13 @@ createConnection().then(async connection => {
 	app.use(bodyParser.json());
 	app.use(cors());
 	app.use(express.static("../../client/build"))
-	app.use(function (req, res, next) {
-		console.log('Time:', Date.now())
-		next()
-	  })
+	// app.use(async (req, res, next) => {
+	// 	const user = await supabase.auth.user();
+  	// 	console.log(user)
+	// 	next()
+	//   })
+	  
+
 
 	// register express routes from defined application routes
 	Routes.forEach(route => {
