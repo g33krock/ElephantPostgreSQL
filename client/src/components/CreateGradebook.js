@@ -57,19 +57,19 @@ export class GradebookCreator extends Component {
           >
             <p>
               <strong>Student: </strong>
-              {this.props.student.firstName} {this.props.student.lastName}
+              {this.props.student?.firstName} {this.props.student?.lastName}
             </p>
             <p>
               <strong>Teacher: </strong>
-              {this.props.teacher.firstName} {this.props.teacher.lastName}
+              {this.props.teacher?.firstName} {this.props.teacher?.lastName}
             </p>
             <p>
               <strong>Course: </strong>
-              {this.props.course.name}
+              {this.props.course?.name}
             </p>
             <p>
               <strong>Period: </strong>
-              {this.props.period}
+              {this.props?.period}
             </p>
             <Form className="fancy-cursor">
               <FormGroup id="trackerBox">

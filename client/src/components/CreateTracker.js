@@ -101,15 +101,15 @@ export class TrackerCreator extends Component {
           <ModalBody id="fancy-cursor" style={{ backgroundColor: "lightgray", color: 'black', fontSize: '21px', textAlign: 'center'}}>
             <p>
               <strong>Student: </strong>
-              {this.props.student.firstName} {this.props.student.lastName}
+              {this.props.student?.firstName} {this.props.student?.lastName}
             </p>
             <p>
               <strong>Teacher: </strong>
-              {this.props.teacher.firstName} {this.props.teacher.lastName}
+              {this.props.teacher?.firstName} {this.props.teacher?.lastName}
             </p>
             <p>
               <strong>Course: </strong>
-              {this.props.course.name}
+              {this.props.course?.name}
             </p>
             <p>
               <strong>Period: </strong>
@@ -125,7 +125,7 @@ export class TrackerCreator extends Component {
                   id={`spedResponseDate`}
                 />
               </FormGroup>
-              {this.state.spedQuestions.filter((speQ) => speQ.category === this.props.course.subject || speQ.category === 'Social').map((spedQuestion => 
+              {this.state.spedQuestions?.filter((speQ) => speQ.category === this.props.course.subject || speQ.category === 'Social').map((spedQuestion => 
             <div>
               <Container id="trackerBox">
                 <FormGroup>

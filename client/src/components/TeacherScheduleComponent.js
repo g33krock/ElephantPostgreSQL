@@ -60,8 +60,8 @@ export default class TeacherSchedule extends Component {
                   {teachersched.student?.lastName}
                 </p>
                 <p>
-                  Teacher:{this.props.teacher.firstName}{" "}
-                  {this.props.teacher.lastName}
+                  Teacher:{this.props.teacher?.firstName}{" "}
+                  {this.props.teacher?.lastName}
                 </p>
                 <p>Course Name:{teachersched.course?.name}</p>
                 <p>Subject:{teachersched.course?.subject}</p>
