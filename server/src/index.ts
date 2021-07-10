@@ -17,7 +17,7 @@ createConnection().then(async connection => {
 	const app = express();
 	app.use(bodyParser.json());
 	app.use(cors());
-	app.use(express.static("../../client/build"))
+	app.use(express.static("../client/build"))
 	app.use(async (req, res, next) => {
 		const bearer = req.headers.authorization;
 		if (!bearer) {

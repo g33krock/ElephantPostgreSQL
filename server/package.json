@@ -19,7 +19,7 @@
 		"typescript": "3.3.3333"
 	},
 	"scripts": {
-		"start": "cd build && node index.js",
+		"start": "node build/index.js",
 		"start:dev": "ts-node-dev src/index.ts",
 		"build": "tsc"
 	}

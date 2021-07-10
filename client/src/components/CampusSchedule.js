@@ -13,7 +13,6 @@ export default class CampusSchedule extends Component {
     if (prevProps.campus === this.props.campus) {
       return
     }
-    console.log(this.props.campus)
     fetcher(`${baseURL}/teachers/${this.props.campus.id}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
