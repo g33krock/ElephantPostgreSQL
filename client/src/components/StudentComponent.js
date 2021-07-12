@@ -48,7 +48,7 @@ export default class Student extends Component {
       <Container>
         <Row>
           <Col>
-            <Label for="scheduleStudent">Select Student</Label>
+            <Label for="scheduleStudent">Select Student: </Label>
             <select id="scheduleStudent" onChange={this.onChange}>
               <option selected>None</option>
               {this.state.students.map(student => 
