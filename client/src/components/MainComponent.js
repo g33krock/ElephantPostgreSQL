@@ -16,13 +16,16 @@ class Main extends Component {
         this.state = {
             students: [],
             teachers:[],
-            campus: null
+            campus: null,
+            userEmail: null
             
         };
     }
     componentDidMount() {
         this.setState({campus:this.props.campus})
+        this.setState({userEmail:this.props.userEmail})
         console.log(this.state.campus)
+        console.log(this.state.userEmail)
     }
 
     render() {
