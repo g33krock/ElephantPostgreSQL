@@ -40,14 +40,14 @@ export default class Teacher extends Component {
           <Label for="scheduleTeacher">Select Teacher</Label>
           <select id="scheduleTeacher" onChange={this.onChange}>
             <option selected>None</option>
-            {this.state.teachers.map(teacher => 
+            {this.state.teachers.find(user => user.email === this.props?.userEmail).map(teacher => 
               <option key={teacher.id} value={teacher.id}>
                 {teacher.firstName} {teacher.lastName}
               </option>
             )}
           </select>
         </div>
-        {this.state.teacher && <TeacherSchedule teacher={this.state.teacher}></TeacherSchedule>}
+        {this.state.teacher && <TeacherSchedule teacher={this.state.teacher} userEmail={this.props?.userEmail}></TeacherSchedule>}
       </Container>
     );
   }

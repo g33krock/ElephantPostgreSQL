@@ -32,7 +32,7 @@ class Main extends Component {
                 <Switch>
                     <PrivateRoute path='/sped' campus={this.props?.campus} component={Sped} />
                     <PrivateRoute path='/schedules' campus={this.props?.campus} component={Schedule} />
-                    <PrivateRoute path='/teachers' campus={this.props?.campus} component={Teacher} />
+                    <PrivateRoute path='/teachers' userEmail={this.props?.userEmail} component={Teacher} />
                     <PrivateRoute path='/students' campus={this.props?.campus} component={Student} />
                     <PrivateRoute path='/transcripts' campus={this.props?.campus} component={Transcript} />
                     <PrivateRoute path='/home' campus={this.props?.campus} component={Home} />

@@ -30,6 +30,7 @@ export function Dashboard() {
             <Header />
             <Main
               campus={campus}
+              userEmail={user?.email}
             />
         </div>
         </BrowserRouter>
