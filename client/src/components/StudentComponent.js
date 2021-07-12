@@ -109,23 +109,23 @@ export default class Student extends Component {
                     studentInterests={this.state.student?.interests}>
                   </StudentUpdater>
                 </Col>
-                <Col md="4">
-                  <EmptyScheduleCreator 
-                    studentId={this.state.student?.id}
-                    studentFirstName={this.state.student?.firstName}
-                    studentLastName={this.state.student?.lastName}
-                    campusId={this.state.student?.campuses.id}>
-                  </EmptyScheduleCreator>
-                </Col>
                 </Row>
-                <GuardianCreator
-                  studentId={this.state.student?.id}
-                >
-                </GuardianCreator>
-                <SpedQuestionCreator
-                  studentId={this.state.student?.id}
-                >
-                </SpedQuestionCreator>
+                <Row>
+                  <Col md="4">
+                    <EmptyScheduleCreator 
+                      studentId={this.state.student?.id}
+                      studentFirstName={this.state.student?.firstName}
+                      studentLastName={this.state.student?.lastName}
+                      campusId={this.state.student?.campuses.id}>
+                    </EmptyScheduleCreator>
+                  </Col>
+                  <Col>
+                    <GuardianCreator
+                      studentId={this.state.student?.id}
+                    >
+                    </GuardianCreator>
+                  </Col>
+                </Row>
         
               </CardBody>}
             </Card>
