@@ -16,8 +16,7 @@ class Main extends Component {
         this.state = {
             students: [],
             teachers:[],
-            campus: null,
-            userEmail: null
+            campus: null
             
         };
     }
@@ -25,7 +24,7 @@ class Main extends Component {
         this.setState({campus:this.props.campus})
         this.setState({userEmail:this.props.userEmail})
         console.log(this.state.campus)
-        console.log(this.state.userEmail)
+        console.log(this.props?.userEmail)
     }
 
     render() {
