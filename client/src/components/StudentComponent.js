@@ -85,12 +85,28 @@ export default class Student extends Component {
                     studentFirstName={this.state.student?.firstName}
                     studentLastName={this.state.student?.lastName}
                     studentGrade={this.state.student?.grade}
+                    studentBirth={this.state.student?.birthDate}
                     studentCampus={this.state.student?.campuses?.id}
                     studentMedInfo={this.state.student?.medical_information}
                     studentAddInfo={this.state.student?.additional_information}
                     studentIEP={this.state.student?.iep}
                     studentFunding={this.state.student?.funding?.id}
-                    studentInstructionMode={this.state.student?.instructionmode?.id}>
+                    studentInstructionMode={this.state.student?.instructionmode?.id}
+                    studentPreviousSchools={this.state.student?.previousSchools}
+                    studentAllergies={this.state.student?.allergies}
+                    studentHearingLimitations={this.state.student?.hearingLimitations}
+                    studentVisionLimitations={this.state.student?.visionLimitations}
+                    studentMobilityLimitations={this.state.student?.mobilityLimitations}
+                    studentSensitivities={this.state.student?.sensitivities}
+                    studentTherapies={this.state.student?.therapies}
+                    studentMedicationsAtSchool={this.state.student?.medicationsAtSchool}
+                    studentSocial={this.state.student?.social}
+                    studentEmotional={this.state.student?.emotional}
+                    studentPhysical={this.state.student?.physical}
+                    studentMath={this.state.student?.math}
+                    studentReading={this.state.student?.reading}
+                    studentWriting={this.state.student?.writing}
+                    studentInterests={this.state.student?.interests}>
                   </StudentUpdater>
                 </Col>
                 <Col md="4">
