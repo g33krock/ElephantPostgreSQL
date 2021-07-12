@@ -91,7 +91,7 @@ export class StudentUpdater extends Component {
                   <FormGroup>
                     <Label for="birthDate">Date of Birth</Label>
                     <Input
-                      defaultValue={this.props.studentBirthDate}
+                      defaultValue={this.props.studentBirth}
                       type="date"
                       name="birthDate"
                       id="birthDate"
