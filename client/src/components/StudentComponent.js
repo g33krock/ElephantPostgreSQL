@@ -8,7 +8,6 @@ import {StudentUpdater} from "./UpdateStudent";
 import AltStudentSchedule from "./AltStudentSchedule";
 import { EmptyScheduleCreator } from "./EmptySchedule";
 import { GuardianCreator } from "./CreateGuardian";
-import { SpedQuestionCreator } from "./CreateSpedQuestion";
 import { fetcher } from '../services/fetcher';
 
 // export default async function getUser(req, res) {
