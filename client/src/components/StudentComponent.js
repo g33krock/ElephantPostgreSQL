@@ -79,6 +79,7 @@ export default class Student extends Component {
                     studentLastName={this.state.student?.lastName}>
                   </DeleteStudent>
                 </Col>
+                <Col md="4"></Col>
                 <Col md="4">
                   <StudentUpdater 
                     studentId={this.state.student?.id}
@@ -119,7 +120,8 @@ export default class Student extends Component {
                       campusId={this.state.student?.campuses.id}>
                     </EmptyScheduleCreator>
                   </Col>
-                  <Col>
+                  <Col md="4"></Col>
+                  <Col md="4">
                     <GuardianCreator
                       studentId={this.state.student?.id}
                     >
