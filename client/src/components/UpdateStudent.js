@@ -7,6 +7,9 @@ import {
   Button,
   Modal,
   ModalBody,
+  Row,
+  Col,
+  Container
 } from "reactstrap";
 import { studentService } from "../services/studentService";
 
