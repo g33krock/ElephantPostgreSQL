@@ -10,6 +10,8 @@ import Sped from './SpedComponent';
 import Transcript from './TranscriptComponent';
 
 
+const userEmail=this.props.userEmail
+
 class Main extends Component {
     
     constructor(props) {
@@ -17,13 +19,14 @@ class Main extends Component {
         this.state = {
             students: [],
             teachers:[],
-            campus: null
+            campus: null,
+            userEmail
             
         };
     }
     componentDidMount() {
         this.setState({campus:this.props.campus})
-        this.setState({userEmail:this.props.userEmail})
+        this.setState({userEmail})
         console.log(this.state.campus)
         console.log(this.props?.userEmail)
     }
@@ -35,8 +38,8 @@ class Main extends Component {
                 <Switch>
                     <PrivateRoute path='/sped' campus={this.props?.campus} component={Sped} />
                     <PrivateRoute path='/schedules' campus={this.props?.campus} component={Schedule} />
-                    <PrivateRoute path='/teachers' userEmail={this.props?.userEmail} component={Teacher} />
-                    <PrivateRoute path='/singleteachers' userEmail={this.state.userEmail} component={SingleTeacher} />
+                    <PrivateRoute path='/teachers' userEmail={userEmail} component={Teacher} />
+                    <PrivateRoute path='/singleteachers' userEmail={this.props.userEmail} component={SingleTeacher} />
                     <PrivateRoute path='/students' campus={this.props?.campus} component={Student} />
                     <PrivateRoute path='/transcripts' campus={this.props?.campus} component={Transcript} />
                     <PrivateRoute path='/home' campus={this.props?.campus} component={Home} />
