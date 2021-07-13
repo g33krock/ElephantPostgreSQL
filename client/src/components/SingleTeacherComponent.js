@@ -23,7 +23,7 @@ export default class SingleTeacher extends Component {
       })
       .then(() => {
         this.setState({
-        teacher: this.state.teachers.find(teacher => teacher.email === useAuth.user.email)
+        teacher: this.state.teachers.find(teacher => teacher?.first === useAuth.user.email)
     });
 })
     console.log(this.state.teacher)
