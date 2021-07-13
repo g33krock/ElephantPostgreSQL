@@ -1,7 +1,7 @@
 import { teacherService } from "../services/teacherService";
 import { studentService } from "../services/studentService";
 import { campusService } from "../services/campusService";
-import { useAuth } from './contexts/Auth'
+import { useAuth } from '../contexts/Auth'
 
 export const initialState = {
     teachers: teacherService.all,
