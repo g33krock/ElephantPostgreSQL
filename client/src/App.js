@@ -13,17 +13,17 @@ import { PrivateRoute } from './components/PrivateRoute'
 class App extends Component {
     render() {
         return (
-          
+          <AuthProvider>
             <Router>
-              <AuthProvider>
+              
                 <Switch>
                 <PrivateRoute exact path="/" component={Dashboard} />
                   <Route path="/signup" component={Signup} />
                   <Route path="/login" component={Login} />
                 </Switch>
-              </AuthProvider>
+              
             </Router>
-          
+          </AuthProvider>
         );
     }
 }
