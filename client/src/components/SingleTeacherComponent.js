@@ -26,7 +26,7 @@ export default class SingleTeacher extends Component {
         teacher: this.state.teachers.find(teacher => teacher.email === useAuth.email)
     });
 })
-    console.log(this.state.teacher)
+    console.log(useAuth.email)
   }
 
   
