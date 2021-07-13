@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {baseURL} from "../baseURL";
 import { Container } from "reactstrap";
+import { useAuth } from '../contexts/Auth'
 import TeacherSchedule from "./TeacherScheduleComponent";
 import { fetcher } from "../services/fetcher";
 
@@ -20,7 +21,7 @@ export default class SingleTeacher extends Component {
           teachers: data,
         });
         this.setState({
-            teacher: this.state.teachers.find(teacher => teacher.email === this.props?.userEmail)
+            teacher: this.state.teachers.find(teacher => teacher.email === useAuth.user.email)
         });
         console.log(this.state.teacher)
       });

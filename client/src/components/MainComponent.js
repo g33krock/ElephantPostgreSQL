@@ -36,7 +36,7 @@ class Main extends Component {
                     <PrivateRoute path='/sped' campus={this.props?.campus} component={Sped} />
                     <PrivateRoute path='/schedules' campus={this.props?.campus} component={Schedule} />
                     <PrivateRoute path='/teachers' userEmail={this.props?.userEmail} component={Teacher} />
-                    <PrivateRoute path='/singleteachers' userEmail={this.props?.userEmail} component={SingleTeacher} />
+                    <PrivateRoute path='/singleteachers' userEmail={this.state.userEmail} component={SingleTeacher} />
                     <PrivateRoute path='/students' campus={this.props?.campus} component={Student} />
                     <PrivateRoute path='/transcripts' campus={this.props?.campus} component={Transcript} />
                     <PrivateRoute path='/home' campus={this.props?.campus} component={Home} />
