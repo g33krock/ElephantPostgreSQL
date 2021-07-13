@@ -6,14 +6,14 @@ import { Login } from './components/Login';
 import { Dashboard } from './components/Dashboard';
 import { AuthProvider } from './contexts/Auth';
 import { PrivateRoute } from './components/PrivateRoute'
-import { Provider } from 'react-redux';
-import { ConfigureStore } from './redux/configureStore'
+// import { Provider } from 'react-redux';
+// import { ConfigureStore } from './redux/configureStore'
 
-const store = ConfigureStore
+// const store = ConfigureStore
 class App extends Component {
     render() {
         return (
-          <Provider store={store}>
+          
             <Router>
               <AuthProvider>
                 <Switch>
@@ -23,7 +23,7 @@ class App extends Component {
                 </Switch>
               </AuthProvider>
             </Router>
-          </Provider>
+          
         );
     }
 }
