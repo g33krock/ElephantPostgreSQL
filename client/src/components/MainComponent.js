@@ -3,6 +3,7 @@ import Student from './StudentComponent';
 import Home from './HomeComponent';
 import { Switch, Redirect } from 'react-router-dom'
 import Teacher from './TeacherComponent';
+import SingleTeacher from './SingleTeacherComponent';
 import Schedule from './ScheduleComponent';
 import { PrivateRoute } from './PrivateRoute';
 import Sped from './SpedComponent';
@@ -35,6 +36,7 @@ class Main extends Component {
                     <PrivateRoute path='/sped' campus={this.props?.campus} component={Sped} />
                     <PrivateRoute path='/schedules' campus={this.props?.campus} component={Schedule} />
                     <PrivateRoute path='/teachers' userEmail={this.props?.userEmail} component={Teacher} />
+                    <PrivateRoute path='/singleteachers' userEmail={this.props?.userEmail} component={SingleTeacher} />
                     <PrivateRoute path='/students' campus={this.props?.campus} component={Student} />
                     <PrivateRoute path='/transcripts' campus={this.props?.campus} component={Transcript} />
                     <PrivateRoute path='/home' campus={this.props?.campus} component={Home} />
