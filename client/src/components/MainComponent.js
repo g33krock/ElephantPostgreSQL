@@ -22,11 +22,11 @@ class Main extends Component {
         };
     }
 
-    userEmail=this.props.userEmail
+    userEmail = this.props?.userEmail
 
     componentDidMount() {
         this.setState({campus:this.props.campus})
-        this.setState({userEmail:this.props.userEmail})
+        // this.setState({userEmail: userEmail})
         console.log(this.state.campus)
         console.log(this.props?.userEmail)
     }
@@ -34,12 +34,12 @@ class Main extends Component {
     render() {
         return (
             <div>
-                
+
                 <Switch>
                     <PrivateRoute path='/sped' campus={this.props?.campus} component={Sped} />
                     <PrivateRoute path='/schedules' campus={this.props?.campus} component={Schedule} />
                     <PrivateRoute path='/teachers' userEmail={this.state.userEmail} component={Teacher} />
-                    <PrivateRoute path='/singleteachers' userEmail={this.state.userEmail} component={SingleTeacher} />
+                    <PrivateRoute path='/singleteachers' component={SingleTeacher} props = {{userEmail: this.props?.userEmail}} />
                     <PrivateRoute path='/students' campus={this.props?.campus} component={Student} />
                     <PrivateRoute path='/transcripts' campus={this.props?.campus} component={Transcript} />
                     <PrivateRoute path='/home' campus={this.props?.campus} component={Home} />
