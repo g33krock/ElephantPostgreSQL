@@ -26,7 +26,7 @@ class Main extends Component {
 
     componentDidMount() {
         this.setState({campus:this.props.campus})
-        this.setState({userEmail: userEmail})
+        // this.setState({userEmail: userEmail})
         console.log(this.state.campus)
         console.log(this.props?.userEmail)
     }
