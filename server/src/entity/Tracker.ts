@@ -86,4 +86,19 @@ export class Tracker extends BaseEntity {
 	})
 	assessment: string;
 
+	@Column({
+		nullable: true
+	})
+	SEL1: string;
+
+	@Column({
+		nullable: true
+	})
+	SEL2: string;
+
+	@Column({
+		nullable: true
+	})
+	SEL3: string;
+
 }
