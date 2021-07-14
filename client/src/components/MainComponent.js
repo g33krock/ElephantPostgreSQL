@@ -22,19 +22,17 @@ class Main extends Component {
         };
     }
 
-    userEmail=this.props.userEmail
-
     componentDidMount() {
         this.setState({campus:this.props.campus})
-        this.setState({userEmail:this.props.userEmail})
+        this.setState({userEmail: this.props.userEmail})
         console.log(this.state.campus)
-        console.log(this.props?.userEmail)
+        console.log(this.state?.userEmail)
     }
 
     render() {
         return (
             <div>
-                
+
                 <Switch>
                     <PrivateRoute path='/sped' campus={this.props?.campus} component={Sped} />
                     <PrivateRoute path='/schedules' campus={this.props?.campus} component={Schedule} />
