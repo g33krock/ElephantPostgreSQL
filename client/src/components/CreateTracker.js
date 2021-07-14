@@ -54,6 +54,9 @@ export class TrackerCreator extends Component {
       behaviorAI: document.getElementById("behaviorAI").value,
       behaviorComment: document.getElementById("behaviorComment").value,
       assessment: document.getElementById("assessment").value,
+      SEL1: document.getElementById("SEL1").value,
+      SEL2: document.getElementById("SEL2").value,
+      SEL3: document.getElementById("SEL3").value,
     };
     const tracker = await trackerService.create(trackerObject);
     console.log(tracker)
@@ -428,6 +431,63 @@ export class TrackerCreator extends Component {
                 </Label>
                 <Input type="text" name="assessment" id="assessment" className="fancy-cursor"/>
               </FormGroup>
+              <Container style={{ backgroundColor: "green" }} id="trackerBox">
+                <h3>Social Emotional Learning</h3>
+                <FormGroup>
+                  <Label for="SEL1">Does the student demonstrate the ability to communicate their ideas, feelings and thoughts appropriately?</Label>
+                  <Input type="select" name="SEL1" id="SEL1" className="fancy-cursor">
+                    <option></option>
+                    <option value="1">
+                      Not at all
+                    </option>
+                    <option value="2">
+                      Seldom
+                    </option>
+                    <option value="3">
+                      Mostly
+                    </option>
+                    <option value="4">
+                      Consistently
+                    </option>
+                  </Input>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="SEL2">Does the student demonstrate ability to actively listen with teacher and/or peers in discussion, perspective taking and respond with positive feedback about self and others?</Label>
+                  <Input type="select" name="SEL2" id="SEL2" className="fancy-cursor">
+                    <option></option>
+                    <option value="1">
+                      Not at all
+                    </option>
+                    <option value="2">
+                      Seldom
+                    </option>
+                    <option value="3">
+                      Mostly
+                    </option>
+                    <option value="4">
+                      Consistently
+                    </option>
+                  </Input>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="SEL3">Does the student demonstrate choices for learning that are effective, appropriate, show forward thinking and positive growth mindset?</Label>
+                  <Input type="select" name="SEL3" id="SEL3" className="fancy-cursor">
+                    <option></option>
+                    <option value="1">
+                      Not at all
+                    </option>
+                    <option value="2">
+                      Seldom
+                    </option>
+                    <option value="3">
+                      Mostly
+                    </option>
+                    <option value="4">
+                      Consistently
+                    </option>
+                  </Input>
+                </FormGroup>
+              </Container>
               {/* <SpedResponseCreator submitted={this.state.submitted} modal={this.state.modal}
               student={this.props.student.id} ></SpedResponseCreator> */}
               <Button
