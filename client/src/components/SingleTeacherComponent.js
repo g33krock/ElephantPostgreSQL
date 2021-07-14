@@ -23,7 +23,7 @@ export default class SingleTeacher extends Component {
       })
       .then(() => {
         this.setState({
-        teacher: this.state.teachers.find(teacher => teacher.email === this.props.userEmail)
+        teacher: this.state.teachers.find(teacher => teacher.email === this.props?.userEmail)
     });
 })
     console.log(this.props?.userEmail)
