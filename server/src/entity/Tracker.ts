@@ -85,7 +85,7 @@ export class Tracker extends BaseEntity {
 		nullable: true
 	})
 	assessment: string;
-
+	
 	@Column({
 		nullable: true
 	})
