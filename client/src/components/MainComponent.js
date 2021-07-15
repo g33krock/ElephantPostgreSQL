@@ -30,12 +30,10 @@ class Main extends Component {
         await this.setState({teachers:teacherService.all()});
         console.log(this.state.teachers);
         await this.setTeachers();
-        await this.setState({campus: this.state.teacher?.campus.id});
-        console.log(this.state.campus)
     }
 
     setTeachers() {
-        const teacher = () => {this.state.teachers.find(teacher => teacher.email === this.props.userEmail)} 
+        const teacher = () => {this.state.teachers.find(teacher => teacher.email === this.props.userEmail); return teacher} 
         this.setState({teacher});
         console.log(this.state.teacher)
     }
