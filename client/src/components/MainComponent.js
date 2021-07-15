@@ -24,34 +24,46 @@ class Main extends Component {
         };
     }
 
-    userEmail = this.props?.userEmail
-
+    
     async componentDidMount() {
         await this.setState({teachers:teacherService.all()})
         console.log(this.state.teachers)
-        await this.setState({teacher: this.state.teachers.find(uTeacher => uTeacher?.email === userEmail)})
+        await this.setState({teacher: this.state.teachers.find(uTeacher => uTeacher?.email === this.props?.userEmail)})
         await this.setState({campus: this.state.teacher?.campus.id})
         console.log(this.state.campus)
         console.log(this.state.teacher)
     }
 
     render() {
+        if(this.state.teachers.find(uTeacher => uTeacher?.email === userEmail).role === 3 || 4){
         return (
             <div>
-
+            
                 <Switch>
-                    <PrivateRoute path='/sped' component={Sped} />
-                    <PrivateRoute path='/schedules' component={Schedule} campusId = {this.state.campus}/>
-                    <PrivateRoute path='/teachers' component={Teacher} />
                     <PrivateRoute path='/singleteachers' component={SingleTeacher} userEmail = {this.props?.userEmail} />
-                    <PrivateRoute path='/students' component={Student} />
-                    <PrivateRoute path='/transcripts' component={Transcript} />
                     <PrivateRoute path='/home' component={Home} />
                     <Redirect to='/home' />
                 </Switch>
             </div>
             
         )
+        } else {
+            return (
+                <div>
+                
+                    <Switch>
+                        <PrivateRoute path='/sped' component={Sped} />
+                        <PrivateRoute path='/schedules' component={Schedule} campusId = {this.state.campus}/>
+                        <PrivateRoute path='/teachers' component={Teacher} />
+                        <PrivateRoute path='/students' component={Student} />
+                        <PrivateRoute path='/transcripts' component={Transcript} />
+                        <PrivateRoute path='/home' component={Home} />
+                        <Redirect to='/home' />
+                    </Switch>
+                </div>
+                
+            )
+        }   
     }
 }
 
