@@ -8,6 +8,7 @@ import Schedule from './ScheduleComponent';
 import { PrivateRoute } from './PrivateRoute';
 import Sped from './SpedComponent';
 import Transcript from './TranscriptComponent';
+import { teacherService } from '../services/teacherService';
 
 class Main extends Component {
     
@@ -16,6 +17,7 @@ class Main extends Component {
         this.state = {
             students: [],
             teachers:[],
+            teacher: null,
             campus: null,
             userEmail: null
             
@@ -24,11 +26,12 @@ class Main extends Component {
 
     userEmail = this.props?.userEmail
 
-    componentDidMount() {
-        this.setState({campus:this.props.campus})
-        // this.setState({userEmail: userEmail})
+    async componentDidMount() {
+        await this.setState({teachers:teacherService.all()})
+        await this.state.teachers.find(teacher => teacher.email === this.props?.userEmail)
+        await this.setState({teacher})
+        await this.setState({campus: this.state.teacher?.campus.id})
         console.log(this.state.campus)
-        console.log(this.props?.userEmail)
     }
 
     render() {
