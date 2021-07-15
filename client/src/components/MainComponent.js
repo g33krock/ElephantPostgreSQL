@@ -25,6 +25,7 @@ class Main extends Component {
     }
 
     
+
     async componentDidMount() {
         await this.setState({teachers:teacherService.all()})
         console.log(this.state.teachers)
@@ -35,34 +36,23 @@ class Main extends Component {
     }
 
     render() {
-        if(this.state.teachers.find(uTeacher => uTeacher?.email === this.props?.userEmail).role === 3 || 4){
+        if(this.state.teachers.find){
         return (
             <div>
             
                 <Switch>
+                    <PrivateRoute path='/sped' component={Sped} />
+                    <PrivateRoute path='/schedules' component={Schedule} campusId = {this.state.campus}/>
+                    <PrivateRoute path='/teachers' component={Teacher} />
                     <PrivateRoute path='/singleteachers' component={SingleTeacher} userEmail = {this.props?.userEmail} />
+                    <PrivateRoute path='/students' component={Student} />
+                    <PrivateRoute path='/transcripts' component={Transcript} />
                     <PrivateRoute path='/home' component={Home} />
                     <Redirect to='/home' />
                 </Switch>
             </div>
             
         )
-        } else {
-            return (
-                <div>
-                
-                    <Switch>
-                        <PrivateRoute path='/sped' component={Sped} />
-                        <PrivateRoute path='/schedules' component={Schedule} campusId = {this.state.campus}/>
-                        <PrivateRoute path='/teachers' component={Teacher} />
-                        <PrivateRoute path='/students' component={Student} />
-                        <PrivateRoute path='/transcripts' component={Transcript} />
-                        <PrivateRoute path='/home' component={Home} />
-                        <Redirect to='/home' />
-                    </Switch>
-                </div>
-                
-            )
         }   
     }
 }
