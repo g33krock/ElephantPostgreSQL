@@ -28,7 +28,8 @@ class Main extends Component {
 
     async componentDidMount() {
         await this.setState({teachers:teacherService.all()})
-        await this.setState({teacher:this.state.teachers.find(uTeacher => uTeacher.email === this.props?.userEmail)})
+        const teacher =this.state.teachers.find(uTeacher => uTeacher.email === this.props?.userEmail)
+        await this.setState({teacher})
         await this.setState({campus: this.state.teacher?.campus.id})
         console.log(this.state.campus)
         console.log(this.state.teacher)
