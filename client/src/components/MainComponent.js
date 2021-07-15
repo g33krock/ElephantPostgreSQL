@@ -35,7 +35,7 @@ class Main extends Component {
     }
 
     render() {
-        if(this.state.teachers.find(uTeacher => uTeacher?.email === userEmail).role === 3 || 4){
+        if(this.state.teachers.find(uTeacher => uTeacher?.email === this.props?.userEmail).role === 3 || 4){
         return (
             <div>
             
