@@ -35,7 +35,8 @@ class Main extends Component {
     }
 
     setTeachers() {
-        this.setState({teacher: this.state.teachers.find((uTeacher) => uTeacher?.email === this.props?.userEmail)});
+        const teacher = this.state.teachers.find((uTeacher) => uTeacher?.email === this.props?.userEmail)
+        this.setState({teacher});
         console.log(this.state.teacher)
     }
 
