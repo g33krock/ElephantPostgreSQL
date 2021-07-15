@@ -31,6 +31,7 @@ class Main extends Component {
         await this.setState({teacher:this.state.teachers.find(uTeacher => uTeacher.email === this.props?.userEmail)})
         await this.setState({campus: this.state.teacher?.campus.id})
         console.log(this.state.campus)
+        console.log(this.state.teacher)
     }
 
     render() {
@@ -39,7 +40,7 @@ class Main extends Component {
 
                 <Switch>
                     <PrivateRoute path='/sped' campus={this.props?.campus} component={Sped} />
-                    <PrivateRoute path='/schedules' campus={this.props?.campus} component={Schedule} />
+                    <PrivateRoute path='/schedules' campus={this.props?.campus} component={Schedule} campusId = {this.state.campus}/>
                     <PrivateRoute path='/teachers' userEmail={this.state.userEmail} component={Teacher} />
                     <PrivateRoute path='/singleteachers' component={SingleTeacher} userEmail = {this.props?.userEmail} />
                     <PrivateRoute path='/students' campus={this.props?.campus} component={Student} />
