@@ -27,14 +27,15 @@ class Main extends Component {
     
 
     async componentDidMount() {
-        await this.setState({teachers:teacherService.all()})
-        console.log(this.state.teachers)
-        // await this.setState({teacher: this.state.teachers.find((uTeacher) => uTeacher?.email === this.props?.userEmail)})
-        const teachers = this.state.teachers;
-        const teacher = teachers.filter((uTeacher) => uTeacher?.email === this.props?.userEmail)[0];
-        await this.setState({teacher})
-        await this.setState({campus: this.state.teacher?.campus.id})
+        await this.setState({teachers:teacherService.all()});
+        console.log(this.state.teachers);
+        await this.setTeachers();
+        await this.setState({campus: this.state.teacher?.campus.id});
         console.log(this.state.campus)
+    }
+
+    setTeachers() {
+        this.setState({teacher: this.state.teachers.find((uTeacher) => uTeacher?.email === this.props?.userEmail)});
         console.log(this.state.teacher)
     }
 
