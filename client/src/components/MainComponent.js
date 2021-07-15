@@ -36,7 +36,7 @@ class Main extends Component {
     }
 
     render() {
-        if(this.state.teachers.find){
+        
         return (
             <div>
             
@@ -53,7 +53,7 @@ class Main extends Component {
             </div>
             
         )
-        }   
+           
     }
 }
 
