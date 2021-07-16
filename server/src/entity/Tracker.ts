@@ -101,4 +101,14 @@ export class Tracker extends BaseEntity {
 	})
 	SEL3: string;
 
+	@Column({
+		nullable: true
+	})
+	SEL4: string;
+
+	@Column({
+		nullable: true
+	})
+	SEL5: string;
+
 }

@@ -434,59 +434,110 @@ export class TrackerCreator extends Component {
               <Container style={{ backgroundColor: "green" }} id="trackerBox">
                 <h3>Social Emotional Learning</h3>
                 <FormGroup>
-                  <Label for="SEL1">Does the student demonstrate the ability to communicate their ideas, feelings and thoughts appropriately?</Label>
+                  <Label for="SEL1">How often did this student demonstrate self-awareness?</Label>
                   <Input type="select" name="SEL1" id="SEL1" className="fancy-cursor">
                     <option></option>
                     <option value="1">
-                      Not at all
+                      Never
                     </option>
                     <option value="2">
-                      Seldom
+                      Rarely
                     </option>
                     <option value="3">
-                      Mostly
+                      Sometimes
                     </option>
                     <option value="4">
-                      Consistently
+                      Occasionally
+                    </option>
+                    <option value="5">
+                      Always
                     </option>
                   </Input>
                 </FormGroup>
                 <FormGroup>
-                  <Label for="SEL2">Does the student demonstrate ability to actively listen with teacher and/or peers in discussion, perspective taking and respond with positive feedback about self and others?</Label>
+                  <Label for="SEL2">How often did this student demonstrate self-management? </Label>
                   <Input type="select" name="SEL2" id="SEL2" className="fancy-cursor">
                     <option></option>
                     <option value="1">
-                      Not at all
+                      Never
                     </option>
                     <option value="2">
-                      Seldom
+                      Rarely
                     </option>
                     <option value="3">
-                      Mostly
+                      Sometimes
                     </option>
                     <option value="4">
-                      Consistently
+                      Occasionally
+                    </option>
+                    <option value="5">
+                      Always
                     </option>
                   </Input>
                 </FormGroup>
                 <FormGroup>
-                  <Label for="SEL3">Does the student demonstrate choices for learning that are effective, appropriate, show forward thinking and positive growth mindset?</Label>
+                  <Label for="SEL3">How often did this student demonstrate responsible decision making?</Label>
                   <Input type="select" name="SEL3" id="SEL3" className="fancy-cursor">
                     <option></option>
                     <option value="1">
-                      Not at all
+                      Never
                     </option>
                     <option value="2">
-                      Seldom
+                      Rarely
                     </option>
                     <option value="3">
-                      Mostly
+                      Sometimes
                     </option>
                     <option value="4">
-                      Consistently
+                      Occasionally
+                    </option>
+                    <option value="5">
+                      Always
                     </option>
                   </Input>
                 </FormGroup>
+                <FormGroup>
+                  <Label for="SEL4">How often did this student demonstrate social awareness?</Label>
+                  <Input type="select" name="SEL4" id="SEL4" className="fancy-cursor">
+                    <option></option>
+                    <option value="1">
+                      Never
+                    </option>
+                    <option value="2">
+                      Rarely
+                    </option>
+                    <option value="3">
+                      Sometimes
+                    </option>
+                    <option value="4">
+                      Occasionally
+                    </option>
+                    <option value="5">
+                      Always
+                    </option>
+                  </Input>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="SEL5">How often did this student demonstrate relationship skills?</Label>
+                  <Input type="select" name="SEL5" id="SEL5" className="fancy-cursor">
+                    <option></option>
+                    <option value="1">
+                      Never
+                    </option>
+                    <option value="2">
+                      Rarely
+                    </option>
+                    <option value="3">
+                      Sometimes
+                    </option>
+                    <option value="4">
+                      Occasionally
+                    </option>
+                    <option value="5">
+                      Always
+                    </option>
+                  </Input>
+                </FormGroup>            
               </Container>
               {/* <SpedResponseCreator submitted={this.state.submitted} modal={this.state.modal}
               student={this.props.student.id} ></SpedResponseCreator> */}
