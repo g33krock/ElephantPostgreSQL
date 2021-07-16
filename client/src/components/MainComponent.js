@@ -26,17 +26,19 @@ class Main extends Component {
 
     
 
-    async componentDidMount() {
-        await this.setState({teachers:teacherService.all()});
-        console.log(this.state.teachers);
-        await this.setTeachers();
+    componentDidMount() {
+        this.setState({teachers:teacherService.all()})
+        .then(console.log(this.state.teachers))
+        .then(this.setState({teacher: this.state.teachers.find(teacher => teacher.email === this.props.userEmail)}))
+        // .then(this.setTeachers());
+        .then(console.log(this.state.teacher))
     }
 
-    setTeachers() {
-        const teacher = () => {this.state.teachers.find(teacher => teacher.email === this.props.userEmail); return teacher} 
-        this.setState({teacher});
-        console.log(this.state.teacher)
-    }
+    // setTeachers() {
+    //     const teacher = () => {this.state.teachers.find(teacher => teacher.email === this.props.userEmail); return teacher} 
+    //     this.setState({teacher});
+    //     console.log(this.state.teacher)
+    // }
 
     render() {
         
