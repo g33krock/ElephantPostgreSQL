@@ -77,7 +77,7 @@ export class ScheduleUpdater extends Component {
               <FormGroup>
                 <Label for="scheduleTeacher">Select Teacher</Label>
                 <Input type="select" id="scheduleTeacher">
-                  <option value='13' selected>None</option>
+                  <option value='26' selected>None</option>
                   {this.state.teachers?.map((teacher) => (
                     <option value={teacher.id}>
                       {teacher.firstName} {teacher.lastName}
