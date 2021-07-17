@@ -3,6 +3,7 @@ import {baseURL} from "../baseURL"
 import { Table, Col, Input } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
 import { fetcher } from '../services/fetcher';
+import { campusService } from '../services/campusService';
 
 export default class Schedule extends Component {
   constructor(props) {
