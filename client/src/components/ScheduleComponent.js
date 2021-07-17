@@ -37,7 +37,7 @@ export default class Schedule extends Component {
       .then((response) => response.json())
       .then((students) => {
           students.sort((studenta, studentb) => studenta.lastName-studentb.lastName)
-          .filter(cstudent => cstudent.campuses.id === this.state?.campus.id)
+          .filter(cstudent => cstudent.campuses.id === this.state?.campus?.id)
           .forEach(student => student.schedules.sort((schedulea, scheduleb) => schedulea.period-scheduleb.period))
         this.setState({
           students,
