@@ -1,18 +1,33 @@
 import React, { Component } from "react";
 import {baseURL} from "../baseURL"
-import { Table } from "reactstrap";
+import { Table, Col, Input } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
 import { fetcher } from '../services/fetcher';
 
 export default class Schedule extends Component {
   constructor(props) {
     super(props);
-    this.state = { schedules: [], schedule: null, students: [], student: null };
+    this.toggleNav = this.toggleNav.bind(this);
+    this.state = { 
+      schedules: [], 
+      schedule: null, 
+      students: [], 
+      student: null,
+      isNavOpen: false,
+      campuses: [],
+      campus: null
+    };
   }
 
   componentDidMount() {
     this.getSchedules()
     console.log(this.props.campus)
+    campusService.all().then((campuses) => {
+      this.setState({
+          campuses
+      })
+      console.log(this.state.campuses)
+    })
   }
 
   getSchedules() {
@@ -35,6 +50,20 @@ export default class Schedule extends Component {
     console.log(schedule);
   }
 
+  toggleNav() {
+    this.setState({
+        isNavOpen: !this.state.isNavOpen
+    });
+}
+
+onChange = e => {
+    const campusId = Number(e.target.value)
+    const campus = this.state.campuses.find(campus => campus.id === campusId) 
+    this.setState({ campus });
+    console.log(campus);
+    console.log(e.target.value)
+  }
+
   releaseKraken() {
     ScheduleUpdater.toggle();
   }
@@ -42,6 +71,12 @@ export default class Schedule extends Component {
   render() {
     return (
       <div class="tableFixHead">
+        <Col sm={3}>
+            <Input type="select" id="selectCampus" onChange={this.onChange}>
+                <option></option>
+                {this.state.campuses.map((campus) => <option value={campus.id}>{campus.name}</option>)}
+            </Input >
+        </Col>
         <Table bordered hover size="sm">
           <thead class="shadow">
             <tr id="scheduleHeader">
