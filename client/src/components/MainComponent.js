@@ -26,10 +26,10 @@ class Main extends Component {
 
     
 
-    componentDidMount() {
-        this.setState({teachers:teacherService.all()})
-        .then(console.log(this.state.teachers))
-        .then(this.setTeachers());
+    async componentDidMount() {
+        await this.setState({teachers:teacherService.all()});
+        console.log(this.state.teachers);
+        await this.setTeachers();
     }
 
     setTeachers() {
