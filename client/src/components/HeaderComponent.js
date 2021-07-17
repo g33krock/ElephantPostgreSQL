@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron, Input, Col } from 'reactstrap';
+import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron, Col } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import { campusService } from '../services/campusService';
 
 class Header extends Component {
 
@@ -11,18 +10,7 @@ class Header extends Component {
         this.toggleNav = this.toggleNav.bind(this);
         this.state = {
             isNavOpen: false,
-            campuses: [],
-            campus: null
         };
-    }
-
-    componentDidMount() {
-        campusService.all().then((campuses) => {
-            this.setState({
-                campuses
-            })
-            console.log(this.state.campuses)
-        })
     }
 
 
@@ -31,14 +19,6 @@ class Header extends Component {
             isNavOpen: !this.state.isNavOpen
         });
     }
-
-    onChange = e => {
-        const campusId = Number(e.target.value)
-        const campus = this.state.campuses.find(campus => campus.id === campusId) 
-        this.setState({ campus });
-        console.log(campus);
-        console.log(e.target.value)
-      }
 
     render() {
         return (
@@ -83,10 +63,6 @@ class Header extends Component {
                             </Nav>
                         </Collapse>
                         <Col sm={3}>
-                            <Input type="select" id="selectCampus" onChange={this.onChange}>
-                                <option></option>
-                                {this.state.campuses.map((campus) => <option value={campus.id}>{campus.name}</option>)}
-                            </Input >
                         </Col>
                     </div>
                 </Navbar>

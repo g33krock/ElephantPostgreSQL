@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {baseURL} from "../baseURL"
-import { Table, Col, Input } from "reactstrap";
+import { Table, Col, Input, Label } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
 import { fetcher } from '../services/fetcher';
 import { campusService } from '../services/campusService';
@@ -74,10 +74,11 @@ onChange = e => {
     return (
       <div class="tableFixHead">
         <Col sm={3}>
-            <Input type="select" id="selectCampus" onChange={this.onChange}>
-                <option></option>
-                {this.state.campuses.map((campus) => <option value={campus.id}>{campus.name}</option>)}
-            </Input >
+          <Label>Select Campus: </Label>
+          <Input type="select" id="selectCampus" onChange={this.onChange}>
+              <option></option>
+              {this.state.campuses.map((campus) => <option value={campus.id}>{campus.name}</option>)}
+          </Input >
         </Col>
         <Table bordered hover size="sm">
           <thead class="shadow">
