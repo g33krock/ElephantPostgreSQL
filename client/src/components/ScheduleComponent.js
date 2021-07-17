@@ -133,8 +133,8 @@ onChange = e => {
             {this.state.students.map((student) => (
               <tr>
                 <th key={student.id}>{student.firstName} {student.lastName}</th>
-                {student.schedules.sort((a, b) => a.period - b.period)
-                // .filter(cstudent => cstudent.campuses.id === this.state?.campus?.id)
+                {student.filter(cstudent => cstudent.campuses.id === this.state?.campus?.id)
+                .schedules.sort((a, b) => a.period - b.period)
                 .map((schedule) => (
                 <td className={schedule.teacher?.firstName} id="schedItem">
                   <strong>Course: </strong><small>{schedule.course.name}</small> 
