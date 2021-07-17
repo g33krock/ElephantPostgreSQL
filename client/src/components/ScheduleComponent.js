@@ -63,6 +63,7 @@ onChange = e => {
     this.setState({ campus });
     console.log(campus);
     console.log(e.target.value)
+    this.getSchedules()
   }
 
   releaseKraken() {
