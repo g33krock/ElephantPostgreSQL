@@ -16,7 +16,7 @@ export default class Schedule extends Component {
       student: null,
       isNavOpen: false,
       campuses: [],
-      campus: null
+      campus: 1
     };
   }
 
