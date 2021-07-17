@@ -27,7 +27,7 @@ class Main extends Component {
     
 
     componentDidMount() {
-        Promise.resolve(this.setState({teachers:teacherService.all()}))
+        this.setState({teachers:teacherService.all()})
         .then(console.log(this.state.teachers))
         .then(this.setTeachers());
     }
