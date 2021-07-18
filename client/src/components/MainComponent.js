@@ -45,11 +45,11 @@ class Main extends Component {
 
     
 
-    componentDidMount() {
+    async componentDidMount() {
         this.setState({teachers:teacherService.all()})
-        .then(console.log(this.state.teachers))
-        .then(this.setState({teacher: this.state.teachers.find(teacher => {return teacher.email === this.props.userEmail})}))
-        .then(console.log(this.state.teacher))
+        (console.log(this.state.teachers))
+        await (this.setState({teacher: this.state.teachers.find(teacher => {return teacher.email === this.props.userEmail})}))
+        (console.log(this.state.teacher))
         // await this.setTeachers();
     }
 
