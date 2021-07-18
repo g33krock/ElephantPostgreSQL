@@ -37,6 +37,7 @@ class Main extends Component {
             teachers: teachers,
             teacher: teacher
         })
+        console.log(this.state.teacher)
     }
 
 
