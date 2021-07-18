@@ -52,8 +52,8 @@ class Main extends Component {
     }
 
     async setTeachers() {
-        const teacher = await this.state.teachers.find(teacher => {return teacher.email === this.props.userEmail})
-        await this.setState({teacher});
+        const teacher = await this.state.teachers.find(teacher => {return teacher?.email === "yolanda.james@azaspire.com"})
+        this.setState({ teacher });
         console.log(this.state.teacher)
     }
 
