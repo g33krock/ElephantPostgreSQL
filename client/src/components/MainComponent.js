@@ -32,7 +32,9 @@ class Main extends Component {
         console.log(teachers)
         const teacher = teachers.find(teacher => teacher.email === this.props.userEmail)
         console.log(teacher)
-        
+        await stateSetter();
+    }
+    stateSetter() {
         this.setState({
             teachers: teachers,
             teacher: teacher
@@ -42,7 +44,7 @@ class Main extends Component {
 
 
     render() {
-        if (teacher.role.id === 3||teacher.role.id === 4) {
+        if (this.state.teacher?.role.id === 3||this.state.teacher?.role.id === 4) {
         return (
             <div>
             
