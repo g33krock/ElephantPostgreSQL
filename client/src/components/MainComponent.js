@@ -42,7 +42,7 @@ class Main extends Component {
 
 
     render() {
-        if (this.state.teacher.role.id === 3||this.state.teacher.role.id === 4) {
+        if (teacher.role.id === 3||teacher.role.id === 4) {
         return (
             <div>
             
