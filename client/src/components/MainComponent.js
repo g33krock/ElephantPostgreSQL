@@ -41,7 +41,7 @@ class Main extends Component {
 
 
     render() {
-        if (this.state.teacher.role === 3||this.state.teacher.role === 4) {
+        if (this.state.teacher?.role === 3||this.state.teacher?.role === 4) {
         return (
             <div>
             
