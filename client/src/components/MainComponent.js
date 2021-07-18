@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {baseURL} from "../baseURL";
 import Student from './StudentComponent';
 import Home from './HomeComponent';
 import { Switch, Redirect } from 'react-router-dom'
