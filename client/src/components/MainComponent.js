@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {baseURL} from "../baseURL";
 import Student from './StudentComponent';
 import Home from './HomeComponent';
 import { Switch, Redirect } from 'react-router-dom'
@@ -37,7 +36,7 @@ class Main extends Component {
             teacher: teacher,
             campus: teacher.campus
         })
-        .then(console.log(this.state.teacher))
+        console.log(this.state.teachers)
     }
 
 
