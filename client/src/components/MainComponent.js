@@ -9,7 +9,7 @@ import { PrivateRoute } from './PrivateRoute';
 import Sped from './SpedComponent';
 import Transcript from './TranscriptComponent';
 import { teacherService } from '../services/teacherService';
-import { fetcher } from "./fetcher";
+import { fetcher } from "../services/fetcher";
 
 class Main extends Component {
     
