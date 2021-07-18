@@ -38,7 +38,7 @@ class Main extends Component {
           .then((teachers) => {
               this.setState({teachers});
           })
-          .then(this.setState({teacher: this.state.teachers.find(teacher => teacher.email === this.props.userEmail)}))
+          .then(this.setState({teacher: this.state.teachers.find(teacher => teacher?.email === this.props?.userEmail)}))
           .then(console.log(this.state.teacher))
     }
 
