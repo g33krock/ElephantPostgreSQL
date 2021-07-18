@@ -21,7 +21,7 @@ class Header extends Component {
     async componentDidMount() {
         const teachers = await teacherService.all();
         console.log(teachers)
-        const teacher = teachers.find(teacher => teacher.email === this.props.userEmail)
+        const teacher = await teachers.find(teacher => teacher.email === this.props.userEmail)
         console.log(teacher)
 
         this.setState({
