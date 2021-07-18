@@ -80,6 +80,9 @@ onChange = e => {
               {this.state.campuses.map((campus) => <option value={campus.id}>{campus.name}</option>)}
           </Input >
         </Col>
+        <Col>
+          <Label>Home Campus: {this.props.campus?.name}</Label>
+        </Col>
         <Table bordered hover size="sm">
           <thead class="shadow">
             <tr id="scheduleHeader">

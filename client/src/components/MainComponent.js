@@ -57,7 +57,7 @@ class Main extends Component {
                 <div>
                     <Switch>
                         <PrivateRoute path='/sped' component={Sped} />
-                        <PrivateRoute path='/schedules' component={Schedule} campusId = {this.state.campus}/>
+                        <PrivateRoute path='/schedules' component={Schedule} campus = {this.state.campus}/>
                         <PrivateRoute path='/teachers' component={Teacher} />
                         <PrivateRoute path='/students' component={Student} />
                         <PrivateRoute path='/transcripts' component={Transcript} />
