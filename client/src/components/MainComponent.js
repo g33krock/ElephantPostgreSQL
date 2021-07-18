@@ -61,8 +61,10 @@ class Main extends Component {
 
     render() {
         const teachers = () => {
-            return Promise.resolve(teacherService.all());
-            console.log(teachers)
+            return Promise.resolve(teacherService.all())
+            .then(this.find((teacher) => teacher.email === this.props.userEmail, console.log(teacher)))
+            .then(console.log(teachers))
+            .then(console.log(teachers()))
         };
         // teachers().find((teacher) => teacher.email === this.props.userEmail, console.log(teacher))
         return (
