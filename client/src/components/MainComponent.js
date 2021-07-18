@@ -10,7 +10,6 @@ import { PrivateRoute } from './PrivateRoute';
 import Sped from './SpedComponent';
 import Transcript from './TranscriptComponent';
 import { teacherService } from '../services/teacherService';
-import { fetcher } from "../services/fetcher";
 
 class Main extends Component {
     
@@ -32,12 +31,11 @@ class Main extends Component {
         console.log(teachers)
         const teacher = teachers.find(teacher => teacher.email === this.props.userEmail)
         console.log(teacher)
-        await stateSetter();
-    }
-    stateSetter() {
+
         this.setState({
             teachers: teachers,
-            teacher: teacher
+            teacher: teacher,
+            campus: teacher.campus
         })
         .then(console.log(this.state.teacher))
     }
