@@ -42,14 +42,16 @@ class Main extends Component {
     //       .then(this.setState({teacher: this.state.teachers.find(teacher => teacher?.email === this.props?.userEmail)}))
     //       .then(console.log(this.state.teacher))
     // }
-
     
 
-    async componentDidMount() {
-        await this.setState({teacher:teacherService.all()});
-        console.log(this.state.teacher);
-        // await this.setTeachers();
-    }
+    
+    
+
+    // async componentDidMount() {
+    //     await this.setState({teacher:teacherService.all()});
+    //     console.log(this.state.teacher);
+    //     await this.setTeachers();
+    // }
 
     // async setTeachers() {
     //     const teacher = await this.state.teachers.find(teacher => {return teacher?.email === this.props.userEmail})
@@ -58,6 +60,10 @@ class Main extends Component {
     // }
 
     render() {
+        const teachers = () => {
+            return Promise.resolve(teacherService.all());
+        };
+        teachers().find((teacher) => teacher.email === this.props.userEmail, console.log(teacher))
         return (
             <div>
             
