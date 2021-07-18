@@ -26,36 +26,36 @@ class Main extends Component {
         };
     }
 
-    componentDidMount() {
-        fetcher(`${baseURL}/teachers`, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
-          .then(response => {
-              return response.json();
-          })
-          .then((teachers) => {
-              this.setState({teachers});
-          })
-          .then(this.setState({teacher: this.state.teachers.find(teacher => teacher?.email === this.props?.userEmail)}))
-          .then(console.log(this.state.teacher))
-    }
+    // componentDidMount() {
+    //     fetcher(`${baseURL}/teachers`, {
+    //         method: "GET",
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //         },
+    //       })
+    //       .then(response => {
+    //           return response.json();
+    //       })
+    //       .then((teachers) => {
+    //           this.setState({teachers});
+    //       })
+    //       .then(this.setState({teacher: this.state.teachers.find(teacher => teacher?.email === this.props?.userEmail)}))
+    //       .then(console.log(this.state.teacher))
+    // }
 
     
 
-    // async componentDidMount() {
-    //     await this.setState({teachers:teacherService.all()});
-    //     console.log(this.state.teachers);
-    //     await this.setTeachers();
-    // }
+    async componentDidMount() {
+        await this.setState({teachers:teacherService.all()});
+        console.log(this.state.teachers);
+        await this.setTeachers();
+    }
 
-    // setTeachers() {
-    //     const teacher = (this.state.teachers.find(teacher => teacher.email === this.props.userEmail))
-    //     this.setState({teacher});
-    //     console.log(this.state.teacher)
-    // }
+    setTeachers() {
+        const teacher = this.state.teachers.find(teacher => {return teacher.email === this.props.userEmail})
+        this.setState({teacher});
+        console.log(this.state.teacher)
+    }
 
     render() {
         console.log(this.state.teacher)
