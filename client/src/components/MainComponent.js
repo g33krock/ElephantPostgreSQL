@@ -58,7 +58,7 @@ class Main extends Component {
     // }
 
     render() {
-        
+        console.log(this.state.teacher)
         return (
             <div>
             
