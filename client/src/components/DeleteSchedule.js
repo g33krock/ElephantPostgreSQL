@@ -20,7 +20,7 @@ import { scheduleService } from "../services/scheduleService";
         </div>
       );
     }
-    deleteStudent(){
+    deleteSchedule(){
       const scheduleObject = {
         scheduleID: this.props.scheduleId
       };
