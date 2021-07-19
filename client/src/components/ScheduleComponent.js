@@ -3,6 +3,7 @@ import { baseURL } from "../baseURL";
 import { Table, Col, Input, Label, TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
 import { fetcher } from "../services/fetcher";
+import classnames from "classnames";
 import { campusService } from "../services/campusService";
 
 export default class Schedule extends Component {
