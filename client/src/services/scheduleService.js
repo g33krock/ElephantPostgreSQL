@@ -28,8 +28,9 @@ class ScheduleService {
             headers: {
                 "Content-Type": "application/json",
             },
-        })
-        return response;
+        });
+        const data = response;
+        console.log(data)
     };
     async update(scheduleObject) {
         console.log(scheduleObject)
