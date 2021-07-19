@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { baseURL } from "../baseURL";
-import { Table, Col, Input, Label, TabContent, TabPane } from "reactstrap";
+import { Table, Col, Input, Label, TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
 import { fetcher } from "../services/fetcher";
 import { campusService } from "../services/campusService";
