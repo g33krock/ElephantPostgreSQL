@@ -368,10 +368,11 @@ skew to change the 'thickness' of the glitch.*/
   background: darkmagenta;
 }
 .Atlas{
-  background: rgb(81, 252, 2);
+  background-image: linear-gradient(rgb(255, 115, 0), rgb(229, 255, 0));
 }
 .Sherry{
-  background: rgb(253, 249, 1);
+  background-image: linear-gradient(rgb(2, 0, 128), rgb(5, 167, 5));
+  color: white
 }
 .Amber{
   background: rgb(253, 1, 253);
@@ -386,7 +387,7 @@ skew to change the 'thickness' of the glitch.*/
   background: rgb(1, 253, 240);
 }
 .Yolanda{
-  background:yellowgreen;
+  background-image: linear-gradient(rgb(0, 247, 255), rgb(247, 101, 157));
 }
 .Tahmid{
   background: rgb(93, 69, 1);
@@ -411,6 +412,10 @@ skew to change the 'thickness' of the glitch.*/
 }
 .Grant{
   background-image: linear-gradient(purple, lime);
+  color: white
+}
+.Sara{
+  background-image: linear-gradient(purple, rgb(255, 0, 179));
   color: white
 }
 .Justin{
