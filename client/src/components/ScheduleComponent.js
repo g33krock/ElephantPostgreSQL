@@ -23,6 +23,14 @@ export default class Schedule extends Component {
     };
   }
 
+  toggle(tab) {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab,
+      });
+    }
+  }
+
   componentDidMount() {
     this.getSchedules();
     console.log(this.props.campus);
