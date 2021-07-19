@@ -5,14 +5,12 @@ import { scheduleService } from "../services/scheduleService";
     constructor(props) {
       super(props);
       this.state = {
-        schedule: null,
       };
     }
     render() {
       return (
         <div>
           <Button color="link" size="sm" onClick={() => {
-            this.setState({ schedule:this.props.schedule });
             this.deleteSchedule();
             }}>
             Delete Schedule
@@ -22,7 +20,7 @@ import { scheduleService } from "../services/scheduleService";
     }
     deleteSchedule(){
       const scheduleObject = {
-        scheduleID: this.props.scheduleId
+        id: this.props.scheduleId
       };
       const schedule =  scheduleService.delete(scheduleObject);
       console.log(schedule)

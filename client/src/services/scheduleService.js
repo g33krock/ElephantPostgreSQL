@@ -23,7 +23,7 @@ class ScheduleService {
     };
     async delete(scheduleObject){
         console.log(scheduleObject)
-        const response = await fetch(`${baseURL}/schedules/`+scheduleObject.scheduleID, {
+        const response = await fetcher(`${baseURL}/schedules/`+scheduleObject.id, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

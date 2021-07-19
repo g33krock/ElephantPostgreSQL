@@ -202,9 +202,9 @@ export default class Schedule extends Component {
                               period={schedule.period}
                             ></ScheduleUpdater>
                             <DeleteSchedule
-                            callback={() => this.getSchedules()}
-                            scheduleId={schedule.id}
-                            period={schedule.period}>
+                              callback={() => this.getSchedules()}
+                              scheduleId={schedule.id}
+                              period={schedule.period}>
                             </DeleteSchedule>
                           </td>
                         ))}
