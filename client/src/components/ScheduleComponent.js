@@ -9,6 +9,7 @@ import { campusService } from "../services/campusService";
 export default class Schedule extends Component {
   constructor(props) {
     super(props);
+    this.toggle = this.toggle.bind(this);
     this.toggleNav = this.toggleNav.bind(this);
     this.state = {
       schedules: [],
