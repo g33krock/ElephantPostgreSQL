@@ -50,7 +50,8 @@ export default class Student extends Component {
             <Label for="scheduleStudent">Select Student: </Label>
             <select id="scheduleStudent" onChange={this.onChange}>
               <option selected>None</option>
-              {this.state.students.map(student => 
+              {this.state.students.sort((a, b) => a.firstName - b.lastName)
+              .map(student => 
                 <option key={student.id} value={student.id}>
                   {student.firstName} {student.lastName}
                 </option>

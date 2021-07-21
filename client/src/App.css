@@ -449,6 +449,9 @@ skew to change the 'thickness' of the glitch.*/
 .Del{
   background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 102, 0));
 }
+.None{
+  background: black;
+}
 
 #scheduleHeader{
   background: rgba(71, 125, 241, 0.5)

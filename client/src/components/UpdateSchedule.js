@@ -19,7 +19,8 @@ export class ScheduleUpdater extends Component {
       modal: false,
       teachers: null,
       courses: null,
-      name: null
+      name: null,
+      campus: null
     };
   }
 
@@ -78,7 +79,9 @@ export class ScheduleUpdater extends Component {
                 <Label for="scheduleTeacher">Select Teacher</Label>
                 <Input type="select" id="scheduleTeacher">
                   <option value='26' selected>None</option>
-                  {this.state.teachers?.map((teacher) => (
+                  {this.state.teachers?.filter((teacher) => teacher.campus === this.props.campus)
+                  .sort((a, b) => a.firstName - b.firstName)
+                  .map((teacher) => (
                     <option value={teacher.id}>
                       {teacher.firstName} {teacher.lastName}
                     </option>
